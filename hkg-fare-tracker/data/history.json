@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "route": "YYZ-HKG",
+    "currency": "CAD",
+    "pricesArePerPerson": true,
+    "created": "2026-07-22",
+    "trips": {
+      "solo": { "label": "Solo", "pax": 1, "window": "Nov 24-Dec 8 dep, Jan 2-4 ret", "cabins": "Economy (PE reference)", "linkedTo": "seniors" },
+      "seniors": { "label": "Senior couple", "pax": 2, "window": "Nov 24-Dec 8 dep, Jan 2-4 ret", "cabins": "Premium Economy only", "linkedTo": "solo" },
+      "family": { "label": "Family of 4", "pax": 4, "window": "Dec 18 dep, Jan 2-4 ret", "cabins": "Economy (PE reference)" }
+    },
+    "benchmarks": {
+      "solo":    { "series": "cxEco", "low": 2750, "high": 3250, "label": "Economy" },
+      "seniors": { "series": "cxPey", "low": 4800, "high": 5800, "label": "Prem Econ" },
+      "family":  { "series": "cxEco", "low": 3600, "high": 4200, "label": "Economy" }
+    },
+    "benchmarkNote": "v0 priors calibrated to 2026-07-22 fares (Google-rated 'typical') and December-peak booking-curve research; recalibrated as history accumulates."
+  },
+  "days": [
+    {
+      "date": "2026-07-22",
+      "source": "google-flights (seed collection via Chrome)",
+      "insights": [
+        "Google: cheapest time to book is usually now, until ~Aug 21-25",
+        "Google: prices are currently typical for this route/dates"
+      ],
+      "trips": {
+        "solo":    { "cxEco": 3016, "acEco": 3445, "cxPey": 6629, "bestDep": "2026-12-01", "bestRet": "2027-01-04" },
+        "seniors": { "cxPey": 5220, "acPey": 7148, "bestDep": "2026-12-01", "bestRet": "2027-01-04" },
+        "family":  { "cxEco": 3870, "acEco": 4454, "cxPey": 7609, "acPey": 9745 }
+      },
+      "verdicts": {
+        "solo":    { "verdict": "hold", "note": "In the fair band. Google's own insight: cheapest booking window runs to ~late Aug. Watch for dips under $2,750; climb alert armed." },
+        "seniors": { "verdict": "hold", "note": "In band at $5,220 pp for Dec 1-2 &rarr; Jan 4 (same days as Solo's cheapest). Jan 3 return is much pricier &mdash; avoid. Book any dip under $4,800." },
+        "family":  { "verdict": "book-soon", "note": "In band, but Dec 18 is peak-of-peak, 4 seats, fixed date &mdash; and Google says the cheap window closes ~Aug 21. Plan to book within 3-4 weeks unless a dip comes sooner." }
+      },
+      "jointBestDay": { "dep": "2026-12-01", "ret": "2027-01-04", "combined": 13455, "note": "1 Economy + 2 Prem Econ, same flights" }
+    }
+  ]
+}
