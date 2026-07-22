@@ -27,6 +27,7 @@
     --cx-brand:       #00645A;
     --ac-brand:       #D22630;
     /* type scale — between the original (too small) and the last pass (too large) */
+    --fs-xs:   15px;
     --fs-sm:   17px;
     --fs-base: 18px;
     --fs-lg:   21px;
@@ -76,7 +77,7 @@
 
   .pill {
     display: inline-flex; align-items: center; gap: 6px;
-    font-size: var(--fs-sm); font-weight: 600; border-radius: 999px; padding: 5px 14px;
+    font-size: var(--fs-xs); font-weight: 600; border-radius: 999px; padding: 5px 14px;
     white-space: nowrap;
   }
   .pill.buy   { background: rgba(12,163,12,0.12); color: var(--good-text); }
@@ -139,7 +140,7 @@
   .detail-head .who { font-size: 23px; font-weight: 700; letter-spacing: -0.01em; }
 
   .verdict { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; background: var(--page); border: 1px solid var(--border); border-radius: 14px; padding: 14px 18px; margin-bottom: 18px; }
-  .verdict .v-pill { font-size: var(--fs-base); font-weight: 700; padding: 8px 18px; }
+  .verdict .v-pill { font-size: var(--fs-sm); font-weight: 700; padding: 8px 18px; }
   .verdict .v-text { font-size: var(--fs-base); color: var(--text-secondary); flex: 1; min-width: 260px; }
   .verdict .v-text b { color: var(--text-primary); }
 
@@ -376,7 +377,7 @@ function renderSummary(){
     const cur = lastVal(t, p.key), wk = weekDelta(t, p.key);
     const b = benchOf(t), mid = (b.low+b.high)/2, vs = cur!=null ? cur-mid : null;
     const v = verdictOf(t).verdict;
-    const vp = v==='book' ? `<span class="pill buy">${ICONS.check(12)} BOOK</span>` : v==='book-soon' ? '<span class="pill soon">! SOON</span>' : `<span class="pill hold">${ICONS.clock(12)} HOLD</span>`;
+    const vp = v==='book' ? `<span class="pill buy">${ICONS.check(11)} BOOK</span>` : v==='book-soon' ? '<span class="pill soon">! SOON</span>' : `<span class="pill hold">${ICONS.clock(11)} HOLD</span>`;
     const lt = latest().trips[t]||{};
     const link = m.linkedTo ? `<span class="chip">${ICONS.link(13)} with <b>${DATA.meta.trips[m.linkedTo].label}</b>${lt.bestDep? ' · <b>'+fmtD(lt.bestDep)+'→'+fmtD(lt.bestRet)+'</b>':''}</span>` : '';
     return `<button class="scard${i===active?' active':''}${v==='book'?' act-glow':''}" onclick="setActive(${i})">
@@ -407,7 +408,7 @@ function renderDetail(){
     ${m.linkedTo?`<span class="pill muted">${ICONS.link(13)} departs same day as ${DATA.meta.trips[m.linkedTo].label}${lt.bestDep? ' — best: '+fmtD(lt.bestDep)+' → '+fmtD(lt.bestRet):''}</span>`:''}`;
 
   const v = verdictOf(t);
-  const vp = v.verdict==='book' ? `<span class="pill buy v-pill">${ICONS.check(14)} BOOK NOW</span>` : v.verdict==='book-soon' ? '<span class="pill soon v-pill">! BOOK SOON</span>' : `<span class="pill hold v-pill">${ICONS.clock(14)} HOLD</span>`;
+  const vp = v.verdict==='book' ? `<span class="pill buy v-pill">${ICONS.check(13)} BOOK NOW</span>` : v.verdict==='book-soon' ? '<span class="pill soon v-pill">! BOOK SOON</span>' : `<span class="pill hold v-pill">${ICONS.clock(13)} HOLD</span>`;
   document.getElementById('verdict').innerHTML = `${vp}<div class="v-text">${v.note}</div>`;
 
   document.getElementById('bookLinks').innerHTML =
