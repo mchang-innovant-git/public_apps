@@ -290,6 +290,21 @@ const AIRLINE_LINKS = [
 const AL = { CX:'<span class="al cx">CX</span>', AC:'<span class="al ac">AC</span>',
              CXs:'<span class="al sm cx">CX</span>', ACs:'<span class="al sm ac">AC</span>' };
 
+// Bespoke stroke-based icon set — currentColor, matches the site's line language.
+// No stock/emoji glyphs: each icon is drawn to carry its own specific meaning.
+const ICONS = {
+  // shared date: two trips' timelines overlapping on one day
+  link: (s=13) => `<svg class="ic" width="${s}" height="${s}" viewBox="0 0 20 20" fill="none" style="vertical-align:-2.5px;flex:none"><circle cx="7" cy="10" r="5.6" stroke="currentColor" stroke-width="1.6"/><circle cx="13" cy="10" r="5.6" stroke="currentColor" stroke-width="1.6"/></svg>`,
+  // confirmed / go
+  check: (s=13) => `<svg class="ic" width="${s}" height="${s}" viewBox="0 0 20 20" fill="none" style="vertical-align:-2.5px;flex:none"><path d="M4 10.3L8.1 14.5L16.2 5.6" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  // watch and wait
+  clock: (s=13) => `<svg class="ic" width="${s}" height="${s}" viewBox="0 0 20 20" fill="none" style="vertical-align:-2.5px;flex:none"><circle cx="10" cy="10" r="7.3" stroke="currentColor" stroke-width="1.6"/><path d="M10 6V10.2L13 12.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  // steady / nothing to do — calm, level lines
+  calm: (s=22) => `<svg class="ic" width="${s}" height="${s}" viewBox="0 0 20 20" fill="none" style="flex:none"><path d="M2.5 7.2C4.2 5.4 5.9 5.4 7.6 7.2C9.3 9 11 9 12.7 7.2C14.4 5.4 16.1 5.4 17.8 7.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M2.5 12.8C4.2 11 5.9 11 7.6 12.8C9.3 14.6 11 14.6 12.7 12.8C14.4 11 16.1 11 17.8 12.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" opacity="0.5"/></svg>`,
+  // flight / departure
+  plane: (s=14) => `<svg class="ic" width="${s}" height="${s}" viewBox="0 0 20 20" fill="currentColor" style="vertical-align:-2.5px;flex:none"><path d="M11.1 2.3c0-.7-.5-1.2-1.1-1.2s-1.1.5-1.1 1.2v6L2 12v1.6l6.9-2.1v4.6l-2.3 1.7v1.3L10 18l3.4 1.1v-1.3l-2.3-1.7v-4.6L18 13.6V12l-6.9-3.7z"/></svg>`,
+};
+
 let DATA = null, active = 0;
 const fmt$ = v => v==null ? '—' : '$' + Math.round(v).toLocaleString('en-CA');
 const fmtD = s => new Date(s+'T12:00:00').toLocaleDateString('en-CA',{month:'short',day:'numeric'});
@@ -329,7 +344,7 @@ function renderActionBar(){
   if (buys.length){
     const t = buys[0], p = SERIES_DEF[t].find(s=>s.primary);
     const cur = lastVal(t, p.key), pax = DATA.meta.trips[t].pax;
-    el.innerHTML = `<div class="action-bar act"><div class="icon">✓</div><div class="msg">
+    el.innerHTML = `<div class="action-bar act"><div class="icon">${ICONS.check(24)}</div><div class="msg">
       <div class="headline">Act today: book ${label(t)} — ${fmt$(cur)} pp · ${fmt$(cur*pax)} total</div>
       <div class="detail">${verdictOf(t).note}</div></div>
       <a class="cta" href="${LINKS[t].gf}" target="_blank" rel="noopener">Open the flights →</a></div>`;
@@ -338,7 +353,7 @@ function renderActionBar(){
       <div class="headline">Get ready: ${soons.map(label).join(' & ')} — book within weeks, not months</div>
       <div class="detail">${verdictOf(soons[0]).note}</div></div></div>`;
   } else {
-    el.innerHTML = `<div class="action-bar calm"><div class="icon">☕</div><div class="msg">
+    el.innerHTML = `<div class="action-bar calm"><div class="icon">${ICONS.calm(24)}</div><div class="msg">
       <div class="headline">No action needed today</div>
       <div class="detail">All trips in the fair band. Watching daily — this banner changes colour the day a booking trigger fires.</div></div></div>`;
   }
@@ -361,9 +376,9 @@ function renderSummary(){
     const cur = lastVal(t, p.key), wk = weekDelta(t, p.key);
     const b = benchOf(t), mid = (b.low+b.high)/2, vs = cur!=null ? cur-mid : null;
     const v = verdictOf(t).verdict;
-    const vp = v==='book' ? '<span class="pill buy">✓ BOOK</span>' : v==='book-soon' ? '<span class="pill soon">! SOON</span>' : '<span class="pill hold">◷ HOLD</span>';
+    const vp = v==='book' ? `<span class="pill buy">${ICONS.check(12)} BOOK</span>` : v==='book-soon' ? '<span class="pill soon">! SOON</span>' : `<span class="pill hold">${ICONS.clock(12)} HOLD</span>`;
     const lt = latest().trips[t]||{};
-    const link = m.linkedTo ? `<span class="chip">🔗 with <b>${DATA.meta.trips[m.linkedTo].label}</b>${lt.bestDep? ' · <b>'+fmtD(lt.bestDep)+'→'+fmtD(lt.bestRet)+'</b>':''}</span>` : '';
+    const link = m.linkedTo ? `<span class="chip">${ICONS.link(13)} with <b>${DATA.meta.trips[m.linkedTo].label}</b>${lt.bestDep? ' · <b>'+fmtD(lt.bestDep)+'→'+fmtD(lt.bestRet)+'</b>':''}</span>` : '';
     return `<button class="scard${i===active?' active':''}${v==='book'?' act-glow':''}" onclick="setActive(${i})">
       <div class="top"><div><div class="who">${m.label}</div><div class="dates">${m.window}</div></div>${vp}</div>
       <div class="mid"><div class="price">${fmt$(cur)} <small>pp · ${b.label}</small></div>${spark(seriesVals(t,p.key), p.color)}</div>
@@ -389,14 +404,14 @@ function renderDetail(){
     <span class="pill muted">${m.pax} traveller${m.pax>1?'s':''}</span>
     <span class="pill muted">${m.window}</span>
     <span class="pill cabin">${m.cabins}</span>
-    ${m.linkedTo?`<span class="pill muted">🔗 departs same day as ${DATA.meta.trips[m.linkedTo].label}${lt.bestDep? ' — best: '+fmtD(lt.bestDep)+' → '+fmtD(lt.bestRet):''}</span>`:''}`;
+    ${m.linkedTo?`<span class="pill muted">${ICONS.link(13)} departs same day as ${DATA.meta.trips[m.linkedTo].label}${lt.bestDep? ' — best: '+fmtD(lt.bestDep)+' → '+fmtD(lt.bestRet):''}</span>`:''}`;
 
   const v = verdictOf(t);
-  const vp = v.verdict==='book' ? '<span class="pill buy v-pill">✓ BOOK NOW</span>' : v.verdict==='book-soon' ? '<span class="pill soon v-pill">! BOOK SOON</span>' : '<span class="pill hold v-pill">◷ HOLD</span>';
+  const vp = v.verdict==='book' ? `<span class="pill buy v-pill">${ICONS.check(14)} BOOK NOW</span>` : v.verdict==='book-soon' ? '<span class="pill soon v-pill">! BOOK SOON</span>' : `<span class="pill hold v-pill">${ICONS.clock(14)} HOLD</span>`;
   document.getElementById('verdict').innerHTML = `${vp}<div class="v-text">${v.note}</div>`;
 
   document.getElementById('bookLinks').innerHTML =
-    `<a class="blink" href="${LINKS[t].gf}" target="_blank" rel="noopener">✈ These flights on Google Flights <span class="arr">${LINKS[t].gfNote} ↗</span></a>` +
+    `<a class="blink" href="${LINKS[t].gf}" target="_blank" rel="noopener">${ICONS.plane(14)} These flights on Google Flights <span class="arr">${LINKS[t].gfNote} ↗</span></a>` +
     AIRLINE_LINKS.map(a=>`<a class="blink" href="${a.url}" target="_blank" rel="noopener">${AL[a.al+'s']} Book at ${a.name} <span class="arr">↗</span></a>`).join('');
 
   const dHtml = d => d==null ? `<div class="delta flat">first data point</div>` : d===0?`<div class="delta flat">→ flat wk</div>`: d<0?`<div class="delta down">▼ ${fmt$(-d)} wk</div>`:`<div class="delta up">▲ ${fmt$(d)} wk</div>`;
