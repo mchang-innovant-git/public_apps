@@ -15,7 +15,7 @@
     --text-muted:     #898781;
     --grid:           #e1e0d9;
     --baseline:       #c3c2b7;
-    --border:         rgba(11,11,11,0.08);
+    --border:         rgba(11,11,11,0.16);
     --series-1:       #2a78d6;
     --series-2:       #eb6834;
     --series-3:       #1baf7a;
@@ -26,13 +26,13 @@
     --accent-wash:    rgba(42,120,214,0.07);
     --cx-brand:       #00645A;
     --ac-brand:       #D22630;
-    /* type scale — floor = old card-title size (19px), rest scaled up proportionately (×1.27) */
-    --fs-sm:   19px;
-    --fs-base: 20px;
-    --fs-lg:   24px;
-    --fs-xl:   27px;
-    --fs-h1:   38px;
-    --fs-price:42px;
+    /* type scale — between the original (too small) and the last pass (too large) */
+    --fs-sm:   17px;
+    --fs-base: 18px;
+    --fs-lg:   21px;
+    --fs-xl:   24px;
+    --fs-h1:   34px;
+    --fs-price:37px;
   }
   @media (prefers-color-scheme: dark) {
     :root:where(:not([data-theme="light"])) .viz-root {
@@ -44,7 +44,7 @@
       --text-muted:     #898781;
       --grid:           #2c2c2a;
       --baseline:       #383835;
-      --border:         rgba(255,255,255,0.09);
+      --border:         rgba(255,255,255,0.18);
       --series-1:       #3987e5;
       --series-2:       #d95926;
       --series-3:       #199e70;
@@ -87,12 +87,12 @@
 
   .al {
     display: inline-flex; align-items: center; justify-content: center;
-    width: 29px; height: 29px; border-radius: 8px;
-    font-size: 14px; font-weight: 700; color: #fff; letter-spacing: 0.02em; flex: none;
+    width: 26px; height: 26px; border-radius: 7px;
+    font-size: 13px; font-weight: 700; color: #fff; letter-spacing: 0.02em; flex: none;
   }
   .al.cx { background: var(--cx-brand); }
   .al.ac { background: var(--ac-brand); }
-  .al.sm { width: 25px; height: 25px; font-size: 12px; border-radius: 7px; }
+  .al.sm { width: 22px; height: 22px; font-size: 11.5px; border-radius: 6px; }
 
   /* Action bar — the one thing to read */
   .action-bar { margin-top: 22px; border-radius: 18px; padding: 22px 26px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
@@ -138,7 +138,7 @@
   .detail-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
   .detail-head .who { font-size: 23px; font-weight: 700; letter-spacing: -0.01em; }
 
-  .verdict { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; background: var(--page); border-radius: 14px; padding: 14px 18px; margin-bottom: 18px; }
+  .verdict { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; background: var(--page); border: 1px solid var(--border); border-radius: 14px; padding: 14px 18px; margin-bottom: 18px; }
   .verdict .v-pill { font-size: var(--fs-base); font-weight: 700; padding: 8px 18px; }
   .verdict .v-text { font-size: var(--fs-base); color: var(--text-secondary); flex: 1; min-width: 260px; }
   .verdict .v-text b { color: var(--text-primary); }
@@ -155,7 +155,7 @@
   .blink .arr { color: var(--text-muted); font-weight: 400; }
 
   .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px; }
-  .tile { background: var(--page); border-radius: 14px; padding: 15px 17px; }
+  .tile { background: var(--page); border: 1px solid var(--border); border-radius: 14px; padding: 15px 17px; }
   .tile .label { font-size: var(--fs-sm); color: var(--text-secondary); display: flex; align-items: center; gap: 7px; }
   .tile .value { font-size: 26px; font-weight: 650; margin-top: 4px; letter-spacing: -0.01em; }
   .tile .delta { font-size: var(--fs-sm); margin-top: 2px; }
@@ -192,7 +192,7 @@
   td.a b { color: var(--text-primary); }
   .tbl-scroll { overflow-x: auto; }
 
-  .insight { font-size: var(--fs-sm); color: var(--text-secondary); background: var(--accent-wash); border-radius: 12px; padding: 12px 16px; margin-top: 12px; }
+  .insight { font-size: var(--fs-sm); color: var(--text-secondary); background: var(--accent-wash); border: 1px solid var(--border); border-radius: 12px; padding: 12px 16px; margin-top: 12px; }
   .insight b { color: var(--text-primary); }
 
   footer { margin-top: 44px; font-size: var(--fs-sm); color: var(--text-muted); border-top: 1px solid var(--grid); padding-top: 18px; }
@@ -439,11 +439,11 @@ function drawChart(){
   let s = `<rect x="${P.l}" y="${y(b.high)}" width="${W-P.l-P.r}" height="${y(b.low)-y(b.high)}" fill="var(--series-1)" opacity="0.08"/>`;
   for(let g=lo; g<=hi; g+=step){
     s += `<line x1="${P.l}" x2="${W-P.r}" y1="${y(g)}" y2="${y(g)}" stroke="var(--grid)" stroke-width="1"/>
-          <text x="${P.l-12}" y="${y(g)+6}" text-anchor="end" font-size="19" fill="var(--text-muted)">${g.toLocaleString()}</text>`;
+          <text x="${P.l-12}" y="${y(g)+6}" text-anchor="end" font-size="17" fill="var(--text-muted)">${g.toLocaleString()}</text>`;
   }
   if (N >= 3) {
     const tickEvery = Math.max(1, Math.ceil(N/6));
-    for(let i=0;i<N;i+=tickEvery) s += `<text x="${x(i)}" y="${H-13}" text-anchor="middle" font-size="19" fill="var(--text-muted)">${fmtD(days[i].date)}</text>`;
+    for(let i=0;i<N;i+=tickEvery) s += `<text x="${x(i)}" y="${H-13}" text-anchor="middle" font-size="17" fill="var(--text-muted)">${fmtD(days[i].date)}</text>`;
   }
   s += `<line x1="${P.l}" x2="${W-P.r}" y1="${y(lo)}" y2="${y(lo)}" stroke="var(--baseline)" stroke-width="1"/>`;
 
@@ -460,8 +460,8 @@ function drawChart(){
   ends.forEach(e=>{
     const ly = e.ly ?? e.vy, ex = x(N-1);
     if (Math.abs(ly-e.vy) > 2) s += `<line x1="${ex+6}" y1="${e.vy}" x2="${ex+10}" y2="${ly}" stroke="var(--baseline)" stroke-width="1"/>`;
-    s += `<text x="${ex+16}" y="${ly+6}" font-size="20" font-weight="650" fill="var(--text-primary)">${fmt$(e.v)}</text>
-          <text x="${ex+16}" y="${ly+26}" font-size="19" fill="var(--text-muted)">${e.sr.name.split(' · ')[0]}</text>`;
+    s += `<text x="${ex+16}" y="${ly+6}" font-size="18" font-weight="650" fill="var(--text-primary)">${fmt$(e.v)}</text>
+          <text x="${ex+16}" y="${ly+25}" font-size="17" fill="var(--text-muted)">${e.sr.name.split(' · ')[0]}</text>`;
   });
 
   s += `<line id="xhair" x1="0" x2="0" y1="${P.t}" y2="${H-P.b}" stroke="var(--baseline)" stroke-width="1" opacity="0"/>
