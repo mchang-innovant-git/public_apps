@@ -7,7 +7,7 @@
     "trips": {
       "solo": { "label": "Solo", "pax": 1, "window": "Nov 24-Dec 8 dep, Jan 2-4 ret", "cabins": "Economy (PE reference)", "linkedTo": "seniors" },
       "seniors": { "label": "Senior couple", "pax": 2, "window": "Nov 24-Dec 8 dep, Jan 2-4 ret", "cabins": "Premium Economy only", "linkedTo": "solo" },
-      "family": { "label": "Family of 4", "pax": 4, "window": "Dec 18 dep, Jan 2-4 ret", "cabins": "Economy (PE reference)" }
+      "family": { "label": "Party of 4", "pax": 4, "window": "Dec 18 dep, Jan 2-4 ret", "cabins": "Economy (PE reference)" }
     },
     "benchmarks": {
       "solo":    { "series": "cxEco", "low": 2750, "high": 3250, "label": "Economy" },
