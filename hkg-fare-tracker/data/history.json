@@ -5,14 +5,46 @@
     "pricesArePerPerson": true,
     "created": "2026-07-22",
     "trips": {
-      "solo": { "label": "Solo", "pax": 1, "window": "Nov 24-Dec 8 dep, Jan 2-4 ret", "cabins": "Economy (PE reference)", "linkedTo": "seniors" },
-      "seniors": { "label": "Senior couple", "pax": 2, "window": "Nov 24-Dec 8 dep, Jan 2-4 ret", "cabins": "Premium Economy only", "linkedTo": "solo" },
-      "family": { "label": "Party of 4", "pax": 4, "window": "Dec 18 dep, Jan 2-4 ret", "cabins": "Economy (PE reference)" }
+      "solo": {
+        "label": "Solo",
+        "pax": 1,
+        "window": "Nov 24-Dec 8 dep, Jan 2-4 ret",
+        "cabins": "Economy (PE reference)",
+        "linkedTo": "seniors"
+      },
+      "seniors": {
+        "label": "Senior couple",
+        "pax": 2,
+        "window": "Nov 24-Dec 8 dep, Jan 2-4 ret",
+        "cabins": "Premium Economy only",
+        "linkedTo": "solo"
+      },
+      "family": {
+        "label": "Party of 4",
+        "pax": 4,
+        "window": "Dec 18 dep, Jan 2-4 ret",
+        "cabins": "Economy (PE reference)"
+      }
     },
     "benchmarks": {
-      "solo":    { "series": "cxEco", "low": 2750, "high": 3250, "label": "Economy" },
-      "seniors": { "series": "cxPey", "low": 4800, "high": 5800, "label": "Prem Econ" },
-      "family":  { "series": "cxEco", "low": 3600, "high": 4200, "label": "Economy" }
+      "solo": {
+        "series": "cxEco",
+        "low": 2750,
+        "high": 3250,
+        "label": "Economy"
+      },
+      "seniors": {
+        "series": "cxPey",
+        "low": 4800,
+        "high": 5800,
+        "label": "Prem Econ"
+      },
+      "family": {
+        "series": "cxEco",
+        "low": 3600,
+        "high": 4200,
+        "label": "Economy"
+      }
     },
     "benchmarkNote": "v0 priors calibrated to 2026-07-22 fares (Google-rated 'typical') and December-peak booking-curve research; recalibrated as history accumulates."
   },
@@ -25,16 +57,98 @@
         "Google: prices are currently typical for this route/dates"
       ],
       "trips": {
-        "solo":    { "cxEco": 3016, "acEco": 3445, "cxPey": 6629, "bestDep": "2026-12-01", "bestRet": "2027-01-04" },
-        "seniors": { "cxPey": 5220, "acPey": 7148, "bestDep": "2026-12-01", "bestRet": "2027-01-04" },
-        "family":  { "cxEco": 3870, "acEco": 4454, "cxPey": 7609, "acPey": 9745 }
+        "solo": {
+          "cxEco": 3016,
+          "acEco": 3445,
+          "cxPey": 6629,
+          "bestDep": "2026-12-01",
+          "bestRet": "2027-01-04"
+        },
+        "seniors": {
+          "cxPey": 5220,
+          "acPey": 7148,
+          "bestDep": "2026-12-01",
+          "bestRet": "2027-01-04"
+        },
+        "family": {
+          "cxEco": 3870,
+          "acEco": 4454,
+          "cxPey": 7609,
+          "acPey": 9745
+        }
       },
       "verdicts": {
-        "solo":    { "verdict": "hold", "note": "In the fair band. Google's own insight: cheapest booking window runs to ~late Aug. Watch for dips under $2,750; climb alert armed." },
-        "seniors": { "verdict": "hold", "note": "In band at $5,220 pp for Dec 1-2 &rarr; Jan 4 (same days as Solo's cheapest). Jan 3 return is much pricier &mdash; avoid. Book any dip under $4,800." },
-        "family":  { "verdict": "book-soon", "note": "In band, but Dec 18 is peak-of-peak, 4 seats, fixed date &mdash; and Google says the cheap window closes ~Aug 21. Plan to book within 3-4 weeks unless a dip comes sooner." }
+        "solo": {
+          "verdict": "hold",
+          "note": "In the fair band. Google's own insight: cheapest booking window runs to ~late Aug. Watch for dips under $2,750; climb alert armed."
+        },
+        "seniors": {
+          "verdict": "hold",
+          "note": "In band at $5,220 pp for Dec 1-2 &rarr; Jan 4 (same days as Solo's cheapest). Jan 3 return is much pricier &mdash; avoid. Book any dip under $4,800."
+        },
+        "family": {
+          "verdict": "book-soon",
+          "note": "In band, but Dec 18 is peak-of-peak, 4 seats, fixed date &mdash; and Google says the cheap window closes ~Aug 21. Plan to book within 3-4 weeks unless a dip comes sooner."
+        }
       },
-      "jointBestDay": { "dep": "2026-12-01", "ret": "2027-01-04", "combined": 13455, "note": "1 Economy + 2 Prem Econ, same flights" }
+      "jointBestDay": {
+        "dep": "2026-12-01",
+        "ret": "2027-01-04",
+        "combined": 13455,
+        "note": "1 Economy + 2 Prem Econ, same flights"
+      }
+    },
+    {
+      "date": "2026-07-23",
+      "source": "google-flights (via Chrome)",
+      "insights": [
+        "Google: cheapest time to book is usually now — window runs to ~Aug 25 for the solo/seniors dates and ~Sep 13 for the family dates",
+        "Google: prices currently 'typical' on all three trips",
+        "No all-Premium-Economy AC itinerary exists today for Dec 1 → Jan 2 (2 pax) — every option prices the YYZ–YVR leg in Economy; cheapest mixed-cabin was $6,869 pp (not comparable to the acPey series)",
+        "Family: Jan 4 return is now cheapest on CX nonstop Economy — $3,826 pp vs $3,871 for Jan 2"
+      ],
+      "trips": {
+        "solo": {
+          "cxEco": 3016,
+          "acEco": 3393,
+          "cxPey": 6629,
+          "bestDep": "2026-12-01",
+          "bestRet": "2027-01-04"
+        },
+        "seniors": {
+          "cxPey": 5220,
+          "acPey": null,
+          "bestDep": "2026-12-01",
+          "bestRet": "2027-01-04"
+        },
+        "family": {
+          "cxEco": 3826,
+          "cxEcoRet": "2027-01-04",
+          "acEco": 4460,
+          "cxPey": 7732,
+          "acPey": 9746
+        }
+      },
+      "verdicts": {
+        "solo": {
+          "verdict": "hold",
+          "note": "Unchanged at $3,016 for Dec 1 &rarr; Jan 4 — in the fair band. Google's cheap booking window runs to ~Aug 25; hold and book any dip under $2,750."
+        },
+        "seniors": {
+          "verdict": "hold",
+          "note": "Steady at $5,220 pp for Dec 1 &rarr; Jan 4, same flights as Solo. No all-PE Air Canada fallback today (mixed-cabin only), which makes the CX fare the only real option — book any dip under $4,800."
+        },
+        "family": {
+          "verdict": "book-soon",
+          "note": "Jan 4 return is now the cheapest at $3,826 pp (Jan 2 is $3,871) — in band but peak date, 4 seats, and Google's cheap window closes ~Sep 13. Plan to book within 3-4 weeks unless a dip comes sooner."
+        }
+      },
+      "jointBestDay": {
+        "dep": "2026-12-01",
+        "ret": "2027-01-04",
+        "combined": 13456,
+        "note": "1 Economy + 2 Prem Econ, same flights"
+      }
     }
   ]
 }
