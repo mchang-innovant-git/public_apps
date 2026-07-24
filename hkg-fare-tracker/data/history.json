@@ -149,6 +149,58 @@
         "combined": 13456,
         "note": "1 Economy + 2 Prem Econ, same flights"
       }
+    },
+    {
+      "date": "2026-07-24",
+      "source": "google-flights (via Chrome)",
+      "insights": [
+        "Google: cheapest time to book is usually now — window runs to ~Aug 25 for the solo/seniors dates and ~Sep 13 for the family dates",
+        "Google: prices currently 'typical' on all three trips",
+        "Air Canada now shows a genuine all-Premium-Economy YYZ→YVR→HKG outbound ($13,902 for 2 pax round trip), but every matching return pairs Economy with Premium Economy — still no true all-PE round trip exists",
+        "Family: Jan 4 return remains cheapest on CX nonstop Economy — $3,780 pp vs $3,820.50 for Jan 2"
+      ],
+      "trips": {
+        "solo": {
+          "cxEco": 3016,
+          "acEco": 3263,
+          "cxPey": 5366,
+          "bestDep": "2026-12-01",
+          "bestRet": "2027-01-04"
+        },
+        "seniors": {
+          "cxPey": 5220,
+          "acPey": null,
+          "bestDep": "2026-12-01",
+          "bestRet": "2027-01-04"
+        },
+        "family": {
+          "cxEco": 3780,
+          "cxEcoRet": "2027-01-04",
+          "acEco": 4261,
+          "cxPey": 7615,
+          "acPey": null
+        }
+      },
+      "verdicts": {
+        "solo": {
+          "verdict": "hold",
+          "note": "Unchanged at $3,016 for Dec 1 &rarr; Jan 4 — still in the fair band. AC economy anchor eased to $3,263 (Dec 3 &rarr; Jan 4). Hold and book any dip under $2,750."
+        },
+        "seniors": {
+          "verdict": "hold",
+          "note": "Steady at $5,220 pp for Dec 1 &rarr; Jan 4, same flights as Solo. Found a genuine all-Premium-Economy AC outbound today, but every paired return mixes Economy — still no true all-PE round trip. Book any dip under $4,800."
+        },
+        "family": {
+          "verdict": "book-soon",
+          "note": "Jan 4 return remains cheapest at $3,780 pp (Jan 2 is $3,820.50), down slightly from yesterday — in band but peak date, 4 seats, and Google's cheap window closes ~Sep 13. Plan to book within 3-4 weeks unless a dip comes sooner."
+        }
+      },
+      "jointBestDay": {
+        "dep": "2026-12-01",
+        "ret": "2027-01-04",
+        "combined": 13456,
+        "note": "1 Economy + 2 Prem Econ, same flights"
+      }
     }
   ]
 }
