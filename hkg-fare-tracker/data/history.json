@@ -201,6 +201,58 @@
         "combined": 13456,
         "note": "1 Economy + 2 Prem Econ, same flights"
       }
+    },
+    {
+      "date": "2026-07-25",
+      "source": "google-flights (via Chrome)",
+      "insights": [
+        "Google: cheapest time to book is usually now — window for the family dates closes ~Sep 11 (down from ~Sep 13 yesterday)",
+        "Google: prices currently 'typical' for Cathay Pacific on all three trips, but 'high' for Air Canada on the family route",
+        "Family: found a genuine all-Premium-Economy Air Canada round trip today at $9,549 pp — first time this fare has priced out as true all-PE rather than mixed-cabin, though still far above the CX Economy fare",
+        "Solo/Seniors: still no genuine all-PE Air Canada round trip for Dec 1 → Jan 2 — every option remains mixed-cabin"
+      ],
+      "trips": {
+        "solo": {
+          "cxEco": 3016,
+          "acEco": 3388,
+          "cxPey": 6633,
+          "bestDep": "2026-12-01",
+          "bestRet": "2027-01-04"
+        },
+        "seniors": {
+          "cxPey": 5220,
+          "acPey": null,
+          "bestDep": "2026-12-01",
+          "bestRet": "2027-01-04"
+        },
+        "family": {
+          "cxEco": 3789,
+          "cxEcoRet": "2027-01-04",
+          "acEco": 4519,
+          "cxPey": 7311,
+          "acPey": 9549
+        }
+      },
+      "verdicts": {
+        "solo": {
+          "verdict": "hold",
+          "note": "Unchanged at $3,016 for Dec 1 &rarr; Jan 4 — still in the fair band. Hold and book any dip under $2,750."
+        },
+        "seniors": {
+          "verdict": "hold",
+          "note": "Steady at $5,220 pp for Dec 1 &rarr; Jan 4, same flights as Solo. Still no genuine all-PE Air Canada round trip (mixed-cabin only) — book any dip under $4,800."
+        },
+        "family": {
+          "verdict": "book-soon",
+          "note": "Jan 4 return remains cheapest at $3,789 pp (Jan 2 is $3,834) — in band but peak date, 4 seats, and Google's cheap window closes ~Sep 11. AC's genuine all-PE fare priced out today at $9,549 pp, for reference only. Plan to book within a few weeks unless a dip comes sooner."
+        }
+      },
+      "jointBestDay": {
+        "dep": "2026-12-01",
+        "ret": "2027-01-04",
+        "combined": 13456,
+        "note": "1 Economy + 2 Prem Econ, same flights"
+      }
     }
   ]
 }
