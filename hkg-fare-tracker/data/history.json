@@ -467,6 +467,59 @@
         "combined": 13456,
         "note": "1 Economy + 2 Prem Econ, same flights"
       }
+    },
+    {
+      "date": "2026-07-30",
+      "source": "google-flights (via Chrome)",
+      "insights": [
+        "Google: cheapest time to book is usually now — window closes ~Aug 21 for solo/seniors AC-economy dates and ~Sep 13 for family CX-nonstop dates",
+        "Google: prices currently typical across all three trips",
+        "Seniors: a genuine all-Premium-Economy Air Canada round trip priced out today at $7,148 pp (Dec 1 → Jan 2) — notably cheaper than the $9,215 pp seen Jul 29",
+        "Family: Jan 4 return remains cheapest on CX nonstop Economy — $3,726.75 pp vs $3,770.75 for Jan 2",
+        "Family: a genuine all-PE Air Canada round trip also priced out today at $9,746 pp, in line with recent readings"
+      ],
+      "trips": {
+        "solo": {
+          "cxEco": 3016,
+          "acEco": 3438,
+          "cxPey": 6629,
+          "bestDep": "2026-12-01",
+          "bestRet": "2027-01-04"
+        },
+        "seniors": {
+          "cxPey": 5220,
+          "acPey": 7148,
+          "bestDep": "2026-12-01",
+          "bestRet": "2027-01-04"
+        },
+        "family": {
+          "cxEco": 3726.75,
+          "cxEcoRet": "2027-01-04",
+          "acEco": 4369.75,
+          "cxPey": 7088.5,
+          "acPey": 9746
+        }
+      },
+      "verdicts": {
+        "solo": {
+          "verdict": "hold",
+          "note": "Unchanged at $3,016 for Dec 1 &rarr; Jan 4 &mdash; still in the fair band. AC economy anchor at $3,438 (Dec 1 &rarr; Jan 2, 1 stop via YVR). Hold and book any dip under $2,750."
+        },
+        "seniors": {
+          "verdict": "hold",
+          "note": "Steady at $5,220 pp for Dec 1 &rarr; Jan 4, same flights as Solo. A genuine all-PE Air Canada round trip priced out today at $7,148 pp &mdash; notably cheaper than the $9,215 pp seen a day earlier, worth watching. Book any dip under $4,800."
+        },
+        "family": {
+          "verdict": "book-soon",
+          "note": "Jan 4 return remains cheapest at $3,727 pp (Jan 2 is $3,771) &mdash; essentially flat vs yesterday, still in band; peak date, 4 seats, and Google's cheap window closes ~Sep 13. AC's genuine all-PE fare held near $9,746 pp, for reference only. Plan to book within a few weeks unless a dip comes sooner."
+        }
+      },
+      "jointBestDay": {
+        "dep": "2026-12-01",
+        "ret": "2027-01-04",
+        "combined": 13456,
+        "note": "1 Economy + 2 Prem Econ, same flights"
+      }
     }
   ]
 }
