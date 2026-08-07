@@ -887,6 +887,58 @@
         "combined": 13568,
         "note": "1 Economy + 2 Prem Econ, same flights"
       }
+    },
+    {
+      "date": "2026-08-07",
+      "source": "google-flights (via Chrome)",
+      "insights": [
+        "Google: cheapest time to book remains now — window runs to ~Aug 25 for solo/seniors dates and ~Sep 13 for family dates; prices currently typical across all three trips",
+        "Joint-best pair unchanged at Dec 1 → Jan 4 today — combined $13,566, essentially flat versus yesterday's $13,568",
+        "Family: cheapest CX nonstop Economy return holds at Jan 4 — $3,799 pp, unchanged versus yesterday. CX nonstop Premium Economy reference also flat at $7,286 pp",
+        "AC all-Premium-Economy round trip: still none for solo/seniors (return keeps mixing Economy + Premium Economy cabins). For family, yesterday's genuine all-PE AC round trip ($12,666 pp) is no longer available — every return today mixes Premium Economy with Economy"
+      ],
+      "trips": {
+        "solo": {
+          "cxEco": 2846,
+          "acEco": 3453,
+          "cxPey": 6585,
+          "bestDep": "2026-12-01",
+          "bestRet": "2027-01-04"
+        },
+        "seniors": {
+          "cxPey": 5360,
+          "acPey": null,
+          "bestDep": "2026-12-01",
+          "bestRet": "2027-01-04"
+        },
+        "family": {
+          "cxEco": 3799,
+          "cxEcoRet": "2027-01-04",
+          "acEco": 5297,
+          "cxPey": 7286,
+          "acPey": null
+        }
+      },
+      "verdicts": {
+        "solo": {
+          "verdict": "hold",
+          "note": "Joint-best pair holds at Dec 1 → Jan 4 — $2,846 pp, flat versus yesterday and comfortably within band. AC economy anchor $3,453 (1 stop via YVR, Dec 1 → Jan 2), down slightly from yesterday. Hold and book any dip under $2,750."
+        },
+        "seniors": {
+          "verdict": "hold",
+          "note": "Joint-best pair steady at Dec 1 → Jan 4 — $5,360 pp, essentially flat versus yesterday, mid-band. Still no genuine all-PE Air Canada round trip — every paired return mixes cabins. Book any dip under $4,800."
+        },
+        "family": {
+          "verdict": "book-soon",
+          "note": "Cheapest CX nonstop Economy return holds at Jan 4 — $3,799 pp, unchanged versus yesterday. CX nonstop Premium Economy reference flat at $7,286 pp. Yesterday's genuine all-PE AC round trip ($12,666 pp) is gone today — back to mixed-cabin only. Peak date, 4 seats, and Google's cheap window closes ~Sep 13. Plan to book within a few weeks unless a dip comes sooner."
+        }
+      },
+      "jointBestDay": {
+        "dep": "2026-12-01",
+        "ret": "2027-01-04",
+        "combined": 13566,
+        "note": "1 Economy + 2 Prem Econ, same flights"
+      }
     }
   ]
 }
