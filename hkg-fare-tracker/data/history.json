@@ -939,6 +939,58 @@
         "combined": 13566,
         "note": "1 Economy + 2 Prem Econ, same flights"
       }
+    },
+    {
+      "date": "2026-08-08",
+      "source": "google-flights (via Chrome)",
+      "insights": [
+        "Google: cheapest time to book (solo/seniors dates) is usually now, until ~Aug 25",
+        "Google: prices are currently typical for solo/seniors dates",
+        "Google: cheapest time to book (family, Dec 18 peak) is usually now, until ~Sep 13-14",
+        "Google: prices are currently typical for family dates",
+        "Premium Economy fare buckets for Jan 2/3 return are priced well above Jan 4/5 return on the same route (CX nonstop PE): ~$6,585pp vs ~$5,360pp for Nov 30 dep — a return-date-specific fare-bucket effect, not a general market move"
+      ],
+      "trips": {
+        "solo": {
+          "cxEco": 2879,
+          "acEco": 3451,
+          "cxPey": 6585,
+          "bestDep": "2026-11-30",
+          "bestRet": "2027-01-02"
+        },
+        "seniors": {
+          "cxPey": 6585,
+          "acPey": 11319,
+          "bestDep": "2026-11-30",
+          "bestRet": "2027-01-02"
+        },
+        "family": {
+          "cxEco": 3843,
+          "acEco": 5297,
+          "cxPey": 7286,
+          "acPey": 11544.75
+        }
+      },
+      "verdicts": {
+        "solo": {
+          "verdict": "hold",
+          "note": "Cathay Economy $2,879pp for Nov 30 &rarr; Jan 2, up slightly from yesterday but still mid-band. Hold until Sep 15 per Google's cheap-booking window."
+        },
+        "seniors": {
+          "verdict": "hold",
+          "note": "Premium Economy at the joint-optimal Nov 30 &rarr; Jan 2 pairing prices $6,585pp &mdash; above the $4,800&ndash;5,800 band. This is a Jan 2/3-return-specific fare-bucket effect: the same Nov 30 departure with a Jan 4 return prices ~$5,360pp, well within band. Holding for now; watch whether the Jan 2/3 premium persists."
+        },
+        "family": {
+          "verdict": "book-soon",
+          "note": "Cathay Economy $3,843pp for the fixed Dec 18 &rarr; Jan 2 dates, in-band. Jan 3 return checked via date grid &mdash; essentially flat, no benefit to switching. 4 seats, peak-of-peak &mdash; book-soon; Google's cheap-booking window closes ~Sep 13-14."
+        }
+      },
+      "jointBestDay": {
+        "dep": "2026-11-30",
+        "ret": "2027-01-02",
+        "combined": 16049,
+        "note": "1 Economy + 2 Prem Econ, same flights"
+      }
     }
   ]
 }
