@@ -254,7 +254,7 @@
 
 <footer>
   <p>Method: fares collected daily from Google Flights (airline-direct retail prices). Solo + Senior couple depart the <b>same day</b> — the scan picks the departure in Nov 24–Dec 8 (returns Jan 2–4) minimizing combined cost (1× Economy + 2× Prem Econ on the same flights). Party of 4 departs Dec 18, returns Jan 2–4. CX = Cathay Pacific nonstop; AC = Air Canada one-stop via Vancouver. Prices per person, taxes in. Before paying, always confirm on the airline’s own site — this tracker times the decision; the airline sets the final price.</p>
-  <p>Family + Japan stopover: same Dec 18 departure as the base family trip, but the return routes through a ~3-night Tokyo/Osaka stopover (HKG→Japan→YYZ) instead of flying straight home. Priced as a multi-city itinerary across all carriers — MC = cheapest combination found that day, which is usually <b>separate tickets</b> on two or more airlines rather than one through-booking, so factor in self-transfer risk (missed-connection protection isn’t automatic) when comparing against the other trips.</p>
+  <p>Family + Japan stopover: same Dec 18 departure as the base family trip, but the return routes through a ~3-night Tokyo stopover (HKG→Tokyo→YYZ) instead of flying straight home. <b>Nonstop only on all 3 legs</b> — Osaka was considered but has no nonstop service to Toronto, so Tokyo (HND/NRT) is the only viable stopover city. MC = cheapest genuine nonstop combination found that day, priced as <b>3 separate one-way tickets</b> across up to 3 airlines (no single-ticket nonstop routing exists end to end), so factor in self-transfer risk (missed-connection protection isn’t automatic) when comparing against the other trips. Return date is Jan 3, not Jan 2, because the only nonstop Tokyo–Toronto carrier (Air Canada/ANA) prices Jan 3 meaningfully cheaper than Jan 2 in this fare cycle.</p>
   <p>Full history: <a href="data/history.json">data/history.json</a> · Built and updated automatically by Maurice’s Claude tracker.</p>
 </footer>
 
@@ -290,8 +290,8 @@ const LINKS = {
     gfNote: 'Dec 18 → Jan 2 · 4 adults · Economy'
   },
   familyJapan: {
-    gf: 'https://www.google.com/travel/flights/search?tfs=CBwQAhooEgoyMDI2LTEyLTE4agwIAhIIL20vMGg3aDZyDAgDEggvbS8wM2g2NBooEgoyMDI2LTEyLTI5agwIAxIIL20vMDNoNjRyDAgDEggvbS8wN2RmaxooEgoyMDI3LTAxLTAyagwIAxIIL20vMDdkZmtyDAgDEggvbS8waDdoNkABQAFAAUABSAFwAYIBCwj___________8BmAED',
-    gfNote: 'Dec 18 → Tokyo Dec 29 → Jan 2 · 4 adults · Economy · multi-city, separate tickets'
+    gf: 'https://www.google.com/travel/flights?q=nonstop%20flights%20from%20YYZ%20to%20HKG%20on%202026-12-18',
+    gfNote: 'CX nonstop Dec 18 + HKG→Tokyo nonstop ~Dec 29 + Tokyo→YYZ nonstop Jan 3 · 4 adults · Economy · 3 separate one-way tickets (link shows leg 1 only)'
   }
 };
 const AIRLINE_LINKS = [

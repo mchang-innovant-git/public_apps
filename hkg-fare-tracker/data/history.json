@@ -28,8 +28,8 @@
       "familyJapan": {
         "label": "Family + Japan stopover",
         "pax": 4,
-        "window": "Dep Dec 18, HKG→Japan ~Dec 29, Japan→YYZ ~Jan 2 (3 nights in Japan)",
-        "cabins": "Economy (PE reference)"
+        "window": "Dep Dec 18 (nonstop CX), HKG→Tokyo ~Dec 29 (nonstop), Tokyo→YYZ Jan 3 (nonstop AC/ANA) — nonstop only on all 3 legs, 3 nights in Japan",
+        "cabins": "Economy + Premium Economy (nonstop only, 3 separate one-way tickets)"
       }
     },
     "benchmarks": {
@@ -53,8 +53,8 @@
       },
       "familyJapan": {
         "series": "eco",
-        "low": 3000,
-        "high": 3600,
+        "low": 4700,
+        "high": 5600,
         "label": "Economy"
       }
     },
@@ -1094,10 +1094,10 @@
           "acPey": 9886.25
         },
         "familyJapan": {
-          "eco": 3294.5,
-          "ecoCarrier": "Korean Air + Asiana, 1 stop via ICN",
-          "pey": 7658.75,
-          "peyCarrier": "British Airways, 1 stop via LHR"
+          "eco": 4949,
+          "ecoCarrier": "Cathay Pacific YYZ-HKG + Jetstar HKG-NRT + Air Canada/ANA NRT-YYZ, 3 separate nonstop one-way tickets",
+          "pey": 7662,
+          "peyCarrier": "Cathay Pacific YYZ-HKG + JAL (CX codeshare) HKG-HND + Air Canada/ANA HND-YYZ, 3 separate nonstop one-way tickets"
         }
       },
       "verdicts": {
@@ -1114,8 +1114,8 @@
           "note": "Cathay Economy $3,842.75pp for the fixed Dec 18 → Jan 2 dates, flat vs yesterday, in-band. Jan 3 return tied exactly at $15,371 total — no benefit to switching. Genuine all-PE AC round trip available at $9,886.25pp. 4 seats, peak-of-peak — book-soon; Google's cheap-booking window closes ~Sep 13."
         },
         "familyJapan": {
-          "verdict": "book-soon",
-          "note": "Inaugural reading: cheapest full itinerary (YYZ→HKG Dec 18, HKG→Tokyo Dec 29, Tokyo→YYZ Jan 2, 4 adults, separate tickets) is $3,294.50pp in Economy on Korean Air + Asiana via Seoul — in-band against a launch-day benchmark of $3,000–3,600. Premium Economy's cheapest genuine all-PE routing is $7,658.75pp via British Airways through London — a long way round for the PE cabin specifically. Same fixed Dec 18 peak date and 4 seats as the base family trip, so book-soon applies; band will get more reliable as history accumulates."
+          "verdict": "hold",
+          "note": "Re-baselined to nonstop-only (Seoul stopover ruled out): cheapest genuine 3-leg nonstop itinerary is $4,949.00pp Economy (Cathay Pacific + Jetstar + Air Canada/ANA) and $7,662.00pp Premium Economy (Cathay Pacific + JAL codeshare + Air Canada/ANA) — all separate one-way tickets, no single-ticket nonstop routing exists across 3 airlines. This is now pricier than the direct family round trip ($3,842.75pp Economy), reversing the earlier Seoul-routing comparison — the nonstop constraint removes the cheap Korean Air/Asiana connection that made the stopover look like a discount. Return date shifted Jan 2→Jan 3: nonstop Tokyo→Toronto (Air Canada/ANA, the only nonstop carrier on this leg) is highly date-sensitive, ranging ~$1,324–$2,253pp across Dec 30–Jan 6; Jan 3 (~$1,925) is a reasonable middle point within the target return window. Osaka checked and ruled out — no nonstop KIX–Toronto service exists, so Tokyo is the only viable Japan leg-3 city. Band reset to provisional; hold pending more history, no urgency since price already exceeds the direct-flight comparator."
         }
       },
       "jointBestDay": {
