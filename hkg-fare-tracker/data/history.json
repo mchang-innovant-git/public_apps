@@ -24,6 +24,12 @@
         "pax": 4,
         "window": "Dec 18 dep, Jan 2-4 ret",
         "cabins": "Economy (PE reference)"
+      },
+      "familyJapan": {
+        "label": "Family + Japan stopover",
+        "pax": 4,
+        "window": "Dep Dec 18, HKG→Japan ~Dec 29, Japan→YYZ ~Jan 2 (3 nights in Japan)",
+        "cabins": "Economy (PE reference)"
       }
     },
     "benchmarks": {
@@ -43,6 +49,12 @@
         "series": "cxEco",
         "low": 3600,
         "high": 4200,
+        "label": "Economy"
+      },
+      "familyJapan": {
+        "series": "eco",
+        "low": 3000,
+        "high": 3600,
         "label": "Economy"
       }
     },
@@ -1057,7 +1069,8 @@
         "Joint-best pair for solo+seniors within the tracker's Jan 2/3 return window is Dec 1 → Jan 3 at $16,049 combined (1 Economy + 2 Prem Econ) — Nov 26, Nov 30, and Dec 1 all tie at this same combined price across Jan 2 or Jan 3 returns",
         "Seniors Premium Economy at Jan 2/3 return dates continues to price well above the Jan 4/5-adjacent fare bucket first flagged Aug 8 — $6,585pp today. Since tracking is now fixed to Jan 2-3 returns only, this looks like a persistent fare-bucket feature rather than a one-off spike; the $4,800–5,800 benchmark band may need recalibration",
         "Family: Jan 2 and Jan 3 returns tied exactly again today at $15,371 total (CX nonstop Economy, 4 adults) — no benefit to switching",
-        "Genuine all-Premium-Economy Air Canada round trips found today for both seniors ($11,830pp) and family ($9,886.25pp)"
+        "Genuine all-Premium-Economy Air Canada round trips found today for both seniors ($11,830pp) and family ($9,886.25pp)",
+        "New scenario added today: Family of 4 with a 3-day Japan stopover on the return (HKG→Tokyo→YYZ, separate tickets). Cheapest Economy itinerary is Korean Air/Asiana via Seoul at $3,294.50pp — actually cheaper than the non-stopover family Economy fare ($3,842.75pp) because of the routing, though it's separate tickets (self-transfer risk) rather than one booking."
       ],
       "trips": {
         "solo": {
@@ -1079,6 +1092,12 @@
           "acEco": 5909.75,
           "cxPey": 7654.75,
           "acPey": 9886.25
+        },
+        "familyJapan": {
+          "eco": 3294.5,
+          "ecoCarrier": "Korean Air + Asiana, 1 stop via ICN",
+          "pey": 7658.75,
+          "peyCarrier": "British Airways, 1 stop via LHR"
         }
       },
       "verdicts": {
@@ -1093,6 +1112,10 @@
         "family": {
           "verdict": "book-soon",
           "note": "Cathay Economy $3,842.75pp for the fixed Dec 18 → Jan 2 dates, flat vs yesterday, in-band. Jan 3 return tied exactly at $15,371 total — no benefit to switching. Genuine all-PE AC round trip available at $9,886.25pp. 4 seats, peak-of-peak — book-soon; Google's cheap-booking window closes ~Sep 13."
+        },
+        "familyJapan": {
+          "verdict": "book-soon",
+          "note": "Inaugural reading: cheapest full itinerary (YYZ→HKG Dec 18, HKG→Tokyo Dec 29, Tokyo→YYZ Jan 2, 4 adults, separate tickets) is $3,294.50pp in Economy on Korean Air + Asiana via Seoul — in-band against a launch-day benchmark of $3,000–3,600. Premium Economy's cheapest genuine all-PE routing is $7,658.75pp via British Airways through London — a long way round for the PE cabin specifically. Same fixed Dec 18 peak date and 4 seats as the base family trip, so book-soon applies; band will get more reliable as history accumulates."
         }
       },
       "jointBestDay": {

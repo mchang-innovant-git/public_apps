@@ -26,6 +26,7 @@
     --accent-wash:    rgba(42,120,214,0.07);
     --cx-brand:       #00645A;
     --ac-brand:       #D22630;
+    --mc-brand:       #6b4fa0;
     /* type scale — between the original (too small) and the last pass (too large) */
     --fs-xs:   15px;
     --fs-sm:   17px;
@@ -53,6 +54,7 @@
       --accent-wash:    rgba(57,135,229,0.10);
       --cx-brand:       #0e7d72;
       --ac-brand:       #e04350;
+      --mc-brand:       #9478d1;
     }
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -93,6 +95,7 @@
   }
   .al.cx { background: var(--cx-brand); }
   .al.ac { background: var(--ac-brand); }
+  .al.mc { background: var(--mc-brand); }
   .al.sm { width: 22px; height: 22px; font-size: 11.5px; border-radius: 6px; }
 
   /* Action bar — the one thing to read */
@@ -251,6 +254,7 @@
 
 <footer>
   <p>Method: fares collected daily from Google Flights (airline-direct retail prices). Solo + Senior couple depart the <b>same day</b> — the scan picks the departure in Nov 24–Dec 8 (returns Jan 2–4) minimizing combined cost (1× Economy + 2× Prem Econ on the same flights). Party of 4 departs Dec 18, returns Jan 2–4. CX = Cathay Pacific nonstop; AC = Air Canada one-stop via Vancouver. Prices per person, taxes in. Before paying, always confirm on the airline’s own site — this tracker times the decision; the airline sets the final price.</p>
+  <p>Family + Japan stopover: same Dec 18 departure as the base family trip, but the return routes through a ~3-night Tokyo/Osaka stopover (HKG→Japan→YYZ) instead of flying straight home. Priced as a multi-city itinerary across all carriers — MC = cheapest combination found that day, which is usually <b>separate tickets</b> on two or more airlines rather than one through-booking, so factor in self-transfer risk (missed-connection protection isn’t automatic) when comparing against the other trips.</p>
   <p>Full history: <a href="data/history.json">data/history.json</a> · Built and updated automatically by Maurice’s Claude tracker.</p>
 </footer>
 
@@ -266,10 +270,12 @@ const SERIES_DEF = {
              {key:'acPey', name:'AC Prem Econ · via YVR', al:'AC', color:'var(--series-2)'} ],
   family:  [ {key:'cxEco', name:'CX Economy · nonstop', al:'CX', color:'var(--series-1)', primary:true},
              {key:'acEco', name:'AC Economy · via YVR', al:'AC', color:'var(--series-2)'},
-             {key:'cxPey', name:'CX Prem Econ · nonstop', al:'CX', color:'var(--series-3)'} ]
+             {key:'cxPey', name:'CX Prem Econ · nonstop', al:'CX', color:'var(--series-3)'} ],
+  familyJapan: [ {key:'eco', name:'Economy · cheapest itin.', al:'MC', color:'var(--series-1)', primary:true},
+             {key:'pey', name:'Prem Econ · cheapest itin.', al:'MC', color:'var(--series-3)'} ]
 };
-const TRIP_ORDER = ['solo','seniors','family'];
-const CABIN_LABEL = { solo:'Economy', seniors:'Premium Economy only', family:'Economy' };
+const TRIP_ORDER = ['solo','seniors','family','familyJapan'];
+const CABIN_LABEL = { solo:'Economy', seniors:'Premium Economy only', family:'Economy', familyJapan:'Economy (PE reference)' };
 const LINKS = {
   solo: {
     gf: 'https://www.google.com/travel/flights?q=round%20trip%20flights%20from%20YYZ%20to%20HKG%20departing%202026-12-01%20returning%202027-01-04%20nonstop',
@@ -282,14 +288,18 @@ const LINKS = {
   family: {
     gf: 'https://www.google.com/travel/flights/search?tfs=CBwQAhoeEgoyMDI2LTEyLTE4agcIARIDWVlacgcIARIDSEtHGh4SCjIwMjctMDEtMDJqBwgBEgNIS0dyBwgBEgNZWVpAAUABQAFAAUgBcAGCAQsI____________AZgBAQ',
     gfNote: 'Dec 18 → Jan 2 · 4 adults · Economy'
+  },
+  familyJapan: {
+    gf: 'https://www.google.com/travel/flights/search?tfs=CBwQAhooEgoyMDI2LTEyLTE4agwIAhIIL20vMGg3aDZyDAgDEggvbS8wM2g2NBooEgoyMDI2LTEyLTI5agwIAxIIL20vMDNoNjRyDAgDEggvbS8wN2RmaxooEgoyMDI3LTAxLTAyagwIAxIIL20vMDdkZmtyDAgDEggvbS8waDdoNkABQAFAAUABSAFwAYIBCwj___________8BmAED',
+    gfNote: 'Dec 18 → Tokyo Dec 29 → Jan 2 · 4 adults · Economy · multi-city, separate tickets'
   }
 };
 const AIRLINE_LINKS = [
   { name:'Cathay Pacific', al:'CX', url:'https://www.cathaypacific.com/cx/en_CA.html' },
   { name:'Air Canada', al:'AC', url:'https://www.aircanada.com/ca/en/aco/home.html' }
 ];
-const AL = { CX:'<span class="al cx">CX</span>', AC:'<span class="al ac">AC</span>',
-             CXs:'<span class="al sm cx">CX</span>', ACs:'<span class="al sm ac">AC</span>' };
+const AL = { CX:'<span class="al cx">CX</span>', AC:'<span class="al ac">AC</span>', MC:'<span class="al mc">MC</span>',
+             CXs:'<span class="al sm cx">CX</span>', ACs:'<span class="al sm ac">AC</span>', MCs:'<span class="al sm mc">MC</span>' };
 
 // Bespoke stroke-based icon set — currentColor, matches the site's line language.
 // No stock/emoji glyphs: each icon is drawn to carry its own specific meaning.
@@ -384,7 +394,8 @@ function renderSummary(){
       <div class="top"><div><div class="who">${m.label}</div><div class="dates">${m.window}</div></div>${vp}</div>
       <div class="mid"><div class="price">${fmt$(cur)} <small>pp · ${b.label}</small></div>${spark(seriesVals(t,p.key), p.color)}</div>
       <div class="chips">
-        ${t==='seniors'? `<span class="pill cabin">${CABIN_LABEL[t]}</span>`:''}${link}
+        ${t==='seniors'? `<span class="pill cabin">${CABIN_LABEL[t]}</span>`:''}
+        ${t==='familyJapan'? `<span class="pill cabin">+ 3 nights Japan</span><span class="chip">separate tickets</span>`:''}${link}
         ${wk!=null? `<span class="chip ${wk<0?'down':wk>0?'up':''}"><b>${wk===0?'→':(wk<0?'▼':'▲')} ${fmt$(Math.abs(wk))}</b>&nbsp;wk</span>`:''}
         ${vs!=null? `<span class="chip ${vs<=0?'down':'up'}"><b>${vs<=0?'▼':'▲'} ${fmt$(Math.abs(vs))}</b>&nbsp;vs fair</span>`:''}
         ${cur!=null? `<span class="chip">${fmt$(cur*m.pax)} total</span>`:''}
