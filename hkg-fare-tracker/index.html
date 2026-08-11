@@ -27,6 +27,7 @@
     --cx-brand:       #00645A;
     --ac-brand:       #D22630;
     --mc-brand:       #6b4fa0;
+    --os-brand:       #b3822d;
     /* type scale — between the original (too small) and the last pass (too large) */
     --fs-xs:   15px;
     --fs-sm:   17px;
@@ -55,6 +56,7 @@
       --cx-brand:       #0e7d72;
       --ac-brand:       #e04350;
       --mc-brand:       #9478d1;
+      --os-brand:       #d9a94a;
     }
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -96,6 +98,8 @@
   .al.cx { background: var(--cx-brand); }
   .al.ac { background: var(--ac-brand); }
   .al.mc { background: var(--mc-brand); }
+  .al.os { background: var(--os-brand); }
+  .carrier-hl { display:inline-block; background: rgba(179,130,45,0.16); color: var(--text-primary); border: 1px solid var(--os-brand); border-radius: 999px; padding: 1px 10px; font-weight: 600; font-size: var(--fs-xs); }
   .al.sm { width: 22px; height: 22px; font-size: 11.5px; border-radius: 6px; }
 
   /* Action bar — the one thing to read */
@@ -115,6 +119,15 @@
   .action-bar.act .cta { display:inline-block; background: var(--good); color: #fff; }
   .scard.act-glow { outline: 2px solid var(--good); }
 
+  .stops-bar { display:flex; align-items:center; gap:12px; margin-top:20px; flex-wrap:wrap; }
+  .stops-label { font-size: var(--fs-sm); color: var(--text-secondary); font-weight:600; }
+  .stops-toggle { display:inline-flex; border:1px solid var(--border); border-radius:999px; overflow:hidden; background:var(--surface-1); }
+  .stops-toggle button { font-family:inherit; font-size:var(--fs-sm); border:none; background:transparent; color:var(--text-secondary); padding:8px 18px; cursor:pointer; }
+  .stops-toggle button.on { background:var(--text-primary); color:var(--page); font-weight:650; }
+  .stops-note { font-size: var(--fs-xs); color: var(--text-muted); }
+  .oscmp { margin-bottom:20px; }
+  .oscmp h3 { font-size: var(--fs-lg); font-weight:650; margin-bottom:8px; display:flex; align-items:center; gap:8px; }
+  .oscmp .none { font-size:var(--fs-sm); color:var(--text-muted); }
   .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 14px; margin: 20px 0 10px; }
   .scard {
     background: var(--surface-1); border: 1px solid var(--border); border-radius: 18px;
@@ -220,6 +233,16 @@
 
 <div id="actionBar"></div>
 
+<div class="stops-bar">
+  <span class="stops-label">Stops</span>
+  <div class="stops-toggle" id="stopsToggle">
+    <button data-mode="nonstop" class="on" onclick="setStops('nonstop')">Nonstop</button>
+    <button data-mode="onestop" onclick="setStops('onestop')">≤1 stop</button>
+    <button data-mode="compare" onclick="setStops('compare')">Compare</button>
+  </div>
+  <span class="stops-note" id="stopsNote"></span>
+</div>
+
 <div class="summary" id="summary"></div>
 
 <section id="detail">
@@ -227,6 +250,7 @@
     <div class="detail-head" id="detailHead"></div>
     <div class="verdict" id="verdict"></div>
     <div class="booklinks" id="bookLinks"></div>
+    <div class="oscmp" id="osCmp"></div>
     <div class="tiles" id="tiles"></div>
     <div class="legend" id="legend"></div>
     <div class="chart-wrap">
@@ -253,8 +277,9 @@
 </section>
 
 <footer>
-  <p>Method: fares collected daily from Google Flights (airline-direct retail prices). Solo + Senior couple depart the <b>same day</b> — the scan picks the departure in Nov 24–Dec 8 (returns Jan 2–4) minimizing combined cost (1× Economy + 2× Prem Econ on the same flights). Party of 4 departs Dec 18, returns Jan 2–4. CX = Cathay Pacific nonstop; AC = Air Canada one-stop via Vancouver. Prices per person, taxes in. Before paying, always confirm on the airline’s own site — this tracker times the decision; the airline sets the final price.</p>
+  <p>Method: fares collected daily from Google Flights (airline-direct retail prices). Solo + Senior couple depart the <b>same day</b> — the scan picks the departure in Nov 24–Dec 8 (returns Jan 2–4) minimizing combined cost (1× Economy + 2× Prem Econ on the same flights). Family of 4 Direct departs Dec 18, returns Jan 2–4. CX = Cathay Pacific nonstop; AC = Air Canada one-stop via Vancouver. Prices per person, taxes in. Before paying, always confirm on the airline’s own site — this tracker times the decision; the airline sets the final price.</p>
   <p>Family + Japan stopover: same Dec 18 departure as the base family trip, but the return routes through a ~3-night Tokyo stopover (HKG→Tokyo→YYZ) instead of flying straight home. <b>Nonstop only on all 3 legs</b> — Osaka was considered but has no nonstop service to Toronto, so Tokyo (HND/NRT) is the only viable stopover city. MC = cheapest genuine nonstop combination found that day, priced as <b>3 separate one-way tickets</b> across up to 3 airlines (no single-ticket nonstop routing exists end to end), so factor in self-transfer risk (missed-connection protection isn’t automatic) when comparing against the other trips. Return date is Jan 3, not Jan 2, because the only nonstop Tokyo–Toronto carrier (Air Canada/ANA) prices Jan 3 meaningfully cheaper than Jan 2 in this fare cycle.</p>
+  <p>1-stop comparison: alongside the nonstop reference fares, the tracker records the cheapest itinerary allowing up to one stop per direction/leg — <b>any airline</b> (not limited to CX/AC; non-house carriers such as Korean Air are <span class="carrier-hl">highlighted</span>), layovers capped at <b>4 hours</b>. Shown as price saved vs nonstop and extra travel time added. Full daily history is kept for this series like all others.</p>
   <p>Full history: <a href="data/history.json">data/history.json</a> · Built and updated automatically by Maurice’s Claude tracker.</p>
 </footer>
 
@@ -265,16 +290,20 @@
 const SERIES_DEF = {
   solo:    [ {key:'cxEco', name:'CX Economy · nonstop', al:'CX', color:'var(--series-1)', primary:true},
              {key:'acEco', name:'AC Economy · via YVR', al:'AC', color:'var(--series-2)'},
-             {key:'cxPey', name:'CX Prem Econ · nonstop', al:'CX', color:'var(--series-3)'} ],
+             {key:'cxPey', name:'CX Prem Econ · nonstop', al:'CX', color:'var(--series-3)'},
+             {key:'oneStop.price', name:'Best ≤1 stop · any airline', al:'OS', color:'var(--os-brand)', os:true} ],
   seniors: [ {key:'cxPey', name:'CX Prem Econ · nonstop', al:'CX', color:'var(--series-3)', primary:true},
-             {key:'acPey', name:'AC Prem Econ · via YVR', al:'AC', color:'var(--series-2)'} ],
+             {key:'acPey', name:'AC Prem Econ · via YVR', al:'AC', color:'var(--series-2)'},
+             {key:'oneStop.price', name:'Best ≤1 stop · any airline', al:'OS', color:'var(--os-brand)', os:true} ],
   family:  [ {key:'cxEco', name:'CX Economy · nonstop', al:'CX', color:'var(--series-1)', primary:true},
              {key:'acEco', name:'AC Economy · via YVR', al:'AC', color:'var(--series-2)'},
-             {key:'cxPey', name:'CX Prem Econ · nonstop', al:'CX', color:'var(--series-3)'} ],
+             {key:'cxPey', name:'CX Prem Econ · nonstop', al:'CX', color:'var(--series-3)'},
+             {key:'oneStop.price', name:'Best ≤1 stop · any airline', al:'OS', color:'var(--os-brand)', os:true} ],
   familyJapan: [ {key:'eco', name:'Economy · cheapest itin.', al:'MC', color:'var(--series-1)', primary:true},
-             {key:'pey', name:'Prem Econ · cheapest itin.', al:'MC', color:'var(--series-3)'} ]
+             {key:'pey', name:'Prem Econ · cheapest itin.', al:'MC', color:'var(--series-3)'},
+             {key:'oneStop.price', name:'Best ≤1 stop / leg · any airline', al:'OS', color:'var(--os-brand)', os:true} ]
 };
-const TRIP_ORDER = ['solo','seniors','family','familyJapan'];
+const TRIP_ORDER = ['familyJapan','family','seniors','solo'];
 const CABIN_LABEL = { solo:'Economy', seniors:'Premium Economy only', family:'Economy', familyJapan:'Economy (PE reference)' };
 const LINKS = {
   solo: {
@@ -298,8 +327,8 @@ const AIRLINE_LINKS = [
   { name:'Cathay Pacific', al:'CX', url:'https://www.cathaypacific.com/cx/en_CA.html' },
   { name:'Air Canada', al:'AC', url:'https://www.aircanada.com/ca/en/aco/home.html' }
 ];
-const AL = { CX:'<span class="al cx">CX</span>', AC:'<span class="al ac">AC</span>', MC:'<span class="al mc">MC</span>',
-             CXs:'<span class="al sm cx">CX</span>', ACs:'<span class="al sm ac">AC</span>', MCs:'<span class="al sm mc">MC</span>' };
+const AL = { CX:'<span class="al cx">CX</span>', AC:'<span class="al ac">AC</span>', MC:'<span class="al mc">MC</span>', OS:'<span class="al os">1S</span>',
+             CXs:'<span class="al sm cx">CX</span>', ACs:'<span class="al sm ac">AC</span>', MCs:'<span class="al sm mc">MC</span>', OSs:'<span class="al sm os">1S</span>' };
 
 // Bespoke stroke-based icon set — currentColor, matches the site's line language.
 // No stock/emoji glyphs: each icon is drawn to carry its own specific meaning.
@@ -316,7 +345,11 @@ const ICONS = {
   plane: (s=14) => `<svg class="ic" width="${s}" height="${s}" viewBox="0 0 20 20" fill="currentColor" style="vertical-align:-2.5px;flex:none"><path d="M11.1 2.3c0-.7-.5-1.2-1.1-1.2s-1.1.5-1.1 1.2v6L2 12v1.6l6.9-2.1v4.6l-2.3 1.7v1.3L10 18l3.4 1.1v-1.3l-2.3-1.7v-4.6L18 13.6V12l-6.9-3.7z"/></svg>`,
 };
 
-let DATA = null, active = 0;
+let DATA = null, active = 0, stopsMode = 'nonstop';
+function setStops(m){ stopsMode = m; document.querySelectorAll('#stopsToggle button').forEach(b=>b.classList.toggle('on', b.dataset.mode===m)); renderAll(); }
+function osOf(t, day){ return ((day||latest()).trips[t]||{}).oneStop || null; }
+function isHouse(c){ return /cathay|air canada|jetstar|jal\b|ana\b/i.test(c||''); }
+function carrierHtml(c){ if(!c) return ''; return isHouse(c) ? c : `<span class="carrier-hl">${c}</span>`; }
 const fmt$ = v => v==null ? '—' : '$' + Math.round(v).toLocaleString('en-CA');
 const fmtD = s => new Date(s+'T12:00:00').toLocaleDateString('en-CA',{month:'short',day:'numeric'});
 
@@ -328,12 +361,14 @@ fetch('data/history.json').then(r=>r.json()).then(d=>{
   const ageDays = Math.round((Date.now() - new Date(last.date+'T12:00:00'))/86400000);
   if (ageDays > 2) pill.classList.add('stale');
   document.getElementById('updatedTxt').textContent = 'Updated ' + fmtD(last.date) + (ageDays>2 ? ' · stale' : '');
+  document.getElementById('stopsNote').textContent = 'Any airline · layovers capped at 4h · non-CX/AC carriers highlighted';
   renderAll();
   window.addEventListener('resize', ()=>drawChart());
 }).catch(()=>{ document.getElementById('loadErr').style.display='block'; });
 
 function latest(){ return DATA.days[DATA.days.length-1]; }
-function seriesVals(trip, key){ return DATA.days.map(day => (day.trips[trip]||{})[key] ?? null); }
+function getv(o, key){ return key.split('.').reduce((a,k)=> (a==null ? null : a[k]), o) ?? null; }
+function seriesVals(trip, key){ return DATA.days.map(day => getv(day.trips[trip]||{}, key)); }
 function lastVal(trip, key){ const a = seriesVals(trip,key).filter(v=>v!=null); return a.length? a[a.length-1] : null; }
 function weekDelta(trip, key){
   const a = seriesVals(trip,key); const n = a.length;
@@ -384,7 +419,9 @@ function renderSummary(){
   const el = document.getElementById('summary');
   el.innerHTML = TRIP_ORDER.map((t,i)=>{
     const m = DATA.meta.trips[t], p = SERIES_DEF[t].find(s=>s.primary);
-    const cur = lastVal(t, p.key), wk = weekDelta(t, p.key);
+    const ns = lastVal(t, p.key), os = osOf(t);
+    const cur = (stopsMode==='onestop' && os) ? os.price : ns;
+    const wk = weekDelta(t, (stopsMode==='onestop' && os) ? 'oneStop.price' : p.key);
     const b = benchOf(t), mid = (b.low+b.high)/2, vs = cur!=null ? cur-mid : null;
     const v = verdictOf(t).verdict;
     const vp = v==='book' ? `<span class="pill buy">${ICONS.check(11)} BOOK</span>` : v==='book-soon' ? '<span class="pill soon">! SOON</span>' : `<span class="pill hold">${ICONS.clock(11)} HOLD</span>`;
@@ -392,13 +429,15 @@ function renderSummary(){
     const link = m.linkedTo ? `<span class="chip">${ICONS.link(13)} with <b>${DATA.meta.trips[m.linkedTo].label}</b>${lt.bestDep? ' · <b>'+fmtD(lt.bestDep)+'→'+fmtD(lt.bestRet)+'</b>':''}</span>` : '';
     return `<button class="scard${i===active?' active':''}${v==='book'?' act-glow':''}" onclick="setActive(${i})">
       <div class="top"><div><div class="who">${m.label}</div><div class="dates">${m.window}</div></div>${vp}</div>
-      <div class="mid"><div class="price">${fmt$(cur)} <small>pp · ${b.label}</small></div>${spark(seriesVals(t,p.key), p.color)}</div>
+      <div class="mid"><div class="price">${fmt$(cur)} <small>pp · ${b.label}${stopsMode==='onestop'?' · ≤1 stop':''}</small></div>${spark(seriesVals(t, (stopsMode==='onestop'&&os)?'oneStop.price':p.key), (stopsMode==='onestop'&&os)?'var(--os-brand)':p.color)}</div>
       <div class="chips">
         ${t==='seniors'? `<span class="pill cabin">${CABIN_LABEL[t]}</span>`:''}
         ${t==='familyJapan'? `<span class="pill cabin">+ 3 nights Japan</span><span class="chip">separate tickets</span>`:''}${link}
         ${wk!=null? `<span class="chip ${wk<0?'down':wk>0?'up':''}"><b>${wk===0?'→':(wk<0?'▼':'▲')} ${fmt$(Math.abs(wk))}</b>&nbsp;wk</span>`:''}
         ${vs!=null? `<span class="chip ${vs<=0?'down':'up'}"><b>${vs<=0?'▼':'▲'} ${fmt$(Math.abs(vs))}</b>&nbsp;vs fair</span>`:''}
         ${cur!=null? `<span class="chip">${fmt$(cur*m.pax)} total</span>`:''}
+        ${(stopsMode!=='onestop' && os && ns!=null)? `<span class="chip ${os.price<ns?'down':'up'}">${AL.OSs} <b>${os.price<ns?'−':'+'}${fmt$(Math.abs(os.price-ns)).slice(1)}</b>&nbsp;· ${os.extraTime||'?'} ${!isHouse(os.carrier)?'· '+carrierHtml(os.carrier):''}</span>`:''}
+        ${(stopsMode!=='nonstop' && !os)? `<span class="chip">1-stop: first scan pending</span>`:''}
       </div></button>`;
   }).join('');
 }
@@ -427,7 +466,7 @@ function renderDetail(){
     AIRLINE_LINKS.map(a=>`<a class="blink" href="${a.url}" target="_blank" rel="noopener">${AL[a.al+'s']} Book at ${a.name} <span class="arr">↗</span></a>`).join('');
 
   const dHtml = d => d==null ? `<div class="delta flat">first data point</div>` : d===0?`<div class="delta flat">→ flat wk</div>`: d<0?`<div class="delta down">▼ ${fmt$(-d)} wk</div>`:`<div class="delta up">▲ ${fmt$(d)} wk</div>`;
-  let tiles = SERIES_DEF[t].map(s=>{
+  let tiles = SERIES_DEF[t].filter(s=>!s.os || lastVal(t,s.key)!=null).map(s=>{
     const c = lastVal(t, s.key);
     return `<div class="tile"><div class="label">${AL[s.al+'s']} ${s.name}</div><div class="value">${fmt$(c)}</div>${c!=null?dHtml(weekDelta(t,s.key)):'<div class="delta flat">not yet scanned</div>'}</div>`;
   }).join('');
@@ -436,7 +475,24 @@ function renderDetail(){
   if (cur!=null) tiles += `<div class="tile"><div class="label">Trip total today</div><div class="value">${fmt$(cur*m.pax)}</div><div class="delta flat">best ${b.label} × ${m.pax}</div></div>`;
   document.getElementById('tiles').innerHTML = tiles;
 
-  document.getElementById('legend').innerHTML = SERIES_DEF[t].map(s=>
+  const os = osOf(t);
+  const osEl = document.getElementById('osCmp');
+  if (!os) {
+    osEl.innerHTML = `<h3>${AL.OS} Nonstop vs ≤1 stop</h3><div class="none">1-stop tracking (any airline, layovers ≤4h) starts with the next daily scan — first data expected ${DATA.meta.oneStop? fmtD(DATA.meta.oneStop.startedOn) : 'soon'}.</div>`;
+  } else {
+    const nsP = cur;
+    const rows = (os.legs && os.legs.length)
+      ? os.legs.map(L=>`<tr><td>${L.leg}</td><td>${fmt$(L.price)}</td><td class="a">${carrierHtml(L.carrier)}${L.via? ' <span style="color:var(--text-muted)">via '+L.via+'</span>':''}</td><td>${L.dur||'—'}</td><td>${L.extraTime||'—'}</td></tr>`).join('')
+      : `<tr><td>Whole trip</td><td>${fmt$(os.price)}</td><td class="a">${carrierHtml(os.carrier)}${os.via? ' <span style="color:var(--text-muted)">via '+os.via+'</span>':''}</td><td>—</td><td>${os.extraTime||'—'}</td></tr>`;
+    const d = (nsP!=null && os.price!=null) ? os.price - nsP : null;
+    osEl.innerHTML = `<h3>${AL.OS} Nonstop vs ≤1 stop <span class="pill muted">any airline · layovers ≤4h</span>
+      ${d!=null? `<span class="chip ${d<0?'down':'up'}"><b>${d<0?'▼':'▲'} ${fmt$(Math.abs(d))}</b>&nbsp;pp vs nonstop · ${os.extraTime||''}</span>`:''}</h3>
+      <div class="tbl-scroll"><table>
+      <tr><th>Segment</th><th>Best ≤1 stop pp</th><th style="text-align:left">Carrier</th><th>Duration</th><th>Extra vs nonstop</th></tr>
+      ${rows}</table></div>`;
+  }
+
+  document.getElementById('legend').innerHTML = SERIES_DEF[t].filter(s=>!s.os || lastVal(t,s.key)!=null).map(s=>
     `<span class="key">${AL[s.al+'s']} <i style="background:${s.color}"></i>${s.name}</span>`).join('');
 
   const ins = latest().insights||[];
@@ -456,7 +512,8 @@ function drawChart(){
   svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
   const days = DATA.days, N = days.length;
   const b = benchOf(t);
-  const allVals = SERIES_DEF[t].flatMap(s=>seriesVals(t,s.key)).filter(v=>v!=null).concat([b.low,b.high]);
+  const SD = SERIES_DEF[t].filter(s=>!s.os || seriesVals(t,s.key).some(v=>v!=null));
+  const allVals = SD.flatMap(s=>seriesVals(t,s.key)).filter(v=>v!=null).concat([b.low,b.high]);
   let lo = Math.floor(Math.min(...allVals)/250)*250, hi = Math.ceil(Math.max(...allVals)/250)*250;
   if (hi===lo) hi = lo+500;
   const x = i => N===1 ? (P.l + (W-P.l-P.r)/2) : P.l + (i/(N-1))*(W-P.l-P.r);
@@ -474,7 +531,7 @@ function drawChart(){
   }
   s += `<line x1="${P.l}" x2="${W-P.r}" y1="${y(lo)}" y2="${y(lo)}" stroke="var(--baseline)" stroke-width="1"/>`;
 
-  SERIES_DEF[t].forEach(sr=>{
+  SD.forEach(sr=>{
     const vals = seriesVals(t, sr.key);
     let d='', pen=false;
     vals.forEach((v,i)=>{ if(v==null){pen=false;return;} d += (pen?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)+' '; pen=true; });
@@ -482,7 +539,7 @@ function drawChart(){
     vals.forEach((v,i)=>{ if(v!=null && (i===0 || vals[i-1]==null || i===N-1)) s += `<circle cx="${x(i)}" cy="${y(v)}" r="4.5" fill="${sr.color}" stroke="var(--surface-1)" stroke-width="2"/>`; });
   });
 
-  const ends = SERIES_DEF[t].map(sr=>({sr, v:lastVal(t,sr.key)})).filter(e=>e.v!=null).map(e=>({...e, vy:y(e.v)})).sort((a,b2)=>a.vy-b2.vy);
+  const ends = SD.map(sr=>({sr, v:lastVal(t,sr.key)})).filter(e=>e.v!=null).map(e=>({...e, vy:y(e.v)})).sort((a,b2)=>a.vy-b2.vy);
   for(let i=1;i<ends.length;i++){ const prev = ends[i-1].ly ?? ends[i-1].vy; ends[i].ly = Math.max(ends[i].vy, prev + 52); }
   ends.forEach(e=>{
     const ly = e.ly ?? e.vy, ex = x(N-1);
@@ -507,7 +564,7 @@ function drawChart(){
     let left = (e.clientX-wrap.left)+16; if(left>wrap.width-235) left-=255;
     tip.style.left=left+'px'; tip.style.top=(e.clientY-wrap.top-20)+'px';
     tip.innerHTML = `<div class="tt-date">${fmtD(DATA.days[i].date)}</div>` +
-      SERIES_DEF[t].map(sr=>{ const v=(DATA.days[i].trips[t]||{})[sr.key]; return `<div class="tt-row"><span class="n">${AL[sr.al+'s']}${sr.name.split(' · ')[0]}</span><b>${fmt$(v)}</b></div>`; }).join('');
+      SD.map(sr=>{ const v=getv(DATA.days[i].trips[t]||{}, sr.key); return `<div class="tt-row"><span class="n">${AL[sr.al+'s']}${sr.name.split(' · ')[0]}</span><b>${fmt$(v)}</b></div>`; }).join('');
   });
   hz.addEventListener('mouseleave', ()=>{ tip.style.display='none'; xh.setAttribute('opacity','0'); });
 }
@@ -539,12 +596,13 @@ function autoTrendText(t){
 function renderLog(t, mid, b){
   const days = DATA.days.slice(-10).reverse();
   document.getElementById('logCount').textContent = 'last ' + days.length + ' check' + (days.length>1?'s':'');
-  let h = `<tr><th>Checked</th>${SERIES_DEF[t].map(s=>`<th>${s.name.split(' · ')[0]} <span class="al sm ${s.al.toLowerCase()}" style="vertical-align:-4px">${s.al}</span></th>`).join('')}<th>vs fair mid</th></tr>`;
+  const SDL = SERIES_DEF[t].filter(s=>!s.os || seriesVals(t,s.key).some(v=>v!=null));
+  let h = `<tr><th>Checked</th>${SDL.map(s=>`<th>${s.name.split(' · ')[0]} <span class="al sm ${s.al.toLowerCase()}" style="vertical-align:-4px">${s.al}</span></th>`).join('')}<th>vs fair mid</th></tr>`;
   days.forEach(day=>{
     const tr = day.trips[t]||{};
-    const pv = tr[SERIES_DEF[t].find(s=>s.primary).key];
+    const pv = getv(tr, SERIES_DEF[t].find(s=>s.primary).key);
     const d = pv!=null ? pv-mid : null;
-    h += `<tr><td>${fmtD(day.date)}</td>${SERIES_DEF[t].map(s=>`<td>${fmt$(tr[s.key])}</td>`).join('')}
+    h += `<tr><td>${fmtD(day.date)}</td>${SDL.map(s=>`<td>${fmt$(getv(tr,s.key))}</td>`).join('')}
       <td style="color:${d==null?'var(--text-muted)':Math.round(d)===0?'var(--text-muted)':d<0?'var(--good-text)':'var(--critical)'}">${d==null?'—':Math.round(d)===0?'±$0':(d<0?'−':'+')+fmt$(Math.abs(d)).slice(1)}</td></tr>`;
   });
   document.getElementById('logTable').innerHTML = h;

@@ -5,12 +5,17 @@
     "pricesArePerPerson": true,
     "created": "2026-07-22",
     "trips": {
-      "solo": {
-        "label": "Solo",
-        "pax": 1,
-        "window": "Nov 24-Dec 8 dep, Jan 2-4 ret",
-        "cabins": "Economy (PE reference)",
-        "linkedTo": "seniors"
+      "familyJapan": {
+        "label": "Family + Japan stopover",
+        "pax": 4,
+        "window": "Dep Dec 18 (nonstop CX), HKG→Tokyo ~Dec 29 (nonstop), Tokyo→YYZ Jan 3 (nonstop AC/ANA) — nonstop only on all 3 legs, 3 nights in Japan",
+        "cabins": "Economy + Premium Economy (nonstop only, 3 separate one-way tickets)"
+      },
+      "family": {
+        "label": "Family of 4 Direct",
+        "pax": 4,
+        "window": "Dec 18 dep, Jan 2-4 ret",
+        "cabins": "Economy (PE reference)"
       },
       "seniors": {
         "label": "Senior couple",
@@ -19,24 +24,25 @@
         "cabins": "Premium Economy only",
         "linkedTo": "solo"
       },
-      "family": {
-        "label": "Party of 4",
-        "pax": 4,
-        "window": "Dec 18 dep, Jan 2-4 ret",
-        "cabins": "Economy (PE reference)"
-      },
-      "familyJapan": {
-        "label": "Family + Japan stopover",
-        "pax": 4,
-        "window": "Dep Dec 18 (nonstop CX), HKG→Tokyo ~Dec 29 (nonstop), Tokyo→YYZ Jan 3 (nonstop AC/ANA) — nonstop only on all 3 legs, 3 nights in Japan",
-        "cabins": "Economy + Premium Economy (nonstop only, 3 separate one-way tickets)"
+      "solo": {
+        "label": "Solo",
+        "pax": 1,
+        "window": "Nov 24-Dec 8 dep, Jan 2-4 ret",
+        "cabins": "Economy (PE reference)",
+        "linkedTo": "seniors"
       }
     },
     "benchmarks": {
-      "solo": {
+      "familyJapan": {
+        "series": "eco",
+        "low": 4700,
+        "high": 5600,
+        "label": "Economy"
+      },
+      "family": {
         "series": "cxEco",
-        "low": 2750,
-        "high": 3250,
+        "low": 3600,
+        "high": 4200,
         "label": "Economy"
       },
       "seniors": {
@@ -45,20 +51,26 @@
         "high": 5800,
         "label": "Prem Econ"
       },
-      "family": {
+      "solo": {
         "series": "cxEco",
-        "low": 3600,
-        "high": 4200,
-        "label": "Economy"
-      },
-      "familyJapan": {
-        "series": "eco",
-        "low": 4700,
-        "high": 5600,
+        "low": 2750,
+        "high": 3250,
         "label": "Economy"
       }
     },
-    "benchmarkNote": "v0 priors calibrated to 2026-07-22 fares (Google-rated 'typical') and December-peak booking-curve research; recalibrated as history accumulates."
+    "benchmarkNote": "v0 priors calibrated to 2026-07-22 fares (Google-rated 'typical') and December-peak booking-curve research; recalibrated as history accumulates.",
+    "displayOrder": [
+      "familyJapan",
+      "family",
+      "seniors",
+      "solo"
+    ],
+    "oneStop": {
+      "enabled": true,
+      "startedOn": "2026-08-12",
+      "rules": "For each trip, also record the cheapest itinerary allowing up to 1 stop per direction/leg, any airline (not limited to CX/AC), layovers capped at 4h. Record price pp, carrier(s), connection point(s), and total extra travel time vs the nonstop reference. Non-CX/AC carriers (e.g. Korean Air) are highlighted on the dashboard.",
+      "schema": "day.trips.<trip>.oneStop = {price, carrier, via, extraTime, legs?[]} — price is pp in the trip's primary cabin series; extraTime is total added time vs nonstop across all directions/legs as '+Xh Ym'; legs[] (familyJapan and optionally round trips) = [{leg, price, carrier, via, dur, extraTime}]"
+    }
   },
   "days": [
     {
