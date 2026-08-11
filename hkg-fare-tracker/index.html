@@ -126,6 +126,9 @@
   .stops-toggle button.on { background:var(--text-primary); color:var(--page); font-weight:650; }
   .stops-note { font-size: var(--fs-xs); color: var(--text-muted); }
   .oscmp { margin-bottom:20px; }
+  .note-list { list-style:none; margin:0; padding:0; }
+  .note-list li { position:relative; padding:4px 0 4px 22px; }
+  .note-list li::before { content:''; position:absolute; left:5px; top:13px; width:6px; height:6px; border-radius:50%; background:var(--text-muted); }
   .oscmp h3 { font-size: var(--fs-lg); font-weight:650; margin-bottom:8px; display:flex; align-items:center; gap:8px; }
   .oscmp .none { font-size:var(--fs-sm); color:var(--text-muted); }
   .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 14px; margin: 20px 0 10px; }
@@ -214,6 +217,11 @@
 
   footer { margin-top: 44px; font-size: var(--fs-sm); color: var(--text-muted); border-top: 1px solid var(--grid); padding-top: 18px; }
   footer p { margin-bottom: 8px; max-width: 110ch; }
+  .foot-list { list-style:none; margin:0; padding:0; max-width:110ch; }
+  .foot-list li { position:relative; padding:7px 0 7px 22px; color:var(--text-secondary); }
+  .foot-list li + li { border-top:1px solid var(--grid); }
+  .foot-list li::before { content:''; position:absolute; left:5px; top:16px; width:6px; height:6px; border-radius:50%; background:var(--text-muted); }
+  .foot-list b { color:var(--text-primary); }
   #loadErr { color: var(--critical); padding: 40px 0; text-align: center; display: none; font-size: var(--fs-base); }
 </style>
 </head>
@@ -277,10 +285,17 @@
 </section>
 
 <footer>
-  <p>Method: fares collected daily from Google Flights (airline-direct retail prices). Solo + Senior couple depart the <b>same day</b> — the scan picks the departure in Nov 24–Dec 8 (returns Jan 2–4) minimizing combined cost (1× Economy + 2× Prem Econ on the same flights). Family of 4 Direct departs Dec 18, returns Jan 2–4. CX = Cathay Pacific nonstop; AC = Air Canada one-stop via Vancouver. Prices per person, taxes in. Before paying, always confirm on the airline’s own site — this tracker times the decision; the airline sets the final price.</p>
-  <p>Family + Japan stopover: same Dec 18 departure as the base family trip, but the return routes through a ~3-night Tokyo stopover (HKG→Tokyo→YYZ) instead of flying straight home. <b>Nonstop only on all 3 legs</b> — Osaka was considered but has no nonstop service to Toronto, so Tokyo (HND/NRT) is the only viable stopover city. MC = cheapest genuine nonstop combination found that day, priced as <b>3 separate one-way tickets</b> across up to 3 airlines (no single-ticket nonstop routing exists end to end), so factor in self-transfer risk (missed-connection protection isn’t automatic) when comparing against the other trips. Return date is Jan 3, not Jan 2, because the only nonstop Tokyo–Toronto carrier (Air Canada/ANA) prices Jan 3 meaningfully cheaper than Jan 2 in this fare cycle.</p>
-  <p>1-stop comparison: alongside the nonstop reference fares, the tracker records the cheapest itinerary allowing up to one stop per direction/leg — <b>any airline</b> (not limited to CX/AC; non-house carriers such as Korean Air are <span class="carrier-hl">highlighted</span>), layovers capped at <b>4 hours</b>. Shown as price saved vs nonstop and extra travel time added. Full daily history is kept for this series like all others.</p>
-  <p>Full history: <a href="data/history.json">data/history.json</a> · Built and updated automatically by Maurice’s Claude tracker.</p>
+  <div style="font-size:var(--fs-base); font-weight:650; color:var(--text-primary); margin-bottom:10px;">How this tracker works</div>
+  <ul class="foot-list">
+    <li><b>Source &amp; cadence</b> — fares collected daily from Google Flights (airline-direct retail prices). CAD, round-trip, per person, taxes in.</li>
+    <li><b>Family + Japan stopover</b> — same Dec 18 departure as the direct family trip, but the return routes through a ~3-night Tokyo stopover (HKG→Tokyo→YYZ). Nonstop only on all 3 legs; Osaka ruled out (no nonstop to Toronto). Priced as 3 separate one-way tickets across up to 3 airlines (MC) — factor in self-transfer risk. Returns Jan 3, not Jan 2, because the only nonstop Tokyo–Toronto carrier (AC/ANA) prices Jan 3 meaningfully cheaper.</li>
+    <li><b>Family of 4 Direct</b> — departs Dec 18, returns Jan 2–4.</li>
+    <li><b>Solo + Senior couple</b> — depart the same day. The scan picks the departure in Nov 24–Dec 8 (returns Jan 2–4) minimizing combined cost: 1× Economy + 2× Prem Econ on the same flights.</li>
+    <li><b>Series</b> — <span class="al sm cx" style="vertical-align:-4px">CX</span> Cathay Pacific nonstop · <span class="al sm ac" style="vertical-align:-4px">AC</span> Air Canada one-stop via Vancouver · <span class="al sm mc" style="vertical-align:-4px">MC</span> cheapest nonstop multi-carrier combo (Japan trip).</li>
+    <li><b>1-stop comparison</b> — <span class="al sm os" style="vertical-align:-4px">1S</span> cheapest itinerary allowing up to one stop per direction/leg: any airline (non-CX/AC carriers such as Korean Air are <span class="carrier-hl">highlighted</span>), layovers capped at 4 hours. Shown as price saved vs nonstop plus extra travel time. Full daily history kept, same as every other series.</li>
+    <li><b>Before you pay</b> — always confirm on the airline&rsquo;s own site. This tracker times the decision; the airline sets the final price.</li>
+    <li><b>Data</b> — <a href="data/history.json">data/history.json</a> · built and updated automatically by Maurice&rsquo;s Claude tracker.</li>
+  </ul>
 </footer>
 
 </div>
@@ -346,7 +361,15 @@ const ICONS = {
 };
 
 let DATA = null, active = 0, stopsMode = 'nonstop';
-function setStops(m){ stopsMode = m; document.querySelectorAll('#stopsToggle button').forEach(b=>b.classList.toggle('on', b.dataset.mode===m)); renderAll(); }
+function setStops(m){ stopsMode = m; document.querySelectorAll('#stopsToggle button').forEach(b=>b.classList.toggle('on', b.dataset.mode===m)); updateStopsNote(); renderAll(); }
+function updateStopsNote(){
+  const any = TRIP_ORDER.some(t=>osOf(t));
+  const el = document.getElementById('stopsNote');
+  if (!any) { el.innerHTML = '<b>No 1-stop data yet</b> — first scan lands with the next daily update, so all three views currently show the same nonstop prices. Rules: any airline, layovers ≤4h, non-CX/AC carriers highlighted.'; }
+  else { el.textContent = 'Any airline · layovers capped at 4h · non-CX/AC carriers highlighted'; }
+}
+function noteBullets(n){ const arr = Array.isArray(n)? n : String(n||'').split(/\.\s+(?=[A-Z($])/).map(s=>s.trim()).filter(Boolean).map(s=>/[.!?]$/.test(s)?s:s+'.'); return arr; }
+function noteHtml(n){ const a = noteBullets(n); return a.length>1? '<ul class="note-list">'+a.map(x=>'<li>'+x+'</li>').join('')+'</ul>' : (a[0]||''); }
 function osOf(t, day){ return ((day||latest()).trips[t]||{}).oneStop || null; }
 function isHouse(c){ return /cathay|air canada|jetstar|jal\b|ana\b/i.test(c||''); }
 function carrierHtml(c){ if(!c) return ''; return isHouse(c) ? c : `<span class="carrier-hl">${c}</span>`; }
@@ -361,7 +384,7 @@ fetch('data/history.json', {cache:'no-store'}).then(r=>r.json()).then(d=>{
   const ageDays = Math.round((Date.now() - new Date(last.date+'T12:00:00'))/86400000);
   if (ageDays > 2) pill.classList.add('stale');
   document.getElementById('updatedTxt').textContent = 'Updated ' + fmtD(last.date) + (ageDays>2 ? ' · stale' : '');
-  document.getElementById('stopsNote').textContent = 'Any airline · layovers capped at 4h · non-CX/AC carriers highlighted';
+  updateStopsNote();
   renderAll();
   window.addEventListener('resize', ()=>drawChart());
 }).catch(()=>{ document.getElementById('loadErr').style.display='block'; });
@@ -392,12 +415,12 @@ function renderActionBar(){
     const cur = lastVal(t, p.key), pax = DATA.meta.trips[t].pax;
     el.innerHTML = `<div class="action-bar act"><div class="icon">${ICONS.check(24)}</div><div class="msg">
       <div class="headline">Act today: book ${label(t)} — ${fmt$(cur)} pp · ${fmt$(cur*pax)} total</div>
-      <div class="detail">${verdictOf(t).note}</div></div>
+      <div class="detail">${noteHtml(verdictOf(t).note)}</div></div>
       <a class="cta" href="${LINKS[t].gf}" target="_blank" rel="noopener">Open the flights →</a></div>`;
   } else if (soons.length){
     el.innerHTML = `<div class="action-bar soon"><div class="icon">!</div><div class="msg">
       <div class="headline">Get ready: ${soons.map(label).join(' & ')} — book within weeks, not months</div>
-      <div class="detail">${verdictOf(soons[0]).note}</div></div></div>`;
+      <div class="detail">${noteHtml(verdictOf(soons[0]).note)}</div></div></div>`;
   } else {
     el.innerHTML = `<div class="action-bar calm"><div class="icon">${ICONS.calm(24)}</div><div class="msg">
       <div class="headline">No action needed today</div>
@@ -429,7 +452,9 @@ function renderSummary(){
     const link = m.linkedTo ? `<span class="chip">${ICONS.link(13)} with <b>${DATA.meta.trips[m.linkedTo].label}</b>${lt.bestDep? ' · <b>'+fmtD(lt.bestDep)+'→'+fmtD(lt.bestRet)+'</b>':''}</span>` : '';
     return `<button class="scard${i===active?' active':''}${v==='book'?' act-glow':''}" onclick="setActive(${i})">
       <div class="top"><div><div class="who">${m.label}</div><div class="dates">${m.window}</div></div>${vp}</div>
-      <div class="mid"><div class="price">${fmt$(cur)} <small>pp · ${b.label}${stopsMode==='onestop'?' · ≤1 stop':''}</small></div>${spark(seriesVals(t, (stopsMode==='onestop'&&os)?'oneStop.price':p.key), (stopsMode==='onestop'&&os)?'var(--os-brand)':p.color)}</div>
+      <div class="mid"><div class="price">${(stopsMode==='compare' && os && ns!=null)
+        ? `${fmt$(ns)} <small>pp nonstop</small><div style="font-size:var(--fs-xl);color:var(--os-brand);font-weight:650;margin-top:3px">${fmt$(os.price)} <small style="font-weight:500;color:var(--text-muted)">pp ≤1 stop · ${os.extraTime||''}</small></div>`
+        : `${fmt$(cur)} <small>pp · ${b.label}${stopsMode==='onestop'&&os?' · ≤1 stop':''}</small>`}</div>${spark(seriesVals(t, (stopsMode==='onestop'&&os)?'oneStop.price':p.key), (stopsMode==='onestop'&&os)?'var(--os-brand)':p.color)}</div>
       <div class="chips">
         ${t==='seniors'? `<span class="pill cabin">${CABIN_LABEL[t]}</span>`:''}
         ${t==='familyJapan'? `<span class="pill cabin">+ 3 nights Japan</span><span class="chip">separate tickets</span>`:''}${link}
@@ -459,7 +484,7 @@ function renderDetail(){
 
   const v = verdictOf(t);
   const vp = v.verdict==='book' ? `<span class="pill buy v-pill">${ICONS.check(13)} BOOK NOW</span>` : v.verdict==='book-soon' ? '<span class="pill soon v-pill">! BOOK SOON</span>' : `<span class="pill hold v-pill">${ICONS.clock(13)} HOLD</span>`;
-  document.getElementById('verdict').innerHTML = `${vp}<div class="v-text">${v.note}</div>`;
+  document.getElementById('verdict').innerHTML = `${vp}<div class="v-text">${noteHtml(v.note)}</div>`;
 
   document.getElementById('bookLinks').innerHTML =
     `<a class="blink" href="${LINKS[t].gf}" target="_blank" rel="noopener">${ICONS.plane(14)} These flights on Google Flights <span class="arr">${LINKS[t].gfNote} ↗</span></a>` +
@@ -496,7 +521,7 @@ function renderDetail(){
     `<span class="key">${AL[s.al+'s']} <i style="background:${s.color}"></i>${s.name}</span>`).join('');
 
   const ins = latest().insights||[];
-  document.getElementById('insightBox').innerHTML = ins.length? '<b>Market signals today:</b> ' + ins.join(' · ') : '';
+  document.getElementById('insightBox').innerHTML = ins.length? '<b>Market signals today</b><ul class="note-list" style="margin-top:6px">' + ins.map(x=>'<li>'+x+'</li>').join('') + '</ul>' : '';
   document.getElementById('insightBox').style.display = ins.length? '' : 'none';
 
   drawChart();
@@ -577,7 +602,7 @@ function renderQA(t, cur, mid, vs, m, b){
   document.getElementById('qaTable').innerHTML = `
     <tr><td class="q">1 · What’s a fair price today?</td><td class="a"><b>${fmt$(b.low)}–${fmt$(b.high)} pp</b> (${b.label}). Under ${fmt$(b.low)} = book without hesitation.</td></tr>
     <tr><td class="q">2 · Which way are prices heading?</td><td class="a">${trend}</td></tr>
-    <tr><td class="q">3 · Should I book now?</td><td class="a"><b>${v.verdict==='book'?'Yes — book.':v.verdict==='book-soon'?'Soon.':'Not yet.'}</b> ${v.note}</td></tr>
+    <tr><td class="q">3 · Should I book now?</td><td class="a"><b>${v.verdict==='book'?'Yes — book.':v.verdict==='book-soon'?'Soon.':'Not yet.'}</b>${noteHtml(v.note)}</td></tr>
     <tr><td class="q">4 · How far off the benchmark am I?</td><td class="a">${cur!=null? `Today: <b>${fmt$(Math.abs(vs))} ${vs<=0?'below':'above'}</b> the fair midpoint (${fmt$(mid)}) → ${fmt$(Math.abs(vs)*m.pax)} ${vs<=0?'saved':'premium'} for ${m.pax} traveller${m.pax>1?'s':''}.` : 'Awaiting first scan.'}</td></tr>`;
 }
 
