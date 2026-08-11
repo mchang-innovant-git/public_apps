@@ -146,6 +146,14 @@
   .scard .price small { font-size: var(--fs-sm); font-weight: 500; color: var(--text-muted); }
   .scard .chips { display: flex; gap: 7px; flex-wrap: wrap; }
   .scard svg.spark { flex: none; }
+  .stats { margin-top: 4px; }
+  .stat { display:flex; justify-content:space-between; align-items:baseline; gap:10px; padding:6px 0; border-top:1px solid var(--grid); font-size:var(--fs-sm); }
+  .stat .sl { color:var(--text-muted); white-space:nowrap; }
+  .stat .sv { text-align:right; color:var(--text-primary); }
+  .stat .sv.down { color:var(--good-text); font-weight:650; }
+  .stat .sv.up { color:var(--critical); font-weight:650; }
+  .stat .sv.dim { color:var(--text-muted); font-weight:400; }
+  .traits { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; min-height:1px; }
   .chip { font-size: var(--fs-sm); border-radius: 999px; padding: 4px 12px; background: var(--page); border: 1px solid var(--border); color: var(--text-secondary); }
   .chip b { font-weight: 650; }
   .chip.down b { color: var(--good-text); }
@@ -450,20 +458,26 @@ function renderSummary(){
     const vp = v==='book' ? `<span class="pill buy">${ICONS.check(11)} BOOK</span>` : v==='book-soon' ? '<span class="pill soon">! SOON</span>' : `<span class="pill hold">${ICONS.clock(11)} HOLD</span>`;
     const lt = latest().trips[t]||{};
     const link = m.linkedTo ? `<span class="chip">${ICONS.link(13)} with <b>${DATA.meta.trips[m.linkedTo].label}</b>${lt.bestDep? ' · <b>'+fmtD(lt.bestDep)+'→'+fmtD(lt.bestRet)+'</b>':''}</span>` : '';
+    const traits = [
+      m.linkedTo? `<span class="chip">${ICONS.link(13)} departs with ${DATA.meta.trips[m.linkedTo].label}</span>`:'',
+      t==='seniors'? `<span class="pill cabin">${CABIN_LABEL[t]}</span>`:'',
+      t==='familyJapan'? `<span class="pill cabin">+ 3 nights Japan</span><span class="chip">separate tickets</span>`:''
+    ].join('');
+    const osRow = (os && ns!=null)
+      ? `<span class="sv ${os.price<ns?'down':os.price>ns?'up':'dim'}">${os.price===ns?'no saving':(os.price<ns?'▼ '+fmt$(ns-os.price):'▲ '+fmt$(os.price-ns))+' · '+(os.extraTime||'')+' total'}</span>`
+      : `<span class="sv dim">first scan pending</span>`;
     return `<button class="scard${i===active?' active':''}${v==='book'?' act-glow':''}" onclick="setActive(${i})">
       <div class="top"><div><div class="who">${m.label}</div><div class="dates">${m.window}</div></div>${vp}</div>
       <div class="mid"><div class="price">${(stopsMode==='compare' && os && ns!=null)
-        ? `${fmt$(ns)} <small>pp nonstop</small><div style="font-size:var(--fs-xl);color:var(--os-brand);font-weight:650;margin-top:3px">${fmt$(os.price)} <small style="font-weight:500;color:var(--text-muted)">pp ≤1 stop · ${os.extraTime||''}</small></div>`
+        ? `${fmt$(ns)} <small>pp nonstop</small><div style="font-size:var(--fs-xl);color:var(--os-brand);font-weight:650;margin-top:3px">${fmt$(os.price)} <small style="font-weight:500;color:var(--text-muted)">pp ≤1 stop</small></div>`
         : `${fmt$(cur)} <small>pp · ${b.label}${stopsMode==='onestop'&&os?' · ≤1 stop':''}</small>`}</div>${spark(seriesVals(t, (stopsMode==='onestop'&&os)?'oneStop.price':p.key), (stopsMode==='onestop'&&os)?'var(--os-brand)':p.color)}</div>
-      <div class="chips">
-        ${t==='seniors'? `<span class="pill cabin">${CABIN_LABEL[t]}</span>`:''}
-        ${t==='familyJapan'? `<span class="pill cabin">+ 3 nights Japan</span><span class="chip">separate tickets</span>`:''}${link}
-        ${wk!=null? `<span class="chip ${wk<0?'down':wk>0?'up':''}"><b>${wk===0?'→':(wk<0?'▼':'▲')} ${fmt$(Math.abs(wk))}</b>&nbsp;wk</span>`:''}
-        ${vs!=null? `<span class="chip ${vs<=0?'down':'up'}"><b>${vs<=0?'▼':'▲'} ${fmt$(Math.abs(vs))}</b>&nbsp;vs fair</span>`:''}
-        ${cur!=null? `<span class="chip">${fmt$(cur*m.pax)} total</span>`:''}
-        ${(stopsMode!=='onestop' && os && ns!=null)? `<span class="chip ${os.price<ns?'down':'up'}">${AL.OSs} <b>${os.price<ns?'−':'+'}${fmt$(Math.abs(os.price-ns)).slice(1)}</b>&nbsp;· ${os.extraTime||'?'} ${!isHouse(os.carrier)?'· '+carrierHtml(os.carrier):''}</span>`:''}
-        ${(stopsMode!=='nonstop' && !os)? `<span class="chip">1-stop: first scan pending</span>`:''}
-      </div></button>`;
+      <div class="stats">
+        <div class="stat"><span class="sl">This week</span>${wk!=null? `<span class="sv ${wk<0?'down':wk>0?'up':'dim'}">${wk===0?'flat':(wk<0?'▼ ':'▲ ')+fmt$(Math.abs(wk))}</span>`:'<span class="sv dim">first data point</span>'}</div>
+        <div class="stat"><span class="sl">Vs fair midpoint</span>${vs!=null? `<span class="sv ${vs<=0?'down':'up'}">${vs<=0?'▼ ':'▲ '}${fmt$(Math.abs(vs))}</span>`:'<span class="sv dim">—</span>'}</div>
+        <div class="stat"><span class="sl">Trip total (×${m.pax})</span>${cur!=null? `<span class="sv">${fmt$(cur*m.pax)}</span>`:'<span class="sv dim">—</span>'}</div>
+        <div class="stat"><span class="sl">${AL.OSs} ≤1 stop</span>${osRow}</div>
+      </div>
+      <div class="traits">${traits}</div></button>`;
   }).join('');
 }
 function setActive(i){ active=i; renderAll(); }
@@ -511,7 +525,7 @@ function renderDetail(){
       : `<tr><td>Whole trip</td><td>${fmt$(os.price)}</td><td class="a">${carrierHtml(os.carrier)}${os.via? ' <span style="color:var(--text-muted)">via '+os.via+'</span>':''}</td><td>—</td><td>${os.extraTime||'—'}</td></tr>`;
     const d = (nsP!=null && os.price!=null) ? os.price - nsP : null;
     osEl.innerHTML = `<h3>${AL.OS} Nonstop vs ≤1 stop <span class="pill muted">any airline · layovers ≤4h</span>
-      ${d!=null? `<span class="chip ${d<0?'down':'up'}"><b>${d<0?'▼':'▲'} ${fmt$(Math.abs(d))}</b>&nbsp;pp vs nonstop · ${os.extraTime||''}</span>`:''}</h3>
+      ${d!=null? `<span class="chip ${d<0?'down':'up'}"><b>${d<0?'▼':'▲'} ${fmt$(Math.abs(d))}</b>&nbsp;pp vs nonstop · ${os.extraTime||''} total extra travel</span>`:''}</h3>
       <div class="tbl-scroll"><table>
       <tr><th>Segment</th><th>Best ≤1 stop pp</th><th style="text-align:left">Carrier</th><th>Duration</th><th>Extra vs nonstop</th></tr>
       ${rows}</table></div>`;
