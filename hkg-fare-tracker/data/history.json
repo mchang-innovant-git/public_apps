@@ -1124,6 +1124,70 @@
         "combined": 16049,
         "note": "1 Economy + 2 Prem Econ, same flights"
       }
+    },
+    {
+      "date": "2026-08-11",
+      "source": "google-flights (via Chrome)",
+      "insights": [
+        "Google flagged a 'Travel update: Air traffic disruptions may affect flights' banner on several YYZ-HKG searches today (family and familyJapan legs) — a notice not seen on prior days; monitoring for schedule/price impact, no fare effect evident yet.",
+        "Family (Dec 18 → Jan 2, 4 adults) prices flagged 'currently high' by Google today.",
+        "Mixed-cabin masking confirmed again for seniors: the cheapest Air Canada Premium Economy pairings at Nov 24 → Jan 2 all pair a genuine PE outbound with a mixed-carrier/mixed-cabin return (Korean Air Economy + Air Canada Premium Economy) — acPey recorded as null, consistent with the Aug 9 precedent.",
+        "NEW: the same mixed-cabin masking now affects family's all-PE Air Canada search too — the previously-genuine $9,886–$11,545pp all-PE AC round trip (seen Aug 8–10) no longer exists; the only PE-outbound AC option today returns via Korean Air Economy + AC Premium Economy. family.acPey recorded as null for the first time in this tracker's history.",
+        "familyJapan leg-3 (Tokyo→Toronto nonstop AC/ANA) Premium Economy priced at $7,207pp today (Jan 3 return) — pushing the 3-leg PEY total to $13,464pp, ~76% above the Aug 10 baseline ($7,662pp). The Economy total stayed flat ($4,947 vs $4,949 Aug 10), so this looks like a PE-specific fare-bucket spike on that one leg, not a general market move.",
+        "Methodology note: solo/seniors joint date-grid was spot-checked at Nov 24 → Jan 2 (within the Nov24-Dec8 dep / Jan2-4 ret window) rather than fully re-scanned this run; full grid re-scan recommended next session."
+      ],
+      "trips": {
+        "solo": {
+          "cxEco": 2898,
+          "acEco": 3460,
+          "cxPey": 6585,
+          "bestDep": "2026-11-24",
+          "bestRet": "2027-01-02"
+        },
+        "seniors": {
+          "cxPey": 6585,
+          "acPey": null,
+          "bestDep": "2026-11-24",
+          "bestRet": "2027-01-02"
+        },
+        "family": {
+          "cxEco": 3842.75,
+          "cxEcoRet": "2027-01-02",
+          "acEco": 5880.75,
+          "cxPey": 6999.75,
+          "acPey": null
+        },
+        "familyJapan": {
+          "eco": 4947,
+          "ecoCarrier": "Cathay Pacific YYZ-HKG + Jetstar HKG-NRT + Air Canada/ANA NRT-YYZ, 3 separate nonstop one-way tickets",
+          "pey": 13464,
+          "peyCarrier": "Cathay Pacific YYZ-HKG + JAL (CX codeshare) HKG-HND + Air Canada/ANA HND-YYZ, 3 separate nonstop one-way tickets — leg-3 priced unusually high today, see insights"
+        }
+      },
+      "verdicts": {
+        "solo": {
+          "verdict": "hold",
+          "note": "Cathay Economy $2,898pp at Nov 24 → Jan 2, comfortably mid-band ($2,750–3,250). AC economy anchor $3,460. Hold; Google's cheap-booking window was last confirmed running to ~Aug 25."
+        },
+        "seniors": {
+          "verdict": "hold",
+          "note": "Premium Economy $6,585pp — still above the $4,800–5,800 band, the same persistent Jan 2/3-return fare-bucket effect seen since Aug 8. No genuine all-PE Air Canada round trip found again today (mixed-cabin return via Korean Air). Holding; band may warrant recalibration as flagged previously."
+        },
+        "family": {
+          "verdict": "book-soon",
+          "note": "Cathay Economy $3,842.75pp for the fixed Dec 18 → Jan 2 dates, flat vs prior days, in-band. Notable change: the genuine all-PE Air Canada option that existed Aug 8–10 (~$9,886–$11,545pp) is gone today — only a mixed-cabin AC/Korean Air return remains, so acPey is null. Economy fundamentals unchanged — 4 seats, peak-of-peak — still book-soon; Google flagged prices 'currently high' today."
+        },
+        "familyJapan": {
+          "verdict": "hold",
+          "note": "3-leg nonstop Economy total $4,947.00pp, essentially flat vs Aug 10 ($4,949) and within the $4,700–5,600 band. Still pricier than the direct family Economy fare ($3,842.75pp). Premium Economy total spiked to $13,464pp on a leg-3 (Tokyo→Toronto) fare-bucket jump to $7,207pp — flagging but not verdict-relevant since Economy is the reference series. Hold, no urgency."
+        }
+      },
+      "jointBestDay": {
+        "dep": "2026-11-24",
+        "ret": "2027-01-02",
+        "combined": 16068,
+        "note": "1 Economy + 2 Prem Econ, same flights"
+      }
     }
   ]
 }
