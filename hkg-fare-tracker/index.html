@@ -472,7 +472,7 @@ function renderSummary(){
         ? `${fmt$(ns)} <small>pp nonstop</small><div style="font-size:var(--fs-xl);color:var(--os-brand);font-weight:650;margin-top:3px">${fmt$(os.price)} <small style="font-weight:500;color:var(--text-muted)">pp ≤1 stop</small></div>`
         : `${fmt$(cur)} <small>pp · ${b.label}${stopsMode==='onestop'&&os?' · ≤1 stop':''}</small>`}</div>${spark(seriesVals(t, (stopsMode==='onestop'&&os)?'oneStop.price':p.key), (stopsMode==='onestop'&&os)?'var(--os-brand)':p.color)}</div>
       <div class="stats">
-        <div class="stat"><span class="sl">This week</span>${wk!=null? `<span class="sv ${wk<0?'down':wk>0?'up':'dim'}">${wk===0?'flat':(wk<0?'▼ ':'▲ ')+fmt$(Math.abs(wk))}</span>`:'<span class="sv dim">first data point</span>'}</div>
+        <div class="stat"><span class="sl">This week</span>${wk!=null? `<span class="sv ${Math.abs(wk)<1?'dim':wk<0?'down':'up'}">${Math.abs(wk)<1?'flat':(wk<0?'▼ ':'▲ ')+fmt$(Math.abs(wk))}</span>`:'<span class="sv dim">first data point</span>'}</div>
         <div class="stat"><span class="sl">Vs fair midpoint</span>${vs!=null? `<span class="sv ${vs<=0?'down':'up'}">${vs<=0?'▼ ':'▲ '}${fmt$(Math.abs(vs))}</span>`:'<span class="sv dim">—</span>'}</div>
         <div class="stat"><span class="sl">Trip total (×${m.pax})</span>${cur!=null? `<span class="sv">${fmt$(cur*m.pax)}</span>`:'<span class="sv dim">—</span>'}</div>
         <div class="stat"><span class="sl">${AL.OSs} ≤1 stop</span>${osRow}</div>
