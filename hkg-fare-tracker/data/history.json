@@ -1146,7 +1146,9 @@
         "Senior couple: no genuine all-Premium-Economy Air Canada round trip today — every option mixes in a Korean Air Economy return (same as Aug 9).",
         "New: the family trip's all-Premium-Economy Air Canada option (available Aug 8–10 at ~$9,900–11,500 per person) has also disappeared behind mixed-cabin returns.",
         "Japan trip: the Tokyo→Toronto leg in Premium Economy jumped to $7,207, nearly doubling the 3-leg Premium total — Economy stayed flat.",
-        "Method note: the solo/seniors departure-date grid was spot-checked at Nov 24 → Jan 2 today; full re-scan next run."
+        "Method note: the solo/seniors departure-date grid was spot-checked at Nov 24 → Jan 2 today; full re-scan next run.",
+        "First 1-stop scan (any airline, layovers ≤4h): family saves $338.50 per person via Seoul both ways; Japan trip saves $1,415 per person but adds ~24h travel.",
+        "Solo and seniors: allowing 1 stop saves nothing today — every cheaper option either has a >4h layover or mixes cabins."
       ],
       "trips": {
         "solo": {
@@ -1154,26 +1156,96 @@
           "acEco": 3460,
           "cxPey": 6585,
           "bestDep": "2026-11-24",
-          "bestRet": "2027-01-02"
+          "bestRet": "2027-01-02",
+          "oneStop": {
+            "price": 2898,
+            "carrier": "Cathay Pacific (nonstop)",
+            "via": null,
+            "extraTime": "+0h 0m",
+            "note": "With layovers capped at 4h, no 1-stop beats the nonstop: the $2,869 Air Canada+Cathay pairing only offers a qualifying return at $3,706 total, and EVA via Taipei is $3,049."
+          }
         },
         "seniors": {
           "cxPey": 6585,
           "acPey": null,
           "bestDep": "2026-11-24",
-          "bestRet": "2027-01-02"
+          "bestRet": "2027-01-02",
+          "oneStop": {
+            "price": 6584.5,
+            "carrier": "Cathay Pacific (nonstop)",
+            "via": null,
+            "extraTime": "+0h 0m",
+            "note": "Every cheaper 1-stop mixes cabins — e.g. EVA via Taipei at $4,627.50 per person is Premium Economy + Economy. Cheapest genuine all-Premium-Economy option remains the nonstop."
+          }
         },
         "family": {
           "cxEco": 3842.75,
           "cxEcoRet": "2027-01-02",
           "acEco": 5880.75,
           "cxPey": 6999.75,
-          "acPey": null
+          "acPey": null,
+          "oneStop": {
+            "price": 3504.25,
+            "carrier": "Air Canada + Cathay Pacific",
+            "via": "Seoul (ICN) both ways",
+            "extraTime": "+8h 0m",
+            "legs": [
+              {
+                "leg": "YYZ → HKG · Dec 18",
+                "price": null,
+                "carrier": "Air Canada + Cathay Pacific",
+                "via": "ICN (1h 10m)",
+                "dur": "20h 25m",
+                "extraTime": "+4h 35m"
+              },
+              {
+                "leg": "HKG → YYZ · Jan 2",
+                "price": null,
+                "carrier": "Cathay Pacific + Air Canada",
+                "via": "ICN (1h 35m)",
+                "dur": "18h 15m",
+                "extraTime": "+3h 25m"
+              }
+            ]
+          }
         },
         "familyJapan": {
           "eco": 4947,
           "ecoCarrier": "Cathay Pacific YYZ-HKG + Jetstar HKG-NRT + Air Canada/ANA NRT-YYZ, 3 separate nonstop one-way tickets",
           "pey": 13464,
-          "peyCarrier": "Cathay Pacific YYZ-HKG + JAL (CX codeshare) HKG-HND + Air Canada/ANA HND-YYZ, 3 separate nonstop one-way tickets — leg-3 priced unusually high today, see insights"
+          "peyCarrier": "Cathay Pacific YYZ-HKG + JAL (CX codeshare) HKG-HND + Air Canada/ANA HND-YYZ, 3 separate nonstop one-way tickets — leg-3 priced unusually high today, see insights",
+          "oneStop": {
+            "price": 3532,
+            "carrier": "Air Canada+Jeju Air / Jetstar / Qatar Airways",
+            "via": "ICN · nonstop · DOH",
+            "extraTime": "+24h 5m",
+            "legs": [
+              {
+                "leg": "YYZ → HKG · Dec 18",
+                "price": 1663,
+                "carrier": "Air Canada + Jeju Air",
+                "via": "ICN (1h 45m)",
+                "dur": "21h 20m",
+                "extraTime": "+5h 30m"
+              },
+              {
+                "leg": "HKG → Tokyo · Dec 29",
+                "price": 236,
+                "carrier": "Jetstar (nonstop)",
+                "via": null,
+                "dur": "4h 10m",
+                "extraTime": "+0h 0m"
+              },
+              {
+                "leg": "Tokyo → YYZ · Jan 3",
+                "price": 1633,
+                "carrier": "Qatar Airways",
+                "via": "DOH (3h 50m)",
+                "dur": "30h 35m",
+                "extraTime": "+18h 35m"
+              }
+            ]
+          }
         }
       },
       "verdicts": {
