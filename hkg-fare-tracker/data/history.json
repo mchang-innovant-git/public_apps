@@ -1141,12 +1141,12 @@
       "date": "2026-08-11",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google flagged a 'Travel update: Air traffic disruptions may affect flights' banner on several YYZ-HKG searches today (family and familyJapan legs) — a notice not seen on prior days; monitoring for schedule/price impact, no fare effect evident yet.",
-        "Family (Dec 18 → Jan 2, 4 adults) prices flagged 'currently high' by Google today.",
-        "Mixed-cabin masking confirmed again for seniors: the cheapest Air Canada Premium Economy pairings at Nov 24 → Jan 2 all pair a genuine PE outbound with a mixed-carrier/mixed-cabin return (Korean Air Economy + Air Canada Premium Economy) — acPey recorded as null, consistent with the Aug 9 precedent.",
-        "NEW: the same mixed-cabin masking now affects family's all-PE Air Canada search too — the previously-genuine $9,886–$11,545pp all-PE AC round trip (seen Aug 8–10) no longer exists; the only PE-outbound AC option today returns via Korean Air Economy + AC Premium Economy. family.acPey recorded as null for the first time in this tracker's history.",
-        "familyJapan leg-3 (Tokyo→Toronto nonstop AC/ANA) Premium Economy priced at $7,207pp today (Jan 3 return) — pushing the 3-leg PEY total to $13,464pp, ~76% above the Aug 10 baseline ($7,662pp). The Economy total stayed flat ($4,947 vs $4,949 Aug 10), so this looks like a PE-specific fare-bucket spike on that one leg, not a general market move.",
-        "Methodology note: solo/seniors joint date-grid was spot-checked at Nov 24 → Jan 2 (within the Nov24-Dec8 dep / Jan2-4 ret window) rather than fully re-scanned this run; full grid re-scan recommended next session."
+        "Google showed an 'air traffic disruptions may affect flights' notice on several searches today — first time seen; no visible fare impact yet.",
+        "Google rates the family trip's Dec 18 → Jan 2 prices as 'currently high'.",
+        "Senior couple: no genuine all-Premium-Economy Air Canada round trip today — every option mixes in a Korean Air Economy return (same as Aug 9).",
+        "New: the family trip's all-Premium-Economy Air Canada option (available Aug 8–10 at ~$9,900–11,500 per person) has also disappeared behind mixed-cabin returns.",
+        "Japan trip: the Tokyo→Toronto leg in Premium Economy jumped to $7,207, nearly doubling the 3-leg Premium total — Economy stayed flat.",
+        "Method note: the solo/seniors departure-date grid was spot-checked at Nov 24 → Jan 2 today; full re-scan next run."
       ],
       "trips": {
         "solo": {
@@ -1179,19 +1179,38 @@
       "verdicts": {
         "solo": {
           "verdict": "hold",
-          "note": "Cathay Economy $2,898pp at Nov 24 → Jan 2, comfortably mid-band ($2,750–3,250). AC economy anchor $3,460. Hold; Google's cheap-booking window was last confirmed running to ~Aug 25."
+          "note": [
+            "Cathay nonstop Economy: $2,898 per person (Nov 24 → Jan 2) — comfortably inside the $2,750–3,250 fair range.",
+            "Air Canada one-stop alternative: $3,460 — no reason to switch.",
+            "Hold: Google's cheap-booking window runs to ~Aug 25."
+          ]
         },
         "seniors": {
           "verdict": "hold",
-          "note": "Premium Economy $6,585pp — still above the $4,800–5,800 band, the same persistent Jan 2/3-return fare-bucket effect seen since Aug 8. No genuine all-PE Air Canada round trip found again today (mixed-cabin return via Korean Air). Holding; band may warrant recalibration as flagged previously."
+          "note": [
+            "Cathay nonstop Premium Economy: $6,585 per person — still above the $4,800–5,800 fair range.",
+            "The premium on Jan 2/3 returns has persisted since Aug 8 — a feature of these dates, not a spike.",
+            "No genuine all-Premium-Economy Air Canada option today — every return mixes in Korean Air Economy.",
+            "Hold — no buy signal; the fair range itself may need recalibrating."
+          ]
         },
         "family": {
           "verdict": "book-soon",
-          "note": "Cathay Economy $3,842.75pp for the fixed Dec 18 → Jan 2 dates, flat vs prior days, in-band. Notable change: the genuine all-PE Air Canada option that existed Aug 8–10 (~$9,886–$11,545pp) is gone today — only a mixed-cabin AC/Korean Air return remains, so acPey is null. Economy fundamentals unchanged — 4 seats, peak-of-peak — still book-soon; Google flagged prices 'currently high' today."
+          "note": [
+            "Cathay nonstop Economy: $3,842.75 per person (Dec 18 → Jan 2) — flat vs prior days, inside the fair range.",
+            "The all-Premium-Economy Air Canada option seen Aug 8–10 is gone — only mixed-cabin returns remain today.",
+            "Google flags these dates as 'currently high'.",
+            "Book soon: 4 seats at absolute peak — Google's cheap window closes ~mid-September."
+          ]
         },
         "familyJapan": {
           "verdict": "hold",
-          "note": "3-leg nonstop Economy total $4,947.00pp, essentially flat vs Aug 10 ($4,949) and within the $4,700–5,600 band. Still pricier than the direct family Economy fare ($3,842.75pp). Premium Economy total spiked to $13,464pp on a leg-3 (Tokyo→Toronto) fare-bucket jump to $7,207pp — flagging but not verdict-relevant since Economy is the reference series. Hold, no urgency."
+          "note": [
+            "Cheapest all-nonstop 3-leg route: $4,947 per person Economy — flat vs yesterday, inside the provisional fair range.",
+            "Still costs ~$1,100 more per person than the direct family trip — expected under the nonstop-only rule.",
+            "Premium Economy total spiked to $13,464 on a Tokyo→Toronto fare jump — noted, but Economy is the reference.",
+            "Hold — no urgency."
+          ]
         }
       },
       "jointBestDay": {
