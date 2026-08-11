@@ -1171,7 +1171,7 @@
           "bestDep": "2026-11-24",
           "bestRet": "2027-01-02",
           "oneStop": {
-            "price": 6584.5,
+            "price": 6585,
             "carrier": "Cathay Pacific (nonstop)",
             "via": null,
             "extraTime": "+0h 0m",
