@@ -353,7 +353,7 @@ function carrierHtml(c){ if(!c) return ''; return isHouse(c) ? c : `<span class=
 const fmt$ = v => v==null ? '—' : '$' + Math.round(v).toLocaleString('en-CA');
 const fmtD = s => new Date(s+'T12:00:00').toLocaleDateString('en-CA',{month:'short',day:'numeric'});
 
-fetch('data/history.json').then(r=>r.json()).then(d=>{
+fetch('data/history.json', {cache:'no-store'}).then(r=>r.json()).then(d=>{
   DATA = d;
   document.getElementById('app').style.display = '';
   const last = d.days[d.days.length-1];
