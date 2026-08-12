@@ -1291,6 +1291,144 @@
         "combined": 16068,
         "note": "1 Economy + 2 Prem Econ, same flights"
       }
+    },
+    {
+      "date": "2026-08-12",
+      "source": "google-flights (via Chrome)",
+      "insights": [
+        "Google's 'air traffic disruptions may affect flights' notice appeared again today on several searches — no visible fare impact yet.",
+        "Google now rates the family trip's Dec 18 to Jan 3 fares as 'typical' — the 'currently high' flag from recent days is gone.",
+        "Senior couple: no genuine all-Premium-Economy Air Canada option today — every return still mixes in Economy.",
+        "Family trip: no genuine all-Premium-Economy Air Canada option today either — every Air Canada Premium Economy return mixes in Economy.",
+        "Japan trip: the Tokyo to Toronto Premium Economy leg stayed elevated at $7,204 per person, in line with yesterday's spike.",
+        "One-stop check: solo, seniors, and family all keep the nonstop as cheapest under the 4-hour layover cap — no 1-stop savings today.",
+        "One-stop check: the Japan trip could save about $1,335 per person with 1-stop legs, but adds roughly 24 hours 15 minutes of total travel time.",
+        "Google flags the cheapest booking window for the direct family and Japan trips as open until mid-September."
+      ],
+      "trips": {
+        "solo": {
+          "cxEco": 2831,
+          "acEco": 3260,
+          "cxPey": 6585,
+          "bestDep": "2026-11-24",
+          "bestRet": "2027-01-02",
+          "oneStop": {
+            "price": 2831,
+            "carrier": "Cathay Pacific (nonstop)",
+            "via": null,
+            "extraTime": "+0h 0m",
+            "note": "With layovers capped at 4 hours, no 1-stop option beats the nonstop: EVA Air via Taipei (1h50m layover) is $3,049 per person, and Air Canada via Vancouver is $3,260."
+          }
+        },
+        "seniors": {
+          "cxPey": 6584.5,
+          "acPey": null,
+          "bestDep": "2026-11-24",
+          "bestRet": "2027-01-02",
+          "oneStop": {
+            "price": 6584.5,
+            "carrier": "Cathay Pacific (nonstop)",
+            "via": null,
+            "extraTime": "+0h 0m",
+            "note": "Every cheaper 1-stop option mixes Premium Economy with Economy — no genuine all-Premium-Economy 1-stop option exists today."
+          }
+        },
+        "family": {
+          "cxEco": 3842.75,
+          "cxEcoRet": "2027-01-03",
+          "acEco": 5914.75,
+          "cxPey": 7654.75,
+          "acPey": null,
+          "oneStop": {
+            "price": 3842.75,
+            "carrier": "Cathay Pacific (nonstop)",
+            "via": null,
+            "extraTime": "+0h 0m",
+            "note": "Cheapest qualifying 1-stop is WestJet + Cathay Pacific via Vancouver at $4,105.75 per person — costs more than the nonstop. British Airways via London is cheaper on paper ($3,537.75pp) but its 8h25m layover exceeds the 4-hour cap."
+          }
+        },
+        "familyJapan": {
+          "eco": 4842,
+          "ecoCarrier": "Cathay Pacific YYZ-HKG + Jetstar HKG-NRT + Air Canada/ANA NRT-YYZ, 3 separate nonstop one-way tickets",
+          "pey": 13414,
+          "peyCarrier": "Cathay Pacific YYZ-HKG + JAL (CX codeshare) HKG-HND + Air Canada NRT-YYZ, 3 separate nonstop one-way tickets — leg-3 priced unusually high again today, see insights",
+          "oneStop": {
+            "price": 3507,
+            "carrier": "Air Canada+Jeju Air / Jetstar / Qatar Airways",
+            "via": "ICN · nonstop · DOH",
+            "extraTime": "+24h 15m",
+            "legs": [
+              {
+                "leg": "YYZ → HKG · Dec 18",
+                "price": 1639,
+                "carrier": "Air Canada + Jeju Air",
+                "via": "ICN (1h 45m)",
+                "dur": "21h 20m",
+                "extraTime": "+5h 40m"
+              },
+              {
+                "leg": "HKG → Tokyo · Dec 29",
+                "price": 235,
+                "carrier": "Jetstar (nonstop)",
+                "via": null,
+                "dur": "4h 10m",
+                "extraTime": "+0h 0m"
+              },
+              {
+                "leg": "Tokyo → YYZ · Jan 3",
+                "price": 1633,
+                "carrier": "Qatar Airways",
+                "via": "DOH (3h 50m)",
+                "dur": "30h 35m",
+                "extraTime": "+18h 35m"
+              }
+            ]
+          }
+        }
+      },
+      "verdicts": {
+        "solo": {
+          "verdict": "hold",
+          "note": [
+            "Cathay nonstop Economy: $2,831 per person (Nov 24 → Jan 2) — down $67 from yesterday, inside the $2,750–3,250 fair range.",
+            "Air Canada one-stop alternative: $3,260 — no reason to switch.",
+            "Hold — no urgency; switches to book-soon after Sep 15."
+          ]
+        },
+        "seniors": {
+          "verdict": "hold",
+          "note": [
+            "Cathay nonstop Premium Economy: $6,584.50 per person — still well above the $4,800–5,800 fair range.",
+            "Up about $1,225 from a week ago — the elevated price on these dates is climbing, not just holding steady.",
+            "No genuine all-Premium-Economy Air Canada option today — every return mixes in Economy.",
+            "Hold — no buy signal, but watch closely given the rising trend."
+          ]
+        },
+        "family": {
+          "verdict": "book-soon",
+          "note": [
+            "Cathay nonstop Economy: $3,842.75 per person (Dec 18 → Jan 3) — flat vs yesterday, inside the fair range.",
+            "No genuine all-Premium-Economy Air Canada option today — every return mixes in Economy.",
+            "Google now rates these dates as 'typical' pricing, no longer flagged as 'currently high.'",
+            "Book soon: 4 seats at absolute peak — Google's cheap window closes around mid-September."
+          ]
+        },
+        "familyJapan": {
+          "verdict": "book-soon",
+          "note": [
+            "Cheapest all-nonstop 3-leg route: $4,842 per person Economy — down $105 from yesterday, inside the provisional fair range.",
+            "About $999 more per person than the direct family trip — expected under the nonstop-only rule.",
+            "Premium Economy total stayed high at $13,414, driven by a persistently expensive Tokyo→Toronto leg.",
+            "Book soon: same fixed Dec 18 peak date and 4 seats as the direct family trip — no reason to wait longer."
+          ]
+        }
+      },
+      "jointBestDay": {
+        "dep": "2026-11-24",
+        "ret": "2027-01-02",
+        "combined": 16000,
+        "note": "1 Economy + 2 Prem Econ, same flights"
+      }
     }
   ]
 }
