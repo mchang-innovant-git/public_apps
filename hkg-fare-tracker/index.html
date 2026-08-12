@@ -300,7 +300,7 @@
     <li><b>Family of 4 Direct</b> — departs Dec 18, returns Jan 2–4.</li>
     <li><b>Solo + Senior couple</b> — depart the same day. The scan picks the departure in Nov 24–Dec 8 (returns Jan 2–4) minimizing combined cost: 1× Economy + 2× Prem Econ on the same flights.</li>
     <li><b>Series</b> — <span class="al sm cx" style="vertical-align:-4px">CX</span> Cathay Pacific nonstop · <span class="al sm ac" style="vertical-align:-4px">AC</span> Air Canada one-stop via Vancouver · <span class="al sm mc" style="vertical-align:-4px">MC</span> cheapest nonstop multi-carrier combo (Japan trip).</li>
-    <li><b>1-stop comparison</b> — <span class="al sm os" style="vertical-align:-4px">1S</span> cheapest itinerary allowing up to one stop per direction/leg: any airline (non-CX/AC carriers such as Korean Air are <span class="carrier-hl">highlighted</span>), layovers capped at 4 hours. Shown as price saved vs nonstop plus extra travel time. Full daily history kept, same as every other series.</li>
+    <li><b>1-stop comparison</b> — <span class="al sm os" style="vertical-align:-4px">1S</span> cheapest itinerary allowing up to one stop per direction/leg: any airline (non-CX/AC carriers such as Korean Air are <span class="carrier-hl">highlighted</span>), capped at 4 hours of <i>total added travel time</i> vs nonstop (not just a short layover — a quick connection can still sit inside a much longer routing, e.g. a Doha detour, and that's excluded too). If nothing qualifies, we show nonstop only and say so. Shown as price saved vs nonstop plus extra travel time. Full daily history kept, same as every other series.</li>
     <li><b>Before you pay</b> — always confirm on the airline&rsquo;s own site. This tracker times the decision; the airline sets the final price.</li>
     <li><b>Data</b> — <a href="data/history.json">data/history.json</a> · built and updated automatically by Maurice&rsquo;s Claude tracker.</li>
   </ul>
@@ -373,8 +373,8 @@ function setStops(m){ stopsMode = m; document.querySelectorAll('#stopsToggle but
 function updateStopsNote(){
   const any = TRIP_ORDER.some(t=>osOf(t));
   const el = document.getElementById('stopsNote');
-  if (!any) { el.innerHTML = '<b>No 1-stop data yet</b> — first scan lands with the next daily update, so all three views currently show the same nonstop prices. Rules: any airline, layovers ≤4h, non-CX/AC carriers highlighted.'; }
-  else { el.textContent = 'Any airline · layovers capped at 4h · non-CX/AC carriers highlighted'; }
+  if (!any) { el.innerHTML = '<b>No 1-stop data yet</b> — first scan lands with the next daily update, so all three views currently show the same nonstop prices. Rules: any airline, ≤4h of total added travel time vs nonstop, non-CX/AC carriers highlighted.'; }
+  else { el.textContent = 'Any airline · ≤4h added travel time vs nonstop · non-CX/AC carriers highlighted'; }
 }
 function noteBullets(n){ const arr = Array.isArray(n)? n : String(n||'').split(/\.\s+(?=[A-Z($])/).map(s=>s.trim()).filter(Boolean).map(s=>/[.!?]$/.test(s)?s:s+'.'); return arr; }
 function noteHtml(n){ const a = noteBullets(n); return a.length>1? '<ul class="note-list">'+a.map(x=>'<li>'+x+'</li>').join('')+'</ul>' : (a[0]||''); }
@@ -464,7 +464,9 @@ function renderSummary(){
       t==='familyJapan'? `<span class="pill cabin">+ 3 nights Japan</span><span class="chip">separate tickets</span>`:''
     ].join('');
     const osRow = (os && ns!=null)
-      ? `<span class="sv ${os.price<ns?'down':os.price>ns?'up':'dim'}">${os.price===ns?'no saving':(os.price<ns?'▼ '+fmt$(ns-os.price):'▲ '+fmt$(os.price-ns))+' · '+(os.extraTime||'')+' total'}</span>`
+      ? (os.noneQualified
+          ? `<span class="sv dim">none ≤4h found</span>`
+          : `<span class="sv ${os.price<ns?'down':os.price>ns?'up':'dim'}">${os.price===ns?'no saving':(os.price<ns?'▼ '+fmt$(ns-os.price):'▲ '+fmt$(os.price-ns))+' · '+(os.extraTime||'')+' total'}</span>`)
       : `<span class="sv dim">first scan pending</span>`;
     return `<button class="scard${i===active?' active':''}${v==='book'?' act-glow':''}" onclick="setActive(${i})">
       <div class="top"><div><div class="who">${m.label}</div><div class="dates">${m.window}</div></div>${vp}</div>
@@ -517,14 +519,17 @@ function renderDetail(){
   const os = osOf(t);
   const osEl = document.getElementById('osCmp');
   if (!os) {
-    osEl.innerHTML = `<h3>${AL.OS} Nonstop vs ≤1 stop</h3><div class="none">1-stop tracking (any airline, layovers ≤4h) starts with the next daily scan — first data expected ${DATA.meta.oneStop? fmtD(DATA.meta.oneStop.startedOn) : 'soon'}.</div>`;
+    osEl.innerHTML = `<h3>${AL.OS} Nonstop vs ≤1 stop</h3><div class="none">1-stop tracking (any airline, ≤4h of total added travel time vs nonstop) starts with the next daily scan — first data expected ${DATA.meta.oneStop? fmtD(DATA.meta.oneStop.startedOn) : 'soon'}.</div>`;
+  } else if (os.noneQualified) {
+    osEl.innerHTML = `<h3>${AL.OS} Nonstop vs ≤1 stop <span class="pill muted">any airline · ≤4h added travel time vs nonstop</span></h3>
+      <div class="none">No 1-stop itinerary stayed within 4 hours of nonstop today — every option we found added far more travel time (or repriced higher once selected). Nonstop remains the best real option, so no 1-stop route is shown.${os.note?`<br><span style="color:var(--text-muted)">${os.note}</span>`:''}</div>`;
   } else {
     const nsP = cur;
     const rows = (os.legs && os.legs.length)
       ? os.legs.map(L=>`<tr><td>${L.leg}</td><td>${fmt$(L.price)}</td><td class="a">${carrierHtml(L.carrier)}${L.via? ' <span style="color:var(--text-muted)">via '+L.via+'</span>':''}</td><td>${L.dur||'—'}</td><td>${L.extraTime||'—'}</td></tr>`).join('')
       : `<tr><td>Whole trip</td><td>${fmt$(os.price)}</td><td class="a">${carrierHtml(os.carrier)}${os.via? ' <span style="color:var(--text-muted)">via '+os.via+'</span>':''}</td><td>—</td><td>${os.extraTime||'—'}</td></tr>`;
     const d = (nsP!=null && os.price!=null) ? os.price - nsP : null;
-    osEl.innerHTML = `<h3>${AL.OS} Nonstop vs ≤1 stop <span class="pill muted">any airline · layovers ≤4h</span>
+    osEl.innerHTML = `<h3>${AL.OS} Nonstop vs ≤1 stop <span class="pill muted">any airline · ≤4h added travel time vs nonstop</span>
       ${d!=null? `<span class="chip ${d<0?'down':'up'}"><b>${d<0?'▼':'▲'} ${fmt$(Math.abs(d))}</b>&nbsp;pp vs nonstop · ${os.extraTime||''} total extra travel</span>`:''}</h3>
       <div class="tbl-scroll"><table>
       <tr><th>Segment</th><th>Best ≤1 stop pp</th><th style="text-align:left">Carrier</th><th>Duration</th><th>Extra vs nonstop</th></tr>

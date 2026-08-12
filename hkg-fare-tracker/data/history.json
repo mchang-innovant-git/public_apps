@@ -1189,7 +1189,8 @@
             "carrier": "Cathay Pacific (nonstop)",
             "via": null,
             "extraTime": "+0h 0m",
-            "note": "Corrected 2026-08-12: the Air Canada+Cathay routing via Seoul added 8h vs nonstop, over the 4-hour cap. No qualifying 1-stop existed that day, so this now shows nonstop."
+            "note": "Corrected 2026-08-12: the Air Canada+Cathay routing via Seoul added 8h vs nonstop, over the 4-hour cap. No qualifying 1-stop existed that day, so this now shows nonstop.",
+            "noneQualified": true
           }
         },
         "familyJapan": {
@@ -1202,7 +1203,8 @@
             "carrier": "Cathay Pacific YYZ-HKG + Jetstar HKG-NRT + Air Canada/ANA NRT-YYZ, 3 separate nonstop one-way tickets",
             "via": null,
             "extraTime": "+0h 0m",
-            "note": "Corrected 2026-08-12: the Air Canada+Jeju Air (outbound) and Qatar Airways via Doha (return) routings added 5.5h and 18.5h vs nonstop, both over the 4-hour cap. No qualifying 1-stop existed that day, so this now shows nonstop."
+            "note": "Corrected 2026-08-12: the Air Canada+Jeju Air (outbound) and Qatar Airways via Doha (return) routings added 5.5h and 18.5h vs nonstop, both over the 4-hour cap. No qualifying 1-stop existed that day, so this now shows nonstop.",
+            "noneQualified": true
           }
         }
       },
@@ -1342,7 +1344,9 @@
                 "dur": "12h 0m",
                 "extraTime": "+0h 0m"
               }
-            ]
+            ],
+            "noneQualified": true,
+            "note": "The Air Canada+Jeju Air (outbound via Seoul) and Qatar Airways (return via Doha) routings looked cheap but added 5h40m and 18h35m of extra travel — both rejected as over the 4-hour cap. A Vancouver routing fit the time cap but repriced to $3,147, well above nonstop."
           }
         }
       },
