@@ -1185,28 +1185,11 @@
           "cxPey": 6999.75,
           "acPey": null,
           "oneStop": {
-            "price": 3504.25,
-            "carrier": "Air Canada + Cathay Pacific",
-            "via": "Seoul (ICN) both ways",
-            "extraTime": "+8h 0m",
-            "legs": [
-              {
-                "leg": "YYZ → HKG · Dec 18",
-                "price": null,
-                "carrier": "Air Canada + Cathay Pacific",
-                "via": "ICN (1h 10m)",
-                "dur": "20h 25m",
-                "extraTime": "+4h 35m"
-              },
-              {
-                "leg": "HKG → YYZ · Jan 2",
-                "price": null,
-                "carrier": "Cathay Pacific + Air Canada",
-                "via": "ICN (1h 35m)",
-                "dur": "18h 15m",
-                "extraTime": "+3h 25m"
-              }
-            ]
+            "price": 3842.75,
+            "carrier": "Cathay Pacific (nonstop)",
+            "via": null,
+            "extraTime": "+0h 0m",
+            "note": "Corrected 2026-08-12: the Air Canada+Cathay routing via Seoul added 8h vs nonstop, over the 4-hour cap. No qualifying 1-stop existed that day, so this now shows nonstop."
           }
         },
         "familyJapan": {
@@ -1215,36 +1198,11 @@
           "pey": 13464,
           "peyCarrier": "Cathay Pacific YYZ-HKG + JAL (CX codeshare) HKG-HND + Air Canada/ANA HND-YYZ, 3 separate nonstop one-way tickets — leg-3 priced unusually high today, see insights",
           "oneStop": {
-            "price": 3532,
-            "carrier": "Air Canada+Jeju Air / Jetstar / Qatar Airways",
-            "via": "ICN · nonstop · DOH",
-            "extraTime": "+24h 5m",
-            "legs": [
-              {
-                "leg": "YYZ → HKG · Dec 18",
-                "price": 1663,
-                "carrier": "Air Canada + Jeju Air",
-                "via": "ICN (1h 45m)",
-                "dur": "21h 20m",
-                "extraTime": "+5h 30m"
-              },
-              {
-                "leg": "HKG → Tokyo · Dec 29",
-                "price": 236,
-                "carrier": "Jetstar (nonstop)",
-                "via": null,
-                "dur": "4h 10m",
-                "extraTime": "+0h 0m"
-              },
-              {
-                "leg": "Tokyo → YYZ · Jan 3",
-                "price": 1633,
-                "carrier": "Qatar Airways",
-                "via": "DOH (3h 50m)",
-                "dur": "30h 35m",
-                "extraTime": "+18h 35m"
-              }
-            ]
+            "price": 4947,
+            "carrier": "Cathay Pacific YYZ-HKG + Jetstar HKG-NRT + Air Canada/ANA NRT-YYZ, 3 separate nonstop one-way tickets",
+            "via": null,
+            "extraTime": "+0h 0m",
+            "note": "Corrected 2026-08-12: the Air Canada+Jeju Air (outbound) and Qatar Airways via Doha (return) routings added 5.5h and 18.5h vs nonstop, both over the 4-hour cap. No qualifying 1-stop existed that day, so this now shows nonstop."
           }
         }
       },
