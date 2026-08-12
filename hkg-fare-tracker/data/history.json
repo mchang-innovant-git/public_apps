@@ -1303,7 +1303,9 @@
         "Japan trip: the Tokyo to Toronto Premium Economy leg stayed elevated at $7,204 per person, in line with yesterday's spike.",
         "One-stop check: solo, seniors, and family all keep the nonstop as cheapest under the 4-hour layover cap — no 1-stop savings today.",
         "One-stop check: the Japan trip could save about $1,335 per person with 1-stop legs, but adds roughly 24 hours 15 minutes of total travel time.",
-        "Google flags the cheapest booking window for the direct family and Japan trips as open until mid-September."
+        "Google flags the cheapest booking window for the direct family and Japan trips as open until mid-September.",
+        "Correction: no 1-stop option for the Japan trip's outbound or return legs actually stays within 4 hours of extra travel time once fully checked, so both legs now show nonstop as the 1-stop comparison too.",
+        "The Air Canada+Jeju Air (Toronto-Seoul-HKG) and Qatar Airways (Tokyo-Doha-Toronto) routings looked cheap but added 5.5 to 18.5 hours of extra travel — both rejected as too far outside the 4-hour cap."
       ],
       "trips": {
         "solo": {
@@ -1353,18 +1355,18 @@
           "pey": 13414,
           "peyCarrier": "Cathay Pacific YYZ-HKG + JAL (CX codeshare) HKG-HND + Air Canada NRT-YYZ, 3 separate nonstop one-way tickets — leg-3 priced unusually high again today, see insights",
           "oneStop": {
-            "price": 3507,
-            "carrier": "Air Canada+Jeju Air / Jetstar / Qatar Airways",
-            "via": "ICN · nonstop · DOH",
-            "extraTime": "+24h 15m",
+            "price": 4949,
+            "carrier": "Cathay Pacific + Jetstar + Air Canada/ANA (all nonstop legs)",
+            "via": null,
+            "extraTime": "+0h 0m",
             "legs": [
               {
                 "leg": "YYZ → HKG · Dec 18",
-                "price": 1639,
-                "carrier": "Air Canada + Jeju Air",
-                "via": "ICN (1h 45m)",
-                "dur": "21h 20m",
-                "extraTime": "+5h 40m"
+                "price": 2789,
+                "carrier": "Cathay Pacific (nonstop)",
+                "via": null,
+                "dur": "15h 40m",
+                "extraTime": "+0h 0m"
               },
               {
                 "leg": "HKG → Tokyo · Dec 29",
@@ -1376,11 +1378,11 @@
               },
               {
                 "leg": "Tokyo → YYZ · Jan 3",
-                "price": 1633,
-                "carrier": "Qatar Airways",
-                "via": "DOH (3h 50m)",
-                "dur": "30h 35m",
-                "extraTime": "+18h 35m"
+                "price": 1925,
+                "carrier": "Air Canada/ANA (nonstop)",
+                "via": null,
+                "dur": "12h 0m",
+                "extraTime": "+0h 0m"
               }
             ]
           }
