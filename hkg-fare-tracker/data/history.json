@@ -7,13 +7,13 @@
     "trips": {
       "familyJapan": {
         "label": "Family + Japan stopover",
-        "pax": 4,
-        "window": "Dep Dec 18 (nonstop CX), HKG→Tokyo ~Dec 29 (nonstop), Tokyo→YYZ Jan 3 (nonstop AC/ANA) — nonstop only on all 3 legs, 3 nights in Japan",
+        "pax": 5,
+        "window": "Dep Dec 18 (nonstop CX), HKG\u2192Tokyo ~Dec 29 (nonstop), Tokyo\u2192YYZ Jan 3 (nonstop AC/ANA) \u2014 nonstop only on all 3 legs, 3 nights in Japan",
         "cabins": "Economy + Premium Economy (nonstop only, 3 separate one-way tickets)"
       },
       "family": {
-        "label": "Family of 4 Direct",
-        "pax": 4,
+        "label": "Family of 5 Direct",
+        "pax": 5,
         "window": "Dec 18 dep, Jan 2-4 ret",
         "cabins": "Economy (PE reference)"
       },
@@ -69,7 +69,7 @@
       "enabled": true,
       "startedOn": "2026-08-12",
       "rules": "For each trip, also record the cheapest itinerary allowing up to 1 stop per direction/leg, any airline (not limited to CX/AC), layovers capped at 4h. Record price pp, carrier(s), connection point(s), and total extra travel time vs the nonstop reference. Non-CX/AC carriers (e.g. Korean Air) are highlighted on the dashboard.",
-      "schema": "day.trips.<trip>.oneStop = {price, carrier, via, extraTime, legs?[]} — price is pp in the trip's primary cabin series; extraTime is total added time vs nonstop across all directions/legs as '+Xh Ym'; legs[] (familyJapan and optionally round trips) = [{leg, price, carrier, via, dur, extraTime}]"
+      "schema": "day.trips.<trip>.oneStop = {price, carrier, via, extraTime, legs?[]} \u2014 price is pp in the trip's primary cabin series; extraTime is total added time vs nonstop across all directions/legs as '+Xh Ym'; legs[] (familyJapan and optionally round trips) = [{leg, price, carrier, via, dur, extraTime}]"
     }
   },
   "days": [
@@ -126,10 +126,10 @@
       "date": "2026-07-23",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google: cheapest time to book is usually now — window runs to ~Aug 25 for the solo/seniors dates and ~Sep 13 for the family dates",
+        "Google: cheapest time to book is usually now \u2014 window runs to ~Aug 25 for the solo/seniors dates and ~Sep 13 for the family dates",
         "Google: prices currently 'typical' on all three trips",
-        "No all-Premium-Economy AC itinerary exists today for Dec 1 → Jan 2 (2 pax) — every option prices the YYZ–YVR leg in Economy; cheapest mixed-cabin was $6,869 pp (not comparable to the acPey series)",
-        "Family: Jan 4 return is now cheapest on CX nonstop Economy — $3,826 pp vs $3,871 for Jan 2"
+        "No all-Premium-Economy AC itinerary exists today for Dec 1 \u2192 Jan 2 (2 pax) \u2014 every option prices the YYZ\u2013YVR leg in Economy; cheapest mixed-cabin was $6,869 pp (not comparable to the acPey series)",
+        "Family: Jan 4 return is now cheapest on CX nonstop Economy \u2014 $3,826 pp vs $3,871 for Jan 2"
       ],
       "trips": {
         "solo": {
@@ -156,15 +156,15 @@
       "verdicts": {
         "solo": {
           "verdict": "hold",
-          "note": "Unchanged at $3,016 for Dec 1 &rarr; Jan 4 — in the fair band. Google's cheap booking window runs to ~Aug 25; hold and book any dip under $2,750."
+          "note": "Unchanged at $3,016 for Dec 1 &rarr; Jan 4 \u2014 in the fair band. Google's cheap booking window runs to ~Aug 25; hold and book any dip under $2,750."
         },
         "seniors": {
           "verdict": "hold",
-          "note": "Steady at $5,220 pp for Dec 1 &rarr; Jan 4, same flights as Solo. No all-PE Air Canada fallback today (mixed-cabin only), which makes the CX fare the only real option — book any dip under $4,800."
+          "note": "Steady at $5,220 pp for Dec 1 &rarr; Jan 4, same flights as Solo. No all-PE Air Canada fallback today (mixed-cabin only), which makes the CX fare the only real option \u2014 book any dip under $4,800."
         },
         "family": {
           "verdict": "book-soon",
-          "note": "Jan 4 return is now the cheapest at $3,826 pp (Jan 2 is $3,871) — in band but peak date, 4 seats, and Google's cheap window closes ~Sep 13. Plan to book within 3-4 weeks unless a dip comes sooner."
+          "note": "Jan 4 return is now the cheapest at $3,826 pp (Jan 2 is $3,871) \u2014 in band but peak date, 4 seats, and Google's cheap window closes ~Sep 13. Plan to book within 3-4 weeks unless a dip comes sooner."
         }
       },
       "jointBestDay": {
@@ -178,10 +178,10 @@
       "date": "2026-07-24",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google: cheapest time to book is usually now — window runs to ~Aug 25 for the solo/seniors dates and ~Sep 13 for the family dates",
+        "Google: cheapest time to book is usually now \u2014 window runs to ~Aug 25 for the solo/seniors dates and ~Sep 13 for the family dates",
         "Google: prices currently 'typical' on all three trips",
-        "Air Canada now shows a genuine all-Premium-Economy YYZ→YVR→HKG outbound ($13,902 for 2 pax round trip), but every matching return pairs Economy with Premium Economy — still no true all-PE round trip exists",
-        "Family: Jan 4 return remains cheapest on CX nonstop Economy — $3,780 pp vs $3,820.50 for Jan 2"
+        "Air Canada now shows a genuine all-Premium-Economy YYZ\u2192YVR\u2192HKG outbound ($13,902 for 2 pax round trip), but every matching return pairs Economy with Premium Economy \u2014 still no true all-PE round trip exists",
+        "Family: Jan 4 return remains cheapest on CX nonstop Economy \u2014 $3,780 pp vs $3,820.50 for Jan 2"
       ],
       "trips": {
         "solo": {
@@ -208,15 +208,15 @@
       "verdicts": {
         "solo": {
           "verdict": "hold",
-          "note": "Unchanged at $3,016 for Dec 1 &rarr; Jan 4 — still in the fair band. AC economy anchor eased to $3,263 (Dec 3 &rarr; Jan 4). Hold and book any dip under $2,750."
+          "note": "Unchanged at $3,016 for Dec 1 &rarr; Jan 4 \u2014 still in the fair band. AC economy anchor eased to $3,263 (Dec 3 &rarr; Jan 4). Hold and book any dip under $2,750."
         },
         "seniors": {
           "verdict": "hold",
-          "note": "Steady at $5,220 pp for Dec 1 &rarr; Jan 4, same flights as Solo. Found a genuine all-Premium-Economy AC outbound today, but every paired return mixes Economy — still no true all-PE round trip. Book any dip under $4,800."
+          "note": "Steady at $5,220 pp for Dec 1 &rarr; Jan 4, same flights as Solo. Found a genuine all-Premium-Economy AC outbound today, but every paired return mixes Economy \u2014 still no true all-PE round trip. Book any dip under $4,800."
         },
         "family": {
           "verdict": "book-soon",
-          "note": "Jan 4 return remains cheapest at $3,780 pp (Jan 2 is $3,820.50), down slightly from yesterday — in band but peak date, 4 seats, and Google's cheap window closes ~Sep 13. Plan to book within 3-4 weeks unless a dip comes sooner."
+          "note": "Jan 4 return remains cheapest at $3,780 pp (Jan 2 is $3,820.50), down slightly from yesterday \u2014 in band but peak date, 4 seats, and Google's cheap window closes ~Sep 13. Plan to book within 3-4 weeks unless a dip comes sooner."
         }
       },
       "jointBestDay": {
@@ -230,10 +230,10 @@
       "date": "2026-07-25",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google: cheapest time to book is usually now — window for the family dates closes ~Sep 11 (down from ~Sep 13 yesterday)",
+        "Google: cheapest time to book is usually now \u2014 window for the family dates closes ~Sep 11 (down from ~Sep 13 yesterday)",
         "Google: prices currently 'typical' for Cathay Pacific on all three trips, but 'high' for Air Canada on the family route",
-        "Family: found a genuine all-Premium-Economy Air Canada round trip today at $9,549 pp — first time this fare has priced out as true all-PE rather than mixed-cabin, though still far above the CX Economy fare",
-        "Solo/Seniors: still no genuine all-PE Air Canada round trip for Dec 1 → Jan 2 — every option remains mixed-cabin"
+        "Family: found a genuine all-Premium-Economy Air Canada round trip today at $9,549 pp \u2014 first time this fare has priced out as true all-PE rather than mixed-cabin, though still far above the CX Economy fare",
+        "Solo/Seniors: still no genuine all-PE Air Canada round trip for Dec 1 \u2192 Jan 2 \u2014 every option remains mixed-cabin"
       ],
       "trips": {
         "solo": {
@@ -260,15 +260,15 @@
       "verdicts": {
         "solo": {
           "verdict": "hold",
-          "note": "Unchanged at $3,016 for Dec 1 &rarr; Jan 4 — still in the fair band. Hold and book any dip under $2,750."
+          "note": "Unchanged at $3,016 for Dec 1 &rarr; Jan 4 \u2014 still in the fair band. Hold and book any dip under $2,750."
         },
         "seniors": {
           "verdict": "hold",
-          "note": "Steady at $5,220 pp for Dec 1 &rarr; Jan 4, same flights as Solo. Still no genuine all-PE Air Canada round trip (mixed-cabin only) — book any dip under $4,800."
+          "note": "Steady at $5,220 pp for Dec 1 &rarr; Jan 4, same flights as Solo. Still no genuine all-PE Air Canada round trip (mixed-cabin only) \u2014 book any dip under $4,800."
         },
         "family": {
           "verdict": "book-soon",
-          "note": "Jan 4 return remains cheapest at $3,789 pp (Jan 2 is $3,834) — in band but peak date, 4 seats, and Google's cheap window closes ~Sep 11. AC's genuine all-PE fare priced out today at $9,549 pp, for reference only. Plan to book within a few weeks unless a dip comes sooner."
+          "note": "Jan 4 return remains cheapest at $3,789 pp (Jan 2 is $3,834) \u2014 in band but peak date, 4 seats, and Google's cheap window closes ~Sep 11. AC's genuine all-PE fare priced out today at $9,549 pp, for reference only. Plan to book within a few weeks unless a dip comes sooner."
         }
       },
       "jointBestDay": {
@@ -282,11 +282,11 @@
       "date": "2026-07-26",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google: cheapest time to book is usually now — window closes ~Aug 21 for solo/seniors dates and ~Sep 11 for family dates",
+        "Google: cheapest time to book is usually now \u2014 window closes ~Aug 21 for solo/seniors dates and ~Sep 11 for family dates",
         "Google: prices currently typical across all three trips",
-        "Family: found a genuine all-Premium-Economy Air Canada round trip again today at $9,549 pp — matches the fare found Jul 25",
-        "Solo/Seniors: still no genuine all-PE Air Canada round trip for Dec 1 → Jan 2 — cheapest all-PE AC outbound priced at $9,215 pp today but every paired return mixes Economy",
-        "Family: Jan 4 return remains cheapest on CX nonstop Economy — $3,789.25 pp vs higher for Jan 2"
+        "Family: found a genuine all-Premium-Economy Air Canada round trip again today at $9,549 pp \u2014 matches the fare found Jul 25",
+        "Solo/Seniors: still no genuine all-PE Air Canada round trip for Dec 1 \u2192 Jan 2 \u2014 cheapest all-PE AC outbound priced at $9,215 pp today but every paired return mixes Economy",
+        "Family: Jan 4 return remains cheapest on CX nonstop Economy \u2014 $3,789.25 pp vs higher for Jan 2"
       ],
       "trips": {
         "solo": {
@@ -313,15 +313,15 @@
       "verdicts": {
         "solo": {
           "verdict": "hold",
-          "note": "Unchanged at $3,016 for Dec 1 &rarr; Jan 4 — still in the fair band. AC economy anchor at $3,430 (Dec 1 &rarr; Jan 2, 1 stop via YVR). Hold and book any dip under $2,750."
+          "note": "Unchanged at $3,016 for Dec 1 &rarr; Jan 4 \u2014 still in the fair band. AC economy anchor at $3,430 (Dec 1 &rarr; Jan 2, 1 stop via YVR). Hold and book any dip under $2,750."
         },
         "seniors": {
           "verdict": "hold",
-          "note": "Steady at $5,220 pp for Dec 1 &rarr; Jan 4, same flights as Solo. Still no genuine all-PE Air Canada round trip (mixed-cabin only) — book any dip under $4,800."
+          "note": "Steady at $5,220 pp for Dec 1 &rarr; Jan 4, same flights as Solo. Still no genuine all-PE Air Canada round trip (mixed-cabin only) \u2014 book any dip under $4,800."
         },
         "family": {
           "verdict": "book-soon",
-          "note": "Jan 4 return remains cheapest at $3,789 pp — in band but peak date, 4 seats, and Google's cheap window closes ~Sep 11. AC's genuine all-PE fare priced out again today at $9,549 pp, for reference only. Plan to book within a few weeks unless a dip comes sooner."
+          "note": "Jan 4 return remains cheapest at $3,789 pp \u2014 in band but peak date, 4 seats, and Google's cheap window closes ~Sep 11. AC's genuine all-PE fare priced out again today at $9,549 pp, for reference only. Plan to book within a few weeks unless a dip comes sooner."
         }
       },
       "jointBestDay": {
@@ -335,12 +335,12 @@
       "date": "2026-07-27",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google: cheapest time to book is usually now — window closes ~Aug 25 for solo/seniors dates and ~Sep 13 for family dates",
+        "Google: cheapest time to book is usually now \u2014 window closes ~Aug 25 for solo/seniors dates and ~Sep 13 for family dates",
         "Google: prices currently typical across all three trips",
-        "Solo/Seniors: still no genuine all-PE Air Canada round trip for Dec 1 → Jan 2 — outbound priced as low as $9,215 pp in PE, but every paired return mixes Economy",
-        "Family: found a genuine all-Premium-Economy Air Canada round trip today at $8,976 pp — cheaper than the $9,549 pp seen Jul 25-26",
-        "Family: Jan 4 return remains cheapest on CX nonstop Economy — $3,825.75 pp vs $3,837 for Jan 2 and $3,870.75 for Jan 3",
-        "Solo PE reference (cxPey) jumped back up to $6,629 pp today, reversing the dip to $5,366 seen Jul 26 — notable day-to-day volatility in that cabin"
+        "Solo/Seniors: still no genuine all-PE Air Canada round trip for Dec 1 \u2192 Jan 2 \u2014 outbound priced as low as $9,215 pp in PE, but every paired return mixes Economy",
+        "Family: found a genuine all-Premium-Economy Air Canada round trip today at $8,976 pp \u2014 cheaper than the $9,549 pp seen Jul 25-26",
+        "Family: Jan 4 return remains cheapest on CX nonstop Economy \u2014 $3,825.75 pp vs $3,837 for Jan 2 and $3,870.75 for Jan 3",
+        "Solo PE reference (cxPey) jumped back up to $6,629 pp today, reversing the dip to $5,366 seen Jul 26 \u2014 notable day-to-day volatility in that cabin"
       ],
       "trips": {
         "solo": {
@@ -367,15 +367,15 @@
       "verdicts": {
         "solo": {
           "verdict": "hold",
-          "note": "Unchanged at $3,016 for Dec 1 &rarr; Jan 4 — still in the fair band. AC economy anchor at $3,390 (Dec 1 &rarr; Jan 2, 1 stop via YVR). Hold and book any dip under $2,750."
+          "note": "Unchanged at $3,016 for Dec 1 &rarr; Jan 4 \u2014 still in the fair band. AC economy anchor at $3,390 (Dec 1 &rarr; Jan 2, 1 stop via YVR). Hold and book any dip under $2,750."
         },
         "seniors": {
           "verdict": "hold",
-          "note": "Steady at $5,220 pp for Dec 1 &rarr; Jan 4, same flights as Solo. Still no genuine all-PE Air Canada round trip (mixed-cabin only) — book any dip under $4,800."
+          "note": "Steady at $5,220 pp for Dec 1 &rarr; Jan 4, same flights as Solo. Still no genuine all-PE Air Canada round trip (mixed-cabin only) \u2014 book any dip under $4,800."
         },
         "family": {
           "verdict": "book-soon",
-          "note": "Jan 4 return remains cheapest at $3,826 pp — in band but peak date, 4 seats, and Google's cheap window closes ~Sep 13. AC's genuine all-PE fare eased to $8,976 pp today (vs $9,549 recently), for reference only. Plan to book within a few weeks unless a dip comes sooner."
+          "note": "Jan 4 return remains cheapest at $3,826 pp \u2014 in band but peak date, 4 seats, and Google's cheap window closes ~Sep 13. AC's genuine all-PE fare eased to $8,976 pp today (vs $9,549 recently), for reference only. Plan to book within a few weeks unless a dip comes sooner."
         }
       },
       "jointBestDay": {
@@ -389,10 +389,10 @@
       "date": "2026-07-28",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google: cheapest time to book is usually now — window closes ~Aug 21 for solo/seniors AC-economy dates and ~Sep 13 for family CX-nonstop dates",
+        "Google: cheapest time to book is usually now \u2014 window closes ~Aug 21 for solo/seniors AC-economy dates and ~Sep 13 for family CX-nonstop dates",
         "Google: prices currently typical across all three trips",
-        "Solo/Seniors: no genuine all-Premium-Economy Air Canada round trip found today for Dec 1 -> Jan 2 — every paired itinerary mixed Economy and Premium Economy",
-        "Family: no genuine all-Premium-Economy Air Canada round trip found today either (Dec 18 -> Jan 2) — all AC combinations paired Economy with Premium Economy on one leg",
+        "Solo/Seniors: no genuine all-Premium-Economy Air Canada round trip found today for Dec 1 -> Jan 2 \u2014 every paired itinerary mixed Economy and Premium Economy",
+        "Family: no genuine all-Premium-Economy Air Canada round trip found today either (Dec 18 -> Jan 2) \u2014 all AC combinations paired Economy with Premium Economy on one leg",
         "Family: Jan 4 return remains cheapest on CX nonstop Economy -- $3,825.75 pp vs $3,860.75 for Jan 2/3",
         "Solo PE reference (cxPey, Dec 1 -> Jan 2) at $7,525 pp -- Jan 2 return is a pricier date than the Jan 4 date solo/seniors actually book"
       ],
@@ -443,10 +443,10 @@
       "date": "2026-07-29",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google: cheapest time to book is usually now — window closes ~Aug 25 for solo/seniors AC-economy dates and ~Sep 13 for family CX-nonstop dates",
+        "Google: cheapest time to book is usually now \u2014 window closes ~Aug 25 for solo/seniors AC-economy dates and ~Sep 13 for family CX-nonstop dates",
         "Google: prices currently typical across all three trips",
-        "Seniors: a genuine all-Premium-Economy Air Canada round trip priced out today at $9,215 pp (Dec 1 → Jan 2) — first true all-PE round trip found for this pair in several days (recently mixed-cabin only)",
-        "Family: Jan 4 return remains cheapest on CX nonstop Economy — $3,726.25 pp vs $3,770.75 for Jan 2, a roughly $100 pp dip from yesterday",
+        "Seniors: a genuine all-Premium-Economy Air Canada round trip priced out today at $9,215 pp (Dec 1 \u2192 Jan 2) \u2014 first true all-PE round trip found for this pair in several days (recently mixed-cabin only)",
+        "Family: Jan 4 return remains cheapest on CX nonstop Economy \u2014 $3,726.25 pp vs $3,770.75 for Jan 2, a roughly $100 pp dip from yesterday",
         "Family: a genuine all-PE Air Canada round trip also priced out today at $9,745.75 pp, back after being unavailable (mixed-cabin only) yesterday"
       ],
       "trips": {
@@ -474,15 +474,15 @@
       "verdicts": {
         "solo": {
           "verdict": "hold",
-          "note": "Unchanged at $3,016 for Dec 1 &rarr; Jan 4 — still in the fair band. AC economy anchor held near $3,429 (Dec 1 &rarr; Jan 2, 1 stop via YVR). Hold and book any dip under $2,750."
+          "note": "Unchanged at $3,016 for Dec 1 &rarr; Jan 4 \u2014 still in the fair band. AC economy anchor held near $3,429 (Dec 1 &rarr; Jan 2, 1 stop via YVR). Hold and book any dip under $2,750."
         },
         "seniors": {
           "verdict": "hold",
-          "note": "Steady at $5,220 pp for Dec 1 &rarr; Jan 4, same flights as Solo. Found a genuine all-PE Air Canada round trip again today at $9,215 pp — first time in several days it hasn't been mixed-cabin. Book any dip under $4,800."
+          "note": "Steady at $5,220 pp for Dec 1 &rarr; Jan 4, same flights as Solo. Found a genuine all-PE Air Canada round trip again today at $9,215 pp \u2014 first time in several days it hasn't been mixed-cabin. Book any dip under $4,800."
         },
         "family": {
           "verdict": "book-soon",
-          "note": "Jan 4 return remains cheapest at $3,726 pp (Jan 2 is $3,771) — a roughly $100 pp dip from yesterday, but still in band; peak date, 4 seats, and Google's cheap window closes ~Sep 13. AC's genuine all-PE fare reappeared at $9,746 pp, for reference only. Plan to book within a few weeks unless a dip comes sooner."
+          "note": "Jan 4 return remains cheapest at $3,726 pp (Jan 2 is $3,771) \u2014 a roughly $100 pp dip from yesterday, but still in band; peak date, 4 seats, and Google's cheap window closes ~Sep 13. AC's genuine all-PE fare reappeared at $9,746 pp, for reference only. Plan to book within a few weeks unless a dip comes sooner."
         }
       },
       "jointBestDay": {
@@ -496,10 +496,10 @@
       "date": "2026-07-30",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google: cheapest time to book is usually now — window closes ~Aug 21 for solo/seniors AC-economy dates and ~Sep 13 for family CX-nonstop dates",
+        "Google: cheapest time to book is usually now \u2014 window closes ~Aug 21 for solo/seniors AC-economy dates and ~Sep 13 for family CX-nonstop dates",
         "Google: prices currently typical across all three trips",
-        "Seniors: a genuine all-Premium-Economy Air Canada round trip priced out today at $7,148 pp (Dec 1 → Jan 2) — notably cheaper than the $9,215 pp seen Jul 29",
-        "Family: Jan 4 return remains cheapest on CX nonstop Economy — $3,726.75 pp vs $3,770.75 for Jan 2",
+        "Seniors: a genuine all-Premium-Economy Air Canada round trip priced out today at $7,148 pp (Dec 1 \u2192 Jan 2) \u2014 notably cheaper than the $9,215 pp seen Jul 29",
+        "Family: Jan 4 return remains cheapest on CX nonstop Economy \u2014 $3,726.75 pp vs $3,770.75 for Jan 2",
         "Family: a genuine all-PE Air Canada round trip also priced out today at $9,746 pp, in line with recent readings"
       ],
       "trips": {
@@ -549,10 +549,10 @@
       "date": "2026-07-31",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google: cheapest time to book remains now — window closes ~Aug 21 for solo/seniors AC-economy dates and ~Sep 13 for family CX-nonstop dates",
+        "Google: cheapest time to book remains now \u2014 window closes ~Aug 21 for solo/seniors AC-economy dates and ~Sep 13 for family CX-nonstop dates",
         "Google: prices currently typical across all three trips",
-        "Seniors: genuine all-PE Air Canada round trip priced at $7,148 pp (Dec 1 → Jan 2) — unchanged from yesterday's reading",
-        "Family: Jan 4 return remains cheapest on CX nonstop Economy — $3,726.75 pp vs $3,770.75 for Jan 2, flat vs yesterday"
+        "Seniors: genuine all-PE Air Canada round trip priced at $7,148 pp (Dec 1 \u2192 Jan 2) \u2014 unchanged from yesterday's reading",
+        "Family: Jan 4 return remains cheapest on CX nonstop Economy \u2014 $3,726.75 pp vs $3,770.75 for Jan 2, flat vs yesterday"
       ],
       "trips": {
         "solo": {
@@ -579,15 +579,15 @@
       "verdicts": {
         "solo": {
           "verdict": "hold",
-          "note": "Steady at $3,016 for Dec 1 → Jan 4 — still in the fair band. AC economy anchor at $3,438 (1 stop via YVR), unchanged. Hold and book any dip under $2,750."
+          "note": "Steady at $3,016 for Dec 1 \u2192 Jan 4 \u2014 still in the fair band. AC economy anchor at $3,438 (1 stop via YVR), unchanged. Hold and book any dip under $2,750."
         },
         "seniors": {
           "verdict": "hold",
-          "note": "At $5,366 pp for Dec 1 → Jan 4, up modestly from $5,220 yesterday but still comfortably in band. Genuine all-PE Air Canada fare held flat at $7,148 pp, for reference. Book any dip under $4,800."
+          "note": "At $5,366 pp for Dec 1 \u2192 Jan 4, up modestly from $5,220 yesterday but still comfortably in band. Genuine all-PE Air Canada fare held flat at $7,148 pp, for reference. Book any dip under $4,800."
         },
         "family": {
           "verdict": "book-soon",
-          "note": "Jan 4 return remains cheapest at $3,726.75 pp (Jan 2 is $3,770.75) — flat vs yesterday, still in band; peak date, 4 seats, and Google's cheap window closes ~Sep 13. AC's genuine all-PE fare at $9,745.75 pp, for reference only. Plan to book within a few weeks unless a dip comes sooner."
+          "note": "Jan 4 return remains cheapest at $3,726.75 pp (Jan 2 is $3,770.75) \u2014 flat vs yesterday, still in band; peak date, 4 seats, and Google's cheap window closes ~Sep 13. AC's genuine all-PE fare at $9,745.75 pp, for reference only. Plan to book within a few weeks unless a dip comes sooner."
         }
       },
       "jointBestDay": {
@@ -601,10 +601,10 @@
       "date": "2026-08-01",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google: cheapest time to book remains now — window runs to ~Aug 25 for solo/seniors AC-economy dates and ~Sep 11-13 for family dates",
+        "Google: cheapest time to book remains now \u2014 window runs to ~Aug 25 for solo/seniors AC-economy dates and ~Sep 11-13 for family dates",
         "Google: prices currently 'typical' on solo/seniors and family economy fares; AC's Premium Economy fares for the family search flagged 'currently high'",
-        "Joint-best date pair shifted from Dec 1 → Jan 4 to Dec 3 → Jan 4 today — Premium Economy dropped enough on the Dec 3 departure to offset a higher Economy fare and win on combined cost",
-        "Family: Jan 4 return remains cheapest on CX nonstop Economy — $3,726.75 pp vs $3,770.75 for Jan 2/Jan 3, unchanged from yesterday"
+        "Joint-best date pair shifted from Dec 1 \u2192 Jan 4 to Dec 3 \u2192 Jan 4 today \u2014 Premium Economy dropped enough on the Dec 3 departure to offset a higher Economy fare and win on combined cost",
+        "Family: Jan 4 return remains cheapest on CX nonstop Economy \u2014 $3,726.75 pp vs $3,770.75 for Jan 2/Jan 3, unchanged from yesterday"
       ],
       "trips": {
         "solo": {
@@ -631,15 +631,15 @@
       "verdicts": {
         "solo": {
           "verdict": "hold",
-          "note": "Joint-best pair shifted to Dec 3 → Jan 4 at $3,210 pp — up $194 from the steady $3,016 baseline held since Jul 22, though still in the fair band near the $3,250 ceiling. AC economy anchor $3,449 (1 stop via YVR). Hold and book any dip under $2,750."
+          "note": "Joint-best pair shifted to Dec 3 \u2192 Jan 4 at $3,210 pp \u2014 up $194 from the steady $3,016 baseline held since Jul 22, though still in the fair band near the $3,250 ceiling. AC economy anchor $3,449 (1 stop via YVR). Hold and book any dip under $2,750."
         },
         "seniors": {
           "verdict": "hold",
-          "note": "Joint-best pair moved to Dec 3 → Jan 4 (same day as Solo) at $5,220 pp — back to the multi-week baseline after yesterday's $5,366 blip. Genuine all-PE Air Canada fare at $9,215 pp, for reference. Book any dip under $4,800."
+          "note": "Joint-best pair moved to Dec 3 \u2192 Jan 4 (same day as Solo) at $5,220 pp \u2014 back to the multi-week baseline after yesterday's $5,366 blip. Genuine all-PE Air Canada fare at $9,215 pp, for reference. Book any dip under $4,800."
         },
         "family": {
           "verdict": "book-soon",
-          "note": "Jan 4 return remains cheapest at $3,726.75 pp (Jan 2 and Jan 3 both $3,770.75) — flat vs yesterday, still in band; peak date, 4 seats, and Google's cheap window closes ~Sep 11-13. AC's genuine all-PE fare at $9,548.25 pp, for reference only. Plan to book within a few weeks unless a dip comes sooner."
+          "note": "Jan 4 return remains cheapest at $3,726.75 pp (Jan 2 and Jan 3 both $3,770.75) \u2014 flat vs yesterday, still in band; peak date, 4 seats, and Google's cheap window closes ~Sep 11-13. AC's genuine all-PE fare at $9,548.25 pp, for reference only. Plan to book within a few weeks unless a dip comes sooner."
         }
       },
       "jointBestDay": {
@@ -653,10 +653,10 @@
       "date": "2026-08-02",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google: cheapest time to book remains now — window runs to ~Sep 13 for family CX-nonstop dates; prices currently typical across all three trips",
-        "Joint-best date pair for solo+seniors holds at Dec 3 → Jan 4, unchanged from yesterday",
-        "No genuine all-Premium-Economy Air Canada round trip found today for solo/seniors (Dec 1 → Jan 2) or family (Dec 18 → Jan 2) — every AC PE itinerary priced as mixed Economy + Premium Economy on one leg",
-        "Family: Jan 4 return remains cheapest on CX nonstop Economy — $3,726.75 pp vs $3,911 for Jan 2/Jan 3",
+        "Google: cheapest time to book remains now \u2014 window runs to ~Sep 13 for family CX-nonstop dates; prices currently typical across all three trips",
+        "Joint-best date pair for solo+seniors holds at Dec 3 \u2192 Jan 4, unchanged from yesterday",
+        "No genuine all-Premium-Economy Air Canada round trip found today for solo/seniors (Dec 1 \u2192 Jan 2) or family (Dec 18 \u2192 Jan 2) \u2014 every AC PE itinerary priced as mixed Economy + Premium Economy on one leg",
+        "Family: Jan 4 return remains cheapest on CX nonstop Economy \u2014 $3,726.75 pp vs $3,911 for Jan 2/Jan 3",
         "Google flagged an 'Airspace restrictions may affect flights' travel advisory on some Air Canada searches today"
       ],
       "trips": {
@@ -684,15 +684,15 @@
       "verdicts": {
         "solo": {
           "verdict": "hold",
-          "note": "Joint-best pair steady at Dec 3 → Jan 4 — $3,233 pp, up modestly from $3,210 yesterday but still comfortably in the fair band near the $3,250 ceiling. AC economy anchor $3,645 (1 stop via YVR, fixed Dec 1 → Jan 2 dates). Hold and book any dip under $2,750."
+          "note": "Joint-best pair steady at Dec 3 \u2192 Jan 4 \u2014 $3,233 pp, up modestly from $3,210 yesterday but still comfortably in the fair band near the $3,250 ceiling. AC economy anchor $3,645 (1 stop via YVR, fixed Dec 1 \u2192 Jan 2 dates). Hold and book any dip under $2,750."
         },
         "seniors": {
           "verdict": "hold",
-          "note": "Joint-best pair unchanged at Dec 3 → Jan 4 (same day as Solo) — $5,220 pp, flat vs yesterday. No genuine all-PE Air Canada round trip found today (mixed-cabin only) — book any dip under $4,800."
+          "note": "Joint-best pair unchanged at Dec 3 \u2192 Jan 4 (same day as Solo) \u2014 $5,220 pp, flat vs yesterday. No genuine all-PE Air Canada round trip found today (mixed-cabin only) \u2014 book any dip under $4,800."
         },
         "family": {
           "verdict": "book-soon",
-          "note": "Jan 4 return remains cheapest at $3,726.75 pp (Jan 2/Jan 3 both $3,911) — flat vs yesterday, still in band; peak date, 4 seats, and Google's cheap window closes ~Sep 13. No genuine all-PE AC fare found today (mixed-cabin only). Plan to book within a few weeks unless a dip comes sooner."
+          "note": "Jan 4 return remains cheapest at $3,726.75 pp (Jan 2/Jan 3 both $3,911) \u2014 flat vs yesterday, still in band; peak date, 4 seats, and Google's cheap window closes ~Sep 13. No genuine all-PE AC fare found today (mixed-cabin only). Plan to book within a few weeks unless a dip comes sooner."
         }
       },
       "jointBestDay": {
@@ -706,11 +706,11 @@
       "date": "2026-08-03",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google: cheapest time to book remains now — window runs to ~Aug 25 for solo/seniors dates and ~Sep 13 for family dates; prices currently typical across all three trips",
-        "Joint-best date pair for solo+seniors holds at Dec 3 → Jan 4, unchanged for the second day running",
-        "Genuine all-Premium-Economy Air Canada outbound found today for both solo/seniors (Dec 1) and family (Dec 18) legs, but every matching return still mixes Economy + Premium Economy — still no true all-PE AC round trip",
-        "Family: Jan 4 return remains cheapest on CX nonstop Economy — $3,867 pp vs $3,911 for Jan 2/Jan 3, up from $3,726.75 yesterday (first move in about a week)",
-        "Solo cxEco has climbed from $3,016 to $3,233 over the past week and is now within $17 of the $3,250 band ceiling — worth watching"
+        "Google: cheapest time to book remains now \u2014 window runs to ~Aug 25 for solo/seniors dates and ~Sep 13 for family dates; prices currently typical across all three trips",
+        "Joint-best date pair for solo+seniors holds at Dec 3 \u2192 Jan 4, unchanged for the second day running",
+        "Genuine all-Premium-Economy Air Canada outbound found today for both solo/seniors (Dec 1) and family (Dec 18) legs, but every matching return still mixes Economy + Premium Economy \u2014 still no true all-PE AC round trip",
+        "Family: Jan 4 return remains cheapest on CX nonstop Economy \u2014 $3,867 pp vs $3,911 for Jan 2/Jan 3, up from $3,726.75 yesterday (first move in about a week)",
+        "Solo cxEco has climbed from $3,016 to $3,233 over the past week and is now within $17 of the $3,250 band ceiling \u2014 worth watching"
       ],
       "trips": {
         "solo": {
@@ -737,15 +737,15 @@
       "verdicts": {
         "solo": {
           "verdict": "hold",
-          "note": "Joint-best pair steady at Dec 3 → Jan 4 — $3,233 pp, unchanged from yesterday but up from $3,016 a week ago and now within $17 of the $3,250 band ceiling. AC economy anchor $3,685 (1 stop via YVR, fixed Dec 1 → Jan 2). Hold and book any dip under $2,750."
+          "note": "Joint-best pair steady at Dec 3 \u2192 Jan 4 \u2014 $3,233 pp, unchanged from yesterday but up from $3,016 a week ago and now within $17 of the $3,250 band ceiling. AC economy anchor $3,685 (1 stop via YVR, fixed Dec 1 \u2192 Jan 2). Hold and book any dip under $2,750."
         },
         "seniors": {
           "verdict": "hold",
-          "note": "Joint-best pair unchanged at Dec 3 → Jan 4 (same day as Solo) — $5,220 pp, flat for the second straight week. A genuine all-PE Air Canada outbound exists today, but every paired return still mixes cabins — no true all-PE round trip. Book any dip under $4,800."
+          "note": "Joint-best pair unchanged at Dec 3 \u2192 Jan 4 (same day as Solo) \u2014 $5,220 pp, flat for the second straight week. A genuine all-PE Air Canada outbound exists today, but every paired return still mixes cabins \u2014 no true all-PE round trip. Book any dip under $4,800."
         },
         "family": {
           "verdict": "book-soon",
-          "note": "Jan 4 return remains cheapest at $3,867 pp, up from $3,726.75 — the first move in about a week, but still comfortably in band. Peak date, 4 seats, and Google's cheap window closes ~Sep 13. Found a genuine all-PE AC outbound today, but the return still mixes cabins. Plan to book within a few weeks unless a dip comes sooner."
+          "note": "Jan 4 return remains cheapest at $3,867 pp, up from $3,726.75 \u2014 the first move in about a week, but still comfortably in band. Peak date, 4 seats, and Google's cheap window closes ~Sep 13. Found a genuine all-PE AC outbound today, but the return still mixes cabins. Plan to book within a few weeks unless a dip comes sooner."
         }
       },
       "jointBestDay": {
@@ -759,10 +759,10 @@
       "date": "2026-08-04",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google: cheapest time to book remains now — window runs to ~Aug 25-27 for solo/seniors dates and ~Sep 13-14 for family dates; prices currently typical across all three trips",
-        "Joint-best date pair for solo+seniors shifted to Dec 1 → Jan 4 today (several dates from Nov 24 through Dec 2 now tie at the same lowest combined price of $13,566, down from $13,673 yesterday's Dec 3 → Jan 4 pair)",
-        "Solo cxEco pulled back sharply from $3,233 to $2,846 at the joint-best pair — a notable drop after climbing near the $3,250 band ceiling yesterday",
-        "Reconfirmed: genuine all-Premium-Economy Air Canada outbound exists for both solo/seniors (Dec 1) and family (Dec 18) legs, but every matching return still mixes carriers and cabins (Korean Air + Air Canada, Economy + Premium Economy) — still no true all-PE AC round trip",
+        "Google: cheapest time to book remains now \u2014 window runs to ~Aug 25-27 for solo/seniors dates and ~Sep 13-14 for family dates; prices currently typical across all three trips",
+        "Joint-best date pair for solo+seniors shifted to Dec 1 \u2192 Jan 4 today (several dates from Nov 24 through Dec 2 now tie at the same lowest combined price of $13,566, down from $13,673 yesterday's Dec 3 \u2192 Jan 4 pair)",
+        "Solo cxEco pulled back sharply from $3,233 to $2,846 at the joint-best pair \u2014 a notable drop after climbing near the $3,250 band ceiling yesterday",
+        "Reconfirmed: genuine all-Premium-Economy Air Canada outbound exists for both solo/seniors (Dec 1) and family (Dec 18) legs, but every matching return still mixes carriers and cabins (Korean Air + Air Canada, Economy + Premium Economy) \u2014 still no true all-PE AC round trip",
         "Family: cheapest CX nonstop Economy return flipped from Jan 4 ($3,867 pp) to Jan 2/Jan 3 (tied at $3,843 pp), reversing yesterday's Jan 4 preference"
       ],
       "trips": {
@@ -790,11 +790,11 @@
       "verdicts": {
         "solo": {
           "verdict": "hold",
-          "note": "Joint-best pair moved to Dec 1 → Jan 4 — $2,846 pp, a sharp pullback from $3,233 yesterday and well off the $3,250 band ceiling. AC economy anchor $3,545 (1 stop via YVR, fixed Dec 1 → Jan 2). Hold and book any dip under $2,750."
+          "note": "Joint-best pair moved to Dec 1 \u2192 Jan 4 \u2014 $2,846 pp, a sharp pullback from $3,233 yesterday and well off the $3,250 band ceiling. AC economy anchor $3,545 (1 stop via YVR, fixed Dec 1 \u2192 Jan 2). Hold and book any dip under $2,750."
         },
         "seniors": {
           "verdict": "hold",
-          "note": "Joint-best pair now Dec 1 → Jan 4 (same day as Solo) — $5,360 pp, within band and roughly flat versus recent weeks. A genuine all-PE Air Canada outbound exists today, but every paired return still mixes carriers and cabins — no true all-PE round trip. Book any dip under $4,800."
+          "note": "Joint-best pair now Dec 1 \u2192 Jan 4 (same day as Solo) \u2014 $5,360 pp, within band and roughly flat versus recent weeks. A genuine all-PE Air Canada outbound exists today, but every paired return still mixes carriers and cabins \u2014 no true all-PE round trip. Book any dip under $4,800."
         },
         "family": {
           "verdict": "book-soon",
@@ -812,9 +812,9 @@
       "date": "2026-08-05",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google: cheapest time to book remains now — window runs to ~Aug 21-25 for solo/seniors dates and ~Sep 13-14 for family dates; prices currently typical across all three trips",
-        "Joint-best pair unchanged at Dec 1 → Jan 4 today, still tied across several dates from Nov 24 through Dec 2, all at the same lowest combined price of $13,566 — identical to yesterday, no movement in the solo/seniors floor",
-        "Reconfirmed: genuine all-Premium-Economy Air Canada outbound exists for both solo/seniors (Dec 1) and family (Dec 18) legs, but every matching return still mixes carriers and cabins (Korean Air + Air Canada, Economy + Premium Economy) — still no true all-PE AC round trip",
+        "Google: cheapest time to book remains now \u2014 window runs to ~Aug 21-25 for solo/seniors dates and ~Sep 13-14 for family dates; prices currently typical across all three trips",
+        "Joint-best pair unchanged at Dec 1 \u2192 Jan 4 today, still tied across several dates from Nov 24 through Dec 2, all at the same lowest combined price of $13,566 \u2014 identical to yesterday, no movement in the solo/seniors floor",
+        "Reconfirmed: genuine all-Premium-Economy Air Canada outbound exists for both solo/seniors (Dec 1) and family (Dec 18) legs, but every matching return still mixes carriers and cabins (Korean Air + Air Canada, Economy + Premium Economy) \u2014 still no true all-PE AC round trip",
         "Family: cheapest CX nonstop Economy return remains tied Jan 2/Jan 3 at $3,843 pp, unchanged from yesterday; CX nonstop Premium Economy reference jumped to $7,286 pp from $6,614 yesterday (+10%), the largest single-day family PE move seen so far"
       ],
       "trips": {
@@ -842,15 +842,15 @@
       "verdicts": {
         "solo": {
           "verdict": "hold",
-          "note": "Joint-best pair holds at Dec 1 → Jan 4 — $2,846 pp, unchanged from yesterday and comfortably within band. AC economy anchor $3,550 (1 stop via YVR, Dec 1 → Jan 2). Hold and book any dip under $2,750."
+          "note": "Joint-best pair holds at Dec 1 \u2192 Jan 4 \u2014 $2,846 pp, unchanged from yesterday and comfortably within band. AC economy anchor $3,550 (1 stop via YVR, Dec 1 \u2192 Jan 2). Hold and book any dip under $2,750."
         },
         "seniors": {
           "verdict": "hold",
-          "note": "Joint-best pair steady at Dec 1 → Jan 4 — $5,360 pp, flat versus yesterday and mid-band. A genuine all-PE Air Canada outbound exists today, but every paired return still mixes carriers and cabins — no true all-PE round trip. Book any dip under $4,800."
+          "note": "Joint-best pair steady at Dec 1 \u2192 Jan 4 \u2014 $5,360 pp, flat versus yesterday and mid-band. A genuine all-PE Air Canada outbound exists today, but every paired return still mixes carriers and cabins \u2014 no true all-PE round trip. Book any dip under $4,800."
         },
         "family": {
           "verdict": "book-soon",
-          "note": "Cheapest CX nonstop Economy return holds at Jan 2/Jan 3 — $3,843 pp, unchanged from yesterday. CX nonstop Premium Economy reference jumped 10% to $7,286 pp. Peak date, 4 seats, and Google's cheap window closes ~Sep 13-14. Plan to book within a few weeks unless a dip comes sooner."
+          "note": "Cheapest CX nonstop Economy return holds at Jan 2/Jan 3 \u2014 $3,843 pp, unchanged from yesterday. CX nonstop Premium Economy reference jumped 10% to $7,286 pp. Peak date, 4 seats, and Google's cheap window closes ~Sep 13-14. Plan to book within a few weeks unless a dip comes sooner."
         }
       },
       "jointBestDay": {
@@ -864,10 +864,10 @@
       "date": "2026-08-06",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google: cheapest time to book remains now — window runs to ~Aug 25 for solo/seniors dates and ~Sep 13-14 for family dates; prices currently typical across all three trips",
-        "Joint-best pair unchanged at Dec 1 → Jan 4 today — combined $13,568 for 1 Economy + 2 Prem Econ, essentially flat versus yesterday's $13,566 floor (no real movement)",
+        "Google: cheapest time to book remains now \u2014 window runs to ~Aug 25 for solo/seniors dates and ~Sep 13-14 for family dates; prices currently typical across all three trips",
+        "Joint-best pair unchanged at Dec 1 \u2192 Jan 4 today \u2014 combined $13,568 for 1 Economy + 2 Prem Econ, essentially flat versus yesterday's $13,566 floor (no real movement)",
         "Family: cheapest CX nonstop Economy return shifted to Jan 4 today at $3,799 pp, down from the Jan 2/Jan 3 tie at $3,843 yesterday. CX nonstop Premium Economy reference held flat at $7,286 pp",
-        "Reconfirmed: still no genuine all-Premium-Economy Air Canada round trip for solo/seniors (return keeps mixing Korean Air + Air Canada, Economy + Premium Economy cabins). For family (Dec 18 dep), however, a genuine all-Air Canada, all-PE round trip does exist today at $50,664 total / $12,666 pp — new data point, not previously confirmed"
+        "Reconfirmed: still no genuine all-Premium-Economy Air Canada round trip for solo/seniors (return keeps mixing Korean Air + Air Canada, Economy + Premium Economy cabins). For family (Dec 18 dep), however, a genuine all-Air Canada, all-PE round trip does exist today at $50,664 total / $12,666 pp \u2014 new data point, not previously confirmed"
       ],
       "trips": {
         "solo": {
@@ -894,15 +894,15 @@
       "verdicts": {
         "solo": {
           "verdict": "hold",
-          "note": "Joint-best pair holds at Dec 1 → Jan 4 — $2,847 pp, essentially flat versus yesterday and comfortably within band. AC economy anchor $3,490 (1 stop via YVR, Dec 1 → Jan 2). Hold and book any dip under $2,750."
+          "note": "Joint-best pair holds at Dec 1 \u2192 Jan 4 \u2014 $2,847 pp, essentially flat versus yesterday and comfortably within band. AC economy anchor $3,490 (1 stop via YVR, Dec 1 \u2192 Jan 2). Hold and book any dip under $2,750."
         },
         "seniors": {
           "verdict": "hold",
-          "note": "Joint-best pair steady at Dec 1 → Jan 4 — $5,361 pp, flat versus yesterday and mid-band. A genuine all-PE Air Canada outbound exists today, but every paired return still mixes carriers and cabins — no true all-PE round trip. Book any dip under $4,800."
+          "note": "Joint-best pair steady at Dec 1 \u2192 Jan 4 \u2014 $5,361 pp, flat versus yesterday and mid-band. A genuine all-PE Air Canada outbound exists today, but every paired return still mixes carriers and cabins \u2014 no true all-PE round trip. Book any dip under $4,800."
         },
         "family": {
           "verdict": "book-soon",
-          "note": "Cheapest CX nonstop Economy return moved to Jan 4 — $3,799 pp, down from the Jan 2/Jan 3 tie at $3,843 yesterday. CX nonstop Premium Economy reference held flat at $7,286 pp. Peak date, 4 seats, and Google's cheap window closes ~Sep 13-14. Plan to book within a few weeks unless a dip comes sooner."
+          "note": "Cheapest CX nonstop Economy return moved to Jan 4 \u2014 $3,799 pp, down from the Jan 2/Jan 3 tie at $3,843 yesterday. CX nonstop Premium Economy reference held flat at $7,286 pp. Peak date, 4 seats, and Google's cheap window closes ~Sep 13-14. Plan to book within a few weeks unless a dip comes sooner."
         }
       },
       "jointBestDay": {
@@ -916,10 +916,10 @@
       "date": "2026-08-07",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google: cheapest time to book remains now — window runs to ~Aug 25 for solo/seniors dates and ~Sep 13 for family dates; prices currently typical across all three trips",
-        "Joint-best pair unchanged at Dec 1 → Jan 4 today — combined $13,566, essentially flat versus yesterday's $13,568",
-        "Family: cheapest CX nonstop Economy return holds at Jan 4 — $3,799 pp, unchanged versus yesterday. CX nonstop Premium Economy reference also flat at $7,286 pp",
-        "AC all-Premium-Economy round trip: still none for solo/seniors (return keeps mixing Economy + Premium Economy cabins). For family, yesterday's genuine all-PE AC round trip ($12,666 pp) is no longer available — every return today mixes Premium Economy with Economy"
+        "Google: cheapest time to book remains now \u2014 window runs to ~Aug 25 for solo/seniors dates and ~Sep 13 for family dates; prices currently typical across all three trips",
+        "Joint-best pair unchanged at Dec 1 \u2192 Jan 4 today \u2014 combined $13,566, essentially flat versus yesterday's $13,568",
+        "Family: cheapest CX nonstop Economy return holds at Jan 4 \u2014 $3,799 pp, unchanged versus yesterday. CX nonstop Premium Economy reference also flat at $7,286 pp",
+        "AC all-Premium-Economy round trip: still none for solo/seniors (return keeps mixing Economy + Premium Economy cabins). For family, yesterday's genuine all-PE AC round trip ($12,666 pp) is no longer available \u2014 every return today mixes Premium Economy with Economy"
       ],
       "trips": {
         "solo": {
@@ -946,15 +946,15 @@
       "verdicts": {
         "solo": {
           "verdict": "hold",
-          "note": "Joint-best pair holds at Dec 1 → Jan 4 — $2,846 pp, flat versus yesterday and comfortably within band. AC economy anchor $3,453 (1 stop via YVR, Dec 1 → Jan 2), down slightly from yesterday. Hold and book any dip under $2,750."
+          "note": "Joint-best pair holds at Dec 1 \u2192 Jan 4 \u2014 $2,846 pp, flat versus yesterday and comfortably within band. AC economy anchor $3,453 (1 stop via YVR, Dec 1 \u2192 Jan 2), down slightly from yesterday. Hold and book any dip under $2,750."
         },
         "seniors": {
           "verdict": "hold",
-          "note": "Joint-best pair steady at Dec 1 → Jan 4 — $5,360 pp, essentially flat versus yesterday, mid-band. Still no genuine all-PE Air Canada round trip — every paired return mixes cabins. Book any dip under $4,800."
+          "note": "Joint-best pair steady at Dec 1 \u2192 Jan 4 \u2014 $5,360 pp, essentially flat versus yesterday, mid-band. Still no genuine all-PE Air Canada round trip \u2014 every paired return mixes cabins. Book any dip under $4,800."
         },
         "family": {
           "verdict": "book-soon",
-          "note": "Cheapest CX nonstop Economy return holds at Jan 4 — $3,799 pp, unchanged versus yesterday. CX nonstop Premium Economy reference flat at $7,286 pp. Yesterday's genuine all-PE AC round trip ($12,666 pp) is gone today — back to mixed-cabin only. Peak date, 4 seats, and Google's cheap window closes ~Sep 13. Plan to book within a few weeks unless a dip comes sooner."
+          "note": "Cheapest CX nonstop Economy return holds at Jan 4 \u2014 $3,799 pp, unchanged versus yesterday. CX nonstop Premium Economy reference flat at $7,286 pp. Yesterday's genuine all-PE AC round trip ($12,666 pp) is gone today \u2014 back to mixed-cabin only. Peak date, 4 seats, and Google's cheap window closes ~Sep 13. Plan to book within a few weeks unless a dip comes sooner."
         }
       },
       "jointBestDay": {
@@ -972,7 +972,7 @@
         "Google: prices are currently typical for solo/seniors dates",
         "Google: cheapest time to book (family, Dec 18 peak) is usually now, until ~Sep 13-14",
         "Google: prices are currently typical for family dates",
-        "Premium Economy fare buckets for Jan 2/3 return are priced well above Jan 4/5 return on the same route (CX nonstop PE): ~$6,585pp vs ~$5,360pp for Nov 30 dep — a return-date-specific fare-bucket effect, not a general market move"
+        "Premium Economy fare buckets for Jan 2/3 return are priced well above Jan 4/5 return on the same route (CX nonstop PE): ~$6,585pp vs ~$5,360pp for Nov 30 dep \u2014 a return-date-specific fare-bucket effect, not a general market move"
       ],
       "trips": {
         "solo": {
@@ -1024,10 +1024,10 @@
         "Google: prices are currently typical for solo/seniors dates",
         "Google: cheapest time to book (family, Dec 18 peak) is usually now, until ~Sep 13-14",
         "Google: prices are currently typical for family dates",
-        "Seniors: Premium Economy at the joint-optimal Dec 1 → Jan 4 pairing fell back to $5,360pp today, down sharply from yesterday's $6,585pp — confirms yesterday's spike was a Jan 2/3-return fare-bucket effect, not a market move",
-        "No genuine all-Premium-Economy Air Canada round trip found today for solo/seniors (Dec 1 → Jan 2) — every paired return still mixes Economy + Premium Economy cabins",
+        "Seniors: Premium Economy at the joint-optimal Dec 1 \u2192 Jan 4 pairing fell back to $5,360pp today, down sharply from yesterday's $6,585pp \u2014 confirms yesterday's spike was a Jan 2/3-return fare-bucket effect, not a market move",
+        "No genuine all-Premium-Economy Air Canada round trip found today for solo/seniors (Dec 1 \u2192 Jan 2) \u2014 every paired return still mixes Economy + Premium Economy cabins",
         "Family: a genuine all-Premium-Economy Air Canada round trip priced out again today at $11,544.75pp, matching yesterday's reading",
-        "Family: Jan 2 and Jan 3 returns tied exactly at $15,371 total (CX nonstop Economy, 4 adults) — no benefit to switching"
+        "Family: Jan 2 and Jan 3 returns tied exactly at $15,371 total (CX nonstop Economy, 4 adults) \u2014 no benefit to switching"
       ],
       "trips": {
         "solo": {
@@ -1054,15 +1054,15 @@
       "verdicts": {
         "solo": {
           "verdict": "hold",
-          "note": "Cathay Economy $2,846pp for Dec 1 → Jan 4, down from $2,879 yesterday — comfortably in the fair band. Hold until Sep 15 per Google's cheap-booking window."
+          "note": "Cathay Economy $2,846pp for Dec 1 \u2192 Jan 4, down from $2,879 yesterday \u2014 comfortably in the fair band. Hold until Sep 15 per Google's cheap-booking window."
         },
         "seniors": {
           "verdict": "hold",
-          "note": "Premium Economy at the joint-optimal Dec 1 → Jan 4 pairing dropped back to $5,360pp, down sharply from yesterday's $6,585pp Jan 2/3-return spike — back in the normal range and comfortably in band. Hold until Sep 15."
+          "note": "Premium Economy at the joint-optimal Dec 1 \u2192 Jan 4 pairing dropped back to $5,360pp, down sharply from yesterday's $6,585pp Jan 2/3-return spike \u2014 back in the normal range and comfortably in band. Hold until Sep 15."
         },
         "family": {
           "verdict": "book-soon",
-          "note": "Cathay Economy $3,842.75pp for the fixed Dec 18 → Jan 2 dates, essentially flat vs yesterday, in-band. Jan 3 return checked via date grid — tied exactly, no benefit to switching. 4 seats, peak-of-peak — book-soon; Google's cheap-booking window closes ~Sep 13-14."
+          "note": "Cathay Economy $3,842.75pp for the fixed Dec 18 \u2192 Jan 2 dates, essentially flat vs yesterday, in-band. Jan 3 return checked via date grid \u2014 tied exactly, no benefit to switching. 4 seats, peak-of-peak \u2014 book-soon; Google's cheap-booking window closes ~Sep 13-14."
         }
       },
       "jointBestDay": {
@@ -1076,13 +1076,13 @@
       "date": "2026-08-10",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google: cheapest time to book (solo/seniors dates) is usually now, until Aug 25 — window extended a few days from ~Aug 21 stated yesterday; prices are currently typical",
+        "Google: cheapest time to book (solo/seniors dates) is usually now, until Aug 25 \u2014 window extended a few days from ~Aug 21 stated yesterday; prices are currently typical",
         "Google: cheapest time to book (family, Dec 18 peak) is usually now, until ~Sep 13; prices are currently typical",
-        "Joint-best pair for solo+seniors within the tracker's Jan 2/3 return window is Dec 1 → Jan 3 at $16,049 combined (1 Economy + 2 Prem Econ) — Nov 26, Nov 30, and Dec 1 all tie at this same combined price across Jan 2 or Jan 3 returns",
-        "Seniors Premium Economy at Jan 2/3 return dates continues to price well above the Jan 4/5-adjacent fare bucket first flagged Aug 8 — $6,585pp today. Since tracking is now fixed to Jan 2-3 returns only, this looks like a persistent fare-bucket feature rather than a one-off spike; the $4,800–5,800 benchmark band may need recalibration",
-        "Family: Jan 2 and Jan 3 returns tied exactly again today at $15,371 total (CX nonstop Economy, 4 adults) — no benefit to switching",
+        "Joint-best pair for solo+seniors within the tracker's Jan 2/3 return window is Dec 1 \u2192 Jan 3 at $16,049 combined (1 Economy + 2 Prem Econ) \u2014 Nov 26, Nov 30, and Dec 1 all tie at this same combined price across Jan 2 or Jan 3 returns",
+        "Seniors Premium Economy at Jan 2/3 return dates continues to price well above the Jan 4/5-adjacent fare bucket first flagged Aug 8 \u2014 $6,585pp today. Since tracking is now fixed to Jan 2-3 returns only, this looks like a persistent fare-bucket feature rather than a one-off spike; the $4,800\u20135,800 benchmark band may need recalibration",
+        "Family: Jan 2 and Jan 3 returns tied exactly again today at $15,371 total (CX nonstop Economy, 4 adults) \u2014 no benefit to switching",
         "Genuine all-Premium-Economy Air Canada round trips found today for both seniors ($11,830pp) and family ($9,886.25pp)",
-        "New scenario added today: Family of 4 with a 3-day Japan stopover on the return (HKG→Tokyo→YYZ, separate tickets). Cheapest Economy itinerary is Korean Air/Asiana via Seoul at $3,294.50pp — actually cheaper than the non-stopover family Economy fare ($3,842.75pp) because of the routing, though it's separate tickets (self-transfer risk) rather than one booking."
+        "New scenario added today: Family of 4 with a 3-day Japan stopover on the return (HKG\u2192Tokyo\u2192YYZ, separate tickets). Cheapest Economy itinerary is Korean Air/Asiana via Seoul at $3,294.50pp \u2014 actually cheaper than the non-stopover family Economy fare ($3,842.75pp) because of the routing, though it's separate tickets (self-transfer risk) rather than one booking."
       ],
       "trips": {
         "solo": {
@@ -1115,19 +1115,19 @@
       "verdicts": {
         "solo": {
           "verdict": "hold",
-          "note": "Cathay Economy $2,879pp at the joint-optimal Dec 1 → Jan 3 pairing, up $33 from yesterday but still comfortably mid-band ($2,750–3,250). AC economy anchor $3,417 (1 stop via YVR). Hold until Sep 15 per Google's cheap-booking window, now stated to run to ~Aug 25."
+          "note": "Cathay Economy $2,879pp at the joint-optimal Dec 1 \u2192 Jan 3 pairing, up $33 from yesterday but still comfortably mid-band ($2,750\u20133,250). AC economy anchor $3,417 (1 stop via YVR). Hold until Sep 15 per Google's cheap-booking window, now stated to run to ~Aug 25."
         },
         "seniors": {
           "verdict": "hold",
-          "note": "Premium Economy at the joint-optimal Dec 1 → Jan 3 pairing is $6,585pp — above the $4,800–5,800 band. This is the same Jan 2/3-return fare-bucket effect first seen Aug 8; now that tracking is fixed to Jan 2-3 returns only, it looks like a persistent feature rather than a spike, and the benchmark band may warrant recalibration. Genuine all-PE Air Canada round trip found today at $11,830pp. Holding — no clear buy signal yet, but flagging the elevated reading."
+          "note": "Premium Economy at the joint-optimal Dec 1 \u2192 Jan 3 pairing is $6,585pp \u2014 above the $4,800\u20135,800 band. This is the same Jan 2/3-return fare-bucket effect first seen Aug 8; now that tracking is fixed to Jan 2-3 returns only, it looks like a persistent feature rather than a spike, and the benchmark band may warrant recalibration. Genuine all-PE Air Canada round trip found today at $11,830pp. Holding \u2014 no clear buy signal yet, but flagging the elevated reading."
         },
         "family": {
           "verdict": "book-soon",
-          "note": "Cathay Economy $3,842.75pp for the fixed Dec 18 → Jan 2 dates, flat vs yesterday, in-band. Jan 3 return tied exactly at $15,371 total — no benefit to switching. Genuine all-PE AC round trip available at $9,886.25pp. 4 seats, peak-of-peak — book-soon; Google's cheap-booking window closes ~Sep 13."
+          "note": "Cathay Economy $3,842.75pp for the fixed Dec 18 \u2192 Jan 2 dates, flat vs yesterday, in-band. Jan 3 return tied exactly at $15,371 total \u2014 no benefit to switching. Genuine all-PE AC round trip available at $9,886.25pp. 4 seats, peak-of-peak \u2014 book-soon; Google's cheap-booking window closes ~Sep 13."
         },
         "familyJapan": {
           "verdict": "hold",
-          "note": "Re-baselined to nonstop-only (Seoul stopover ruled out): cheapest genuine 3-leg nonstop itinerary is $4,949.00pp Economy (Cathay Pacific + Jetstar + Air Canada/ANA) and $7,662.00pp Premium Economy (Cathay Pacific + JAL codeshare + Air Canada/ANA) — all separate one-way tickets, no single-ticket nonstop routing exists across 3 airlines. This is now pricier than the direct family round trip ($3,842.75pp Economy), reversing the earlier Seoul-routing comparison — the nonstop constraint removes the cheap Korean Air/Asiana connection that made the stopover look like a discount. Return date shifted Jan 2→Jan 3: nonstop Tokyo→Toronto (Air Canada/ANA, the only nonstop carrier on this leg) is highly date-sensitive, ranging ~$1,324–$2,253pp across Dec 30–Jan 6; Jan 3 (~$1,925) is a reasonable middle point within the target return window. Osaka checked and ruled out — no nonstop KIX–Toronto service exists, so Tokyo is the only viable Japan leg-3 city. Band reset to provisional; hold pending more history, no urgency since price already exceeds the direct-flight comparator."
+          "note": "Re-baselined to nonstop-only (Seoul stopover ruled out): cheapest genuine 3-leg nonstop itinerary is $4,949.00pp Economy (Cathay Pacific + Jetstar + Air Canada/ANA) and $7,662.00pp Premium Economy (Cathay Pacific + JAL codeshare + Air Canada/ANA) \u2014 all separate one-way tickets, no single-ticket nonstop routing exists across 3 airlines. This is now pricier than the direct family round trip ($3,842.75pp Economy), reversing the earlier Seoul-routing comparison \u2014 the nonstop constraint removes the cheap Korean Air/Asiana connection that made the stopover look like a discount. Return date shifted Jan 2\u2192Jan 3: nonstop Tokyo\u2192Toronto (Air Canada/ANA, the only nonstop carrier on this leg) is highly date-sensitive, ranging ~$1,324\u2013$2,253pp across Dec 30\u2013Jan 6; Jan 3 (~$1,925) is a reasonable middle point within the target return window. Osaka checked and ruled out \u2014 no nonstop KIX\u2013Toronto service exists, so Tokyo is the only viable Japan leg-3 city. Band reset to provisional; hold pending more history, no urgency since price already exceeds the direct-flight comparator."
         }
       },
       "jointBestDay": {
@@ -1141,14 +1141,14 @@
       "date": "2026-08-11",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google showed an 'air traffic disruptions may affect flights' notice on several searches today — first time seen; no visible fare impact yet.",
-        "Google rates the family trip's Dec 18 → Jan 2 prices as 'currently high'.",
-        "Senior couple: no genuine all-Premium-Economy Air Canada round trip today — every option mixes in a Korean Air Economy return (same as Aug 9).",
-        "New: the family trip's all-Premium-Economy Air Canada option (available Aug 8–10 at ~$9,900–11,500 per person) has also disappeared behind mixed-cabin returns.",
-        "Japan trip: the Tokyo→Toronto leg in Premium Economy jumped to $7,207, nearly doubling the 3-leg Premium total — Economy stayed flat.",
-        "Method note: the solo/seniors departure-date grid was spot-checked at Nov 24 → Jan 2 today; full re-scan next run.",
-        "First 1-stop scan (any airline, layovers ≤4h): family saves $338.50 per person via Seoul both ways; Japan trip saves $1,415 per person but adds ~24h travel.",
-        "Solo and seniors: allowing 1 stop saves nothing today — every cheaper option either has a >4h layover or mixes cabins."
+        "Google showed an 'air traffic disruptions may affect flights' notice on several searches today \u2014 first time seen; no visible fare impact yet.",
+        "Google rates the family trip's Dec 18 \u2192 Jan 2 prices as 'currently high'.",
+        "Senior couple: no genuine all-Premium-Economy Air Canada round trip today \u2014 every option mixes in a Korean Air Economy return (same as Aug 9).",
+        "New: the family trip's all-Premium-Economy Air Canada option (available Aug 8\u201310 at ~$9,900\u201311,500 per person) has also disappeared behind mixed-cabin returns.",
+        "Japan trip: the Tokyo\u2192Toronto leg in Premium Economy jumped to $7,207, nearly doubling the 3-leg Premium total \u2014 Economy stayed flat.",
+        "Method note: the solo/seniors departure-date grid was spot-checked at Nov 24 \u2192 Jan 2 today; full re-scan next run.",
+        "First 1-stop scan (any airline, layovers \u22644h): family saves $338.50 per person via Seoul both ways; Japan trip saves $1,415 per person but adds ~24h travel.",
+        "Solo and seniors: allowing 1 stop saves nothing today \u2014 every cheaper option either has a >4h layover or mixes cabins."
       ],
       "trips": {
         "solo": {
@@ -1175,7 +1175,7 @@
             "carrier": "Cathay Pacific (nonstop)",
             "via": null,
             "extraTime": "+0h 0m",
-            "note": "Every cheaper 1-stop mixes cabins — e.g. EVA via Taipei at $4,627.50 per person is Premium Economy + Economy. Cheapest genuine all-Premium-Economy option remains the nonstop."
+            "note": "Every cheaper 1-stop mixes cabins \u2014 e.g. EVA via Taipei at $4,627.50 per person is Premium Economy + Economy. Cheapest genuine all-Premium-Economy option remains the nonstop."
           }
         },
         "family": {
@@ -1197,7 +1197,7 @@
           "eco": 4947,
           "ecoCarrier": "Cathay Pacific YYZ-HKG + Jetstar HKG-NRT + Air Canada/ANA NRT-YYZ, 3 separate nonstop one-way tickets",
           "pey": 13464,
-          "peyCarrier": "Cathay Pacific YYZ-HKG + JAL (CX codeshare) HKG-HND + Air Canada/ANA HND-YYZ, 3 separate nonstop one-way tickets — leg-3 priced unusually high today, see insights",
+          "peyCarrier": "Cathay Pacific YYZ-HKG + JAL (CX codeshare) HKG-HND + Air Canada/ANA HND-YYZ, 3 separate nonstop one-way tickets \u2014 leg-3 priced unusually high today, see insights",
           "oneStop": {
             "price": 4947,
             "carrier": "Cathay Pacific YYZ-HKG + Jetstar HKG-NRT + Air Canada/ANA NRT-YYZ, 3 separate nonstop one-way tickets",
@@ -1212,36 +1212,36 @@
         "solo": {
           "verdict": "hold",
           "note": [
-            "Cathay nonstop Economy: $2,898 per person (Nov 24 → Jan 2) — comfortably inside the $2,750–3,250 fair range.",
-            "Air Canada one-stop alternative: $3,460 — no reason to switch.",
+            "Cathay nonstop Economy: $2,898 per person (Nov 24 \u2192 Jan 2) \u2014 comfortably inside the $2,750\u20133,250 fair range.",
+            "Air Canada one-stop alternative: $3,460 \u2014 no reason to switch.",
             "Hold: Google's cheap-booking window runs to ~Aug 25."
           ]
         },
         "seniors": {
           "verdict": "hold",
           "note": [
-            "Cathay nonstop Premium Economy: $6,585 per person — still above the $4,800–5,800 fair range.",
-            "The premium on Jan 2/3 returns has persisted since Aug 8 — a feature of these dates, not a spike.",
-            "No genuine all-Premium-Economy Air Canada option today — every return mixes in Korean Air Economy.",
-            "Hold — no buy signal; the fair range itself may need recalibrating."
+            "Cathay nonstop Premium Economy: $6,585 per person \u2014 still above the $4,800\u20135,800 fair range.",
+            "The premium on Jan 2/3 returns has persisted since Aug 8 \u2014 a feature of these dates, not a spike.",
+            "No genuine all-Premium-Economy Air Canada option today \u2014 every return mixes in Korean Air Economy.",
+            "Hold \u2014 no buy signal; the fair range itself may need recalibrating."
           ]
         },
         "family": {
           "verdict": "book-soon",
           "note": [
-            "Cathay nonstop Economy: $3,842.75 per person (Dec 18 → Jan 2) — flat vs prior days, inside the fair range.",
-            "The all-Premium-Economy Air Canada option seen Aug 8–10 is gone — only mixed-cabin returns remain today.",
+            "Cathay nonstop Economy: $3,842.75 per person (Dec 18 \u2192 Jan 2) \u2014 flat vs prior days, inside the fair range.",
+            "The all-Premium-Economy Air Canada option seen Aug 8\u201310 is gone \u2014 only mixed-cabin returns remain today.",
             "Google flags these dates as 'currently high'.",
-            "Book soon: 4 seats at absolute peak — Google's cheap window closes ~mid-September."
+            "Book soon: 4 seats at absolute peak \u2014 Google's cheap window closes ~mid-September."
           ]
         },
         "familyJapan": {
           "verdict": "hold",
           "note": [
-            "Cheapest all-nonstop 3-leg route: $4,947 per person Economy — flat vs yesterday, inside the provisional fair range.",
-            "Still costs ~$1,100 more per person than the direct family trip — expected under the nonstop-only rule.",
-            "Premium Economy total spiked to $13,464 on a Tokyo→Toronto fare jump — noted, but Economy is the reference.",
-            "Hold — no urgency."
+            "Cheapest all-nonstop 3-leg route: $4,947 per person Economy \u2014 flat vs yesterday, inside the provisional fair range.",
+            "Still costs ~$1,100 more per person than the direct family trip \u2014 expected under the nonstop-only rule.",
+            "Premium Economy total spiked to $13,464 on a Tokyo\u2192Toronto fare jump \u2014 noted, but Economy is the reference.",
+            "Hold \u2014 no urgency."
           ]
         }
       },
@@ -1256,16 +1256,16 @@
       "date": "2026-08-12",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Google's 'air traffic disruptions may affect flights' notice appeared again today on several searches — no visible fare impact yet.",
-        "Google now rates the family trip's Dec 18 to Jan 3 fares as 'typical' — the 'currently high' flag from recent days is gone.",
-        "Senior couple: no genuine all-Premium-Economy Air Canada option today — every return still mixes in Economy.",
-        "Family trip: no genuine all-Premium-Economy Air Canada option today either — every Air Canada Premium Economy return mixes in Economy.",
+        "Google's 'air traffic disruptions may affect flights' notice appeared again today on several searches \u2014 no visible fare impact yet.",
+        "Google now rates the family trip's Dec 18 to Jan 3 fares as 'typical' \u2014 the 'currently high' flag from recent days is gone.",
+        "Senior couple: no genuine all-Premium-Economy Air Canada option today \u2014 every return still mixes in Economy.",
+        "Family trip: no genuine all-Premium-Economy Air Canada option today either \u2014 every Air Canada Premium Economy return mixes in Economy.",
         "Japan trip: the Tokyo to Toronto Premium Economy leg stayed elevated at $7,204 per person, in line with yesterday's spike.",
-        "One-stop check: solo, seniors, and family all keep the nonstop as cheapest under the 4-hour layover cap — no 1-stop savings today.",
+        "One-stop check: solo, seniors, and family all keep the nonstop as cheapest under the 4-hour layover cap \u2014 no 1-stop savings today.",
         "One-stop check: the Japan trip could save about $1,335 per person with 1-stop legs, but adds roughly 24 hours 15 minutes of total travel time.",
         "Google flags the cheapest booking window for the direct family and Japan trips as open until mid-September.",
         "Correction: no 1-stop option for the Japan trip's outbound or return legs actually stays within 4 hours of extra travel time once fully checked, so both legs now show nonstop as the 1-stop comparison too.",
-        "The Air Canada+Jeju Air (Toronto-Seoul-HKG) and Qatar Airways (Tokyo-Doha-Toronto) routings looked cheap but added 5.5 to 18.5 hours of extra travel — both rejected as too far outside the 4-hour cap."
+        "The Air Canada+Jeju Air (Toronto-Seoul-HKG) and Qatar Airways (Tokyo-Doha-Toronto) routings looked cheap but added 5.5 to 18.5 hours of extra travel \u2014 both rejected as too far outside the 4-hour cap."
       ],
       "trips": {
         "solo": {
@@ -1292,7 +1292,7 @@
             "carrier": "Cathay Pacific (nonstop)",
             "via": null,
             "extraTime": "+0h 0m",
-            "note": "Every cheaper 1-stop option mixes Premium Economy with Economy — no genuine all-Premium-Economy 1-stop option exists today."
+            "note": "Every cheaper 1-stop option mixes Premium Economy with Economy \u2014 no genuine all-Premium-Economy 1-stop option exists today."
           }
         },
         "family": {
@@ -1306,14 +1306,14 @@
             "carrier": "Cathay Pacific (nonstop)",
             "via": null,
             "extraTime": "+0h 0m",
-            "note": "Cheapest qualifying 1-stop is WestJet + Cathay Pacific via Vancouver at $4,105.75 per person — costs more than the nonstop. British Airways via London is cheaper on paper ($3,537.75pp) but its 8h25m layover exceeds the 4-hour cap."
+            "note": "Cheapest qualifying 1-stop is WestJet + Cathay Pacific via Vancouver at $4,105.75 per person \u2014 costs more than the nonstop. British Airways via London is cheaper on paper ($3,537.75pp) but its 8h25m layover exceeds the 4-hour cap."
           }
         },
         "familyJapan": {
           "eco": 4842,
           "ecoCarrier": "Cathay Pacific YYZ-HKG + Jetstar HKG-NRT + Air Canada/ANA NRT-YYZ, 3 separate nonstop one-way tickets",
           "pey": 13414,
-          "peyCarrier": "Cathay Pacific YYZ-HKG + JAL (CX codeshare) HKG-HND + Air Canada NRT-YYZ, 3 separate nonstop one-way tickets — leg-3 priced unusually high again today, see insights",
+          "peyCarrier": "Cathay Pacific YYZ-HKG + JAL (CX codeshare) HKG-HND + Air Canada NRT-YYZ, 3 separate nonstop one-way tickets \u2014 leg-3 priced unusually high again today, see insights",
           "oneStop": {
             "price": 4949,
             "carrier": "Cathay Pacific + Jetstar + Air Canada/ANA (all nonstop legs)",
@@ -1321,7 +1321,7 @@
             "extraTime": "+0h 0m",
             "legs": [
               {
-                "leg": "YYZ → HKG · Dec 18",
+                "leg": "YYZ \u2192 HKG \u00b7 Dec 18",
                 "price": 2789,
                 "carrier": "Cathay Pacific (nonstop)",
                 "via": null,
@@ -1329,7 +1329,7 @@
                 "extraTime": "+0h 0m"
               },
               {
-                "leg": "HKG → Tokyo · Dec 29",
+                "leg": "HKG \u2192 Tokyo \u00b7 Dec 29",
                 "price": 235,
                 "carrier": "Jetstar (nonstop)",
                 "via": null,
@@ -1337,7 +1337,7 @@
                 "extraTime": "+0h 0m"
               },
               {
-                "leg": "Tokyo → YYZ · Jan 3",
+                "leg": "Tokyo \u2192 YYZ \u00b7 Jan 3",
                 "price": 1925,
                 "carrier": "Air Canada/ANA (nonstop)",
                 "via": null,
@@ -1346,7 +1346,7 @@
               }
             ],
             "noneQualified": true,
-            "note": "The Air Canada+Jeju Air (outbound via Seoul) and Qatar Airways (return via Doha) routings looked cheap but added 5h40m and 18h35m of extra travel — both rejected as over the 4-hour cap. A Vancouver routing fit the time cap but repriced to $3,147, well above nonstop."
+            "note": "The Air Canada+Jeju Air (outbound via Seoul) and Qatar Airways (return via Doha) routings looked cheap but added 5h40m and 18h35m of extra travel \u2014 both rejected as over the 4-hour cap. A Vancouver routing fit the time cap but repriced to $3,147, well above nonstop."
           }
         }
       },
@@ -1354,36 +1354,36 @@
         "solo": {
           "verdict": "hold",
           "note": [
-            "Cathay nonstop Economy: $2,831 per person (Nov 24 → Jan 2) — down $67 from yesterday, inside the $2,750–3,250 fair range.",
-            "Air Canada one-stop alternative: $3,260 — no reason to switch.",
-            "Hold — no urgency; switches to book-soon after Sep 15."
+            "Cathay nonstop Economy: $2,831 per person (Nov 24 \u2192 Jan 2) \u2014 down $67 from yesterday, inside the $2,750\u20133,250 fair range.",
+            "Air Canada one-stop alternative: $3,260 \u2014 no reason to switch.",
+            "Hold \u2014 no urgency; switches to book-soon after Sep 15."
           ]
         },
         "seniors": {
           "verdict": "hold",
           "note": [
-            "Cathay nonstop Premium Economy: $6,584.50 per person — still well above the $4,800–5,800 fair range.",
-            "Up about $1,225 from a week ago — the elevated price on these dates is climbing, not just holding steady.",
-            "No genuine all-Premium-Economy Air Canada option today — every return mixes in Economy.",
-            "Hold — no buy signal, but watch closely given the rising trend."
+            "Cathay nonstop Premium Economy: $6,584.50 per person \u2014 still well above the $4,800\u20135,800 fair range.",
+            "Up about $1,225 from a week ago \u2014 the elevated price on these dates is climbing, not just holding steady.",
+            "No genuine all-Premium-Economy Air Canada option today \u2014 every return mixes in Economy.",
+            "Hold \u2014 no buy signal, but watch closely given the rising trend."
           ]
         },
         "family": {
           "verdict": "book-soon",
           "note": [
-            "Cathay nonstop Economy: $3,842.75 per person (Dec 18 → Jan 3) — flat vs yesterday, inside the fair range.",
-            "No genuine all-Premium-Economy Air Canada option today — every return mixes in Economy.",
+            "Cathay nonstop Economy: $3,842.75 per person (Dec 18 \u2192 Jan 3) \u2014 flat vs yesterday, inside the fair range.",
+            "No genuine all-Premium-Economy Air Canada option today \u2014 every return mixes in Economy.",
             "Google now rates these dates as 'typical' pricing, no longer flagged as 'currently high.'",
-            "Book soon: 4 seats at absolute peak — Google's cheap window closes around mid-September."
+            "Book soon: 4 seats at absolute peak \u2014 Google's cheap window closes around mid-September."
           ]
         },
         "familyJapan": {
           "verdict": "book-soon",
           "note": [
-            "Cheapest all-nonstop 3-leg route: $4,842 per person Economy — down $105 from yesterday, inside the provisional fair range.",
-            "About $999 more per person than the direct family trip — expected under the nonstop-only rule.",
-            "Premium Economy total stayed high at $13,414, driven by a persistently expensive Tokyo→Toronto leg.",
-            "Book soon: same fixed Dec 18 peak date and 4 seats as the direct family trip — no reason to wait longer."
+            "Cheapest all-nonstop 3-leg route: $4,842 per person Economy \u2014 down $105 from yesterday, inside the provisional fair range.",
+            "About $999 more per person than the direct family trip \u2014 expected under the nonstop-only rule.",
+            "Premium Economy total stayed high at $13,414, driven by a persistently expensive Tokyo\u2192Toronto leg.",
+            "Book soon: same fixed Dec 18 peak date and 4 seats as the direct family trip \u2014 no reason to wait longer."
           ]
         }
       },
@@ -1398,11 +1398,12 @@
       "date": "2026-08-14",
       "source": "google-flights (via Chrome)",
       "insights": [
-        "Senior couple's Premium Economy fare dropped sharply to $5,626.50pp, down $958 from the prior check — back inside the fair range.",
+        "Family size updated from 4 to 5 travelers effective today \u2014 Family Direct and Family+Japan trips repriced accordingly; per-person fares essentially unchanged.",
+        "Senior couple's Premium Economy fare dropped sharply to $5,626.50pp, down $958 from the prior check \u2014 back inside the fair range.",
         "Joint best-day combined total fell to $14,084 (1 Economy + 2 Prem Econ) from $16,000, driven by the seniors price drop.",
         "Family and Japan-stopover trips both stayed flat vs the last check, still inside their fair ranges.",
         "One-stop check: solo, seniors, family, and the Japan trip all keep the nonstop as cheapest under the 4-hour extra-travel-time cap.",
-        "Japan trip leg-by-leg: YYZ-HKG $9,647, HKG-Tokyo $937, Tokyo-YYZ $9,261 (totals for 4 adults) — all nonstop, no change from prior baseline.",
+        "Japan trip leg-by-leg: YYZ-HKG $9,647, HKG-Tokyo $937, Tokyo-YYZ $9,261 (totals for 4 adults) \u2014 all nonstop, no change from prior baseline.",
         "AC anchor (Air Canada one-stop reference) checks were skipped this cycle for solo, seniors, and family to keep the run on schedule."
       ],
       "trips": {
@@ -1430,53 +1431,53 @@
             "carrier": "Cathay Pacific (nonstop)",
             "via": null,
             "extraTime": "+0h 0m",
-            "note": "Every cheaper 1-stop option today mixes Premium Economy with Economy on at least one leg — no genuine all-Premium-Economy 1-stop exists."
+            "note": "Every cheaper 1-stop option today mixes Premium Economy with Economy on at least one leg \u2014 no genuine all-Premium-Economy 1-stop exists."
           }
         },
         "family": {
-          "cxEco": 3651.25,
+          "cxEco": 3651.4,
           "cxEcoRet": "2027-01-02",
           "acEco": null,
           "cxPey": null,
           "acPey": null,
           "oneStop": {
-            "price": 3651.25,
+            "price": 3651.4,
             "carrier": "Cathay Pacific (nonstop)",
             "via": null,
             "extraTime": "+0h 0m",
-            "note": "Cheapest qualifying 1-stop is Air Canada+Cathay Pacific via Seoul at $3,663.50pp (+4h45m, over the 4-hour cap) — nonstop remains cheaper and compliant."
+            "note": "Cheapest qualifying 1-stop is Air Canada+Cathay Pacific via Seoul at $3663.6pp (+4h45m, over the 4-hour cap) \u2014 nonstop remains cheaper and compliant. Repriced for 5 adults."
           }
         },
         "familyJapan": {
-          "eco": 4961.25,
+          "eco": 4964.2,
           "ecoCarrier": "Cathay Pacific YYZ-HKG + Jetstar HKG-NRT + Air Canada/ANA NRT-YYZ, 3 separate nonstop one-way tickets",
-          "pey": 13753.5,
+          "pey": 13048.0,
           "peyCarrier": "Cathay Pacific YYZ-HKG + JAL (CX codeshare) HKG-HND + Air Canada NRT-YYZ, 3 separate nonstop one-way tickets",
           "oneStop": {
-            "price": 4961.25,
+            "price": 4964.2,
             "carrier": "Cathay Pacific + Jetstar + Air Canada/ANA (all nonstop legs)",
             "via": null,
             "extraTime": "+0h 0m",
             "legs": [
               {
-                "leg": "YYZ → HKG · Dec 18",
-                "price": 2411.75,
+                "leg": "YYZ \u2192 HKG \u00b7 Dec 18",
+                "price": 2411.8,
                 "carrier": "Cathay Pacific (nonstop)",
                 "via": null,
                 "dur": "15h 40m",
                 "extraTime": "+0h 0m"
               },
               {
-                "leg": "HKG → Tokyo · Dec 29",
-                "price": 234.25,
+                "leg": "HKG \u2192 Tokyo \u00b7 Dec 29",
+                "price": 234.0,
                 "carrier": "Jetstar (nonstop)",
                 "via": null,
                 "dur": "4h 10m",
                 "extraTime": "+0h 0m"
               },
               {
-                "leg": "Tokyo → YYZ · Jan 3",
-                "price": 2315.25,
+                "leg": "Tokyo \u2192 YYZ \u00b7 Jan 3",
+                "price": 2318.4,
                 "carrier": "Air Canada/ANA (nonstop)",
                 "via": null,
                 "dur": "12h 0m",
@@ -1484,7 +1485,7 @@
               }
             ],
             "noneQualified": true,
-            "note": "Air Canada+Korean Air/Jeju Air (outbound via Seoul) options looked cheap but added 5h40m-6h20m of extra travel vs nonstop, both over the 4-hour cap."
+            "note": "Air Canada+Korean Air/Jeju Air (outbound via Seoul) options looked cheap but added 5h40m-6h20m of extra travel vs nonstop, both over the 4-hour cap. Repriced for 5 adults."
           }
         }
       },
@@ -1492,33 +1493,33 @@
         "solo": {
           "verdict": "hold",
           "note": [
-            "Cathay nonstop Economy: $2,831pp (Nov 24 → Jan 2) — unchanged from the last check, inside the $2,750-3,250 fair range.",
+            "Cathay nonstop Economy: $2,831pp (Nov 24 \u2192 Jan 2) \u2014 unchanged from the last check, inside the $2,750-3,250 fair range.",
             "No 1-stop option beats the nonstop within the 4-hour cap.",
-            "Hold — no urgency; escalates to book-soon after Sep 15."
+            "Hold \u2014 no urgency; escalates to book-soon after Sep 15."
           ]
         },
         "seniors": {
           "verdict": "hold",
           "note": [
-            "Cathay nonstop Premium Economy: $5,626.50pp — down $958 from the last check, back inside the $4,800-5,800 fair range.",
+            "Cathay nonstop Premium Economy: $5,626.50pp \u2014 down $958 from the last check, back inside the $4,800-5,800 fair range.",
             "No genuine all-Premium-Economy 1-stop option today.",
-            "Hold — the price correction removes the earlier urgency; keep watching."
+            "Hold \u2014 the price correction removes the earlier urgency; keep watching."
           ]
         },
         "family": {
           "verdict": "book-soon",
           "note": [
-            "Cathay nonstop Economy: $3,651.25pp (Dec 18 → Jan 3) — down $191.50 from the last check, inside the fair range.",
+            "Cathay nonstop Economy: $3651.4pp (Dec 18 \u2192 Jan 3) \u2014 repriced for 5 adults (was 4); pp basically unchanged, inside the fair range.",
             "No 1-stop option beats the nonstop within the 4-hour cap.",
-            "Book soon: 4 seats at absolute peak dates — Google's cheap booking window closes around mid-September."
+            "Book soon: 5 seats at absolute peak dates \u2014 Google's cheap booking window closes around mid-September."
           ]
         },
         "familyJapan": {
           "verdict": "book-soon",
           "note": [
-            "Cheapest all-nonstop 3-leg route: $4,961.25pp Economy — up $119.25 from the last check, still inside the fair range.",
-            "About $1,310 more per person than the direct family trip, expected under the nonstop-only rule.",
-            "Book soon: same fixed Dec 18 peak date and 4 seats as the direct family trip."
+            "Cheapest all-nonstop 3-leg route: $4964.2pp Economy \u2014 repriced for 5 adults (was 4); pp basically unchanged, inside the fair range.",
+            "About $1313 more per person than the direct family trip, expected under the nonstop-only rule.",
+            "Book soon: same fixed Dec 18 peak date and 5 seats as the direct family trip."
           ]
         }
       },
@@ -1526,7 +1527,7 @@
         "dep": "2026-11-24",
         "ret": "2027-01-02",
         "combined": 14084,
-        "note": "1 Economy + 2 Prem Econ, same flights — down from $16,000 on the seniors PE price drop"
+        "note": "1 Economy + 2 Prem Econ, same flights \u2014 down from $16,000 on the seniors PE price drop"
       }
     }
   ]
