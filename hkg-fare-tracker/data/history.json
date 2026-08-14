@@ -624,7 +624,7 @@
           "cxEco": 3726.75,
           "cxEcoRet": "2027-01-04",
           "acEco": 4627.25,
-          "cxPey": 7070.0,
+          "cxPey": 7070,
           "acPey": 9548.25
         }
       },
@@ -1392,6 +1392,141 @@
         "ret": "2027-01-02",
         "combined": 16000,
         "note": "1 Economy + 2 Prem Econ, same flights"
+      }
+    },
+    {
+      "date": "2026-08-14",
+      "source": "google-flights (via Chrome)",
+      "insights": [
+        "Senior couple's Premium Economy fare dropped sharply to $5,626.50pp, down $958 from the prior check — back inside the fair range.",
+        "Joint best-day combined total fell to $14,084 (1 Economy + 2 Prem Econ) from $16,000, driven by the seniors price drop.",
+        "Family and Japan-stopover trips both stayed flat vs the last check, still inside their fair ranges.",
+        "One-stop check: solo, seniors, family, and the Japan trip all keep the nonstop as cheapest under the 4-hour extra-travel-time cap.",
+        "Japan trip leg-by-leg: YYZ-HKG $9,647, HKG-Tokyo $937, Tokyo-YYZ $9,261 (totals for 4 adults) — all nonstop, no change from prior baseline.",
+        "AC anchor (Air Canada one-stop reference) checks were skipped this cycle for solo, seniors, and family to keep the run on schedule."
+      ],
+      "trips": {
+        "solo": {
+          "cxEco": 2831,
+          "acEco": null,
+          "cxPey": null,
+          "bestDep": "2026-11-24",
+          "bestRet": "2027-01-02",
+          "oneStop": {
+            "price": 2831,
+            "carrier": "Cathay Pacific (nonstop)",
+            "via": null,
+            "extraTime": "+0h 0m",
+            "note": "No 1-stop beats the nonstop within the 4-hour extra-travel cap: EVA Air via Taipei is $2,968pp (+3h55m), Air Canada+Cathay via Seoul adds +4h45m or more."
+          }
+        },
+        "seniors": {
+          "cxPey": 5626.5,
+          "acPey": null,
+          "bestDep": "2026-11-24",
+          "bestRet": "2027-01-02",
+          "oneStop": {
+            "price": 5626.5,
+            "carrier": "Cathay Pacific (nonstop)",
+            "via": null,
+            "extraTime": "+0h 0m",
+            "note": "Every cheaper 1-stop option today mixes Premium Economy with Economy on at least one leg — no genuine all-Premium-Economy 1-stop exists."
+          }
+        },
+        "family": {
+          "cxEco": 3651.25,
+          "cxEcoRet": "2027-01-02",
+          "acEco": null,
+          "cxPey": null,
+          "acPey": null,
+          "oneStop": {
+            "price": 3651.25,
+            "carrier": "Cathay Pacific (nonstop)",
+            "via": null,
+            "extraTime": "+0h 0m",
+            "note": "Cheapest qualifying 1-stop is Air Canada+Cathay Pacific via Seoul at $3,663.50pp (+4h45m, over the 4-hour cap) — nonstop remains cheaper and compliant."
+          }
+        },
+        "familyJapan": {
+          "eco": 4961.25,
+          "ecoCarrier": "Cathay Pacific YYZ-HKG + Jetstar HKG-NRT + Air Canada/ANA NRT-YYZ, 3 separate nonstop one-way tickets",
+          "pey": 13753.5,
+          "peyCarrier": "Cathay Pacific YYZ-HKG + JAL (CX codeshare) HKG-HND + Air Canada NRT-YYZ, 3 separate nonstop one-way tickets",
+          "oneStop": {
+            "price": 4961.25,
+            "carrier": "Cathay Pacific + Jetstar + Air Canada/ANA (all nonstop legs)",
+            "via": null,
+            "extraTime": "+0h 0m",
+            "legs": [
+              {
+                "leg": "YYZ → HKG · Dec 18",
+                "price": 2411.75,
+                "carrier": "Cathay Pacific (nonstop)",
+                "via": null,
+                "dur": "15h 40m",
+                "extraTime": "+0h 0m"
+              },
+              {
+                "leg": "HKG → Tokyo · Dec 29",
+                "price": 234.25,
+                "carrier": "Jetstar (nonstop)",
+                "via": null,
+                "dur": "4h 10m",
+                "extraTime": "+0h 0m"
+              },
+              {
+                "leg": "Tokyo → YYZ · Jan 3",
+                "price": 2315.25,
+                "carrier": "Air Canada/ANA (nonstop)",
+                "via": null,
+                "dur": "12h 0m",
+                "extraTime": "+0h 0m"
+              }
+            ],
+            "noneQualified": true,
+            "note": "Air Canada+Korean Air/Jeju Air (outbound via Seoul) options looked cheap but added 5h40m-6h20m of extra travel vs nonstop, both over the 4-hour cap."
+          }
+        }
+      },
+      "verdicts": {
+        "solo": {
+          "verdict": "hold",
+          "note": [
+            "Cathay nonstop Economy: $2,831pp (Nov 24 → Jan 2) — unchanged from the last check, inside the $2,750-3,250 fair range.",
+            "No 1-stop option beats the nonstop within the 4-hour cap.",
+            "Hold — no urgency; escalates to book-soon after Sep 15."
+          ]
+        },
+        "seniors": {
+          "verdict": "hold",
+          "note": [
+            "Cathay nonstop Premium Economy: $5,626.50pp — down $958 from the last check, back inside the $4,800-5,800 fair range.",
+            "No genuine all-Premium-Economy 1-stop option today.",
+            "Hold — the price correction removes the earlier urgency; keep watching."
+          ]
+        },
+        "family": {
+          "verdict": "book-soon",
+          "note": [
+            "Cathay nonstop Economy: $3,651.25pp (Dec 18 → Jan 3) — down $191.50 from the last check, inside the fair range.",
+            "No 1-stop option beats the nonstop within the 4-hour cap.",
+            "Book soon: 4 seats at absolute peak dates — Google's cheap booking window closes around mid-September."
+          ]
+        },
+        "familyJapan": {
+          "verdict": "book-soon",
+          "note": [
+            "Cheapest all-nonstop 3-leg route: $4,961.25pp Economy — up $119.25 from the last check, still inside the fair range.",
+            "About $1,310 more per person than the direct family trip, expected under the nonstop-only rule.",
+            "Book soon: same fixed Dec 18 peak date and 4 seats as the direct family trip."
+          ]
+        }
+      },
+      "jointBestDay": {
+        "dep": "2026-11-24",
+        "ret": "2027-01-02",
+        "combined": 14084,
+        "note": "1 Economy + 2 Prem Econ, same flights — down from $16,000 on the seniors PE price drop"
       }
     }
   ]
