@@ -1942,6 +1942,145 @@
         "combined": 16000.0,
         "note": "1 Economy + 2 Premium Economy, same flights — flat vs yesterday."
       }
+    },
+    {
+      "date": "2026-08-18",
+      "source": "google-flights (via Chrome)",
+      "insights": [
+        "Family of 4 Direct Economy fare held flat at $3,561.25 per person, still below the fair range.",
+        "Seniors' Premium Economy held flat at $6,584.50 per person, unchanged and still above the fair range.",
+        "Solo Economy nonstop held flat at $2,831 per person, unchanged from yesterday.",
+        "Family+Japan's cheapest nonstop routing rose to $4,950 per person, up about $43 from yesterday.",
+        "One-stop deal continues: WestJet via Calgary beats the nonstop fare by $164 on the Tokyo-to-Toronto leg, adding under 3 hours.",
+        "No genuine all-Premium-Economy Air Canada option exists today for the family or seniors trips — every return mixes cabins.",
+        "Google's cheap-booking window for the Family of 4 Direct trip closes around September 16."
+      ],
+      "trips": {
+        "solo": {
+          "cxEco": 2831,
+          "acEco": 3255,
+          "cxPey": 6584.5,
+          "bestDep": "2026-11-24",
+          "bestRet": "2027-01-02",
+          "oneStop": {
+            "price": 2831,
+            "carrier": "Cathay Pacific (nonstop)",
+            "via": null,
+            "extraTime": "+0h 0m",
+            "note": "Cheapest 1-stop today is EVA Air via Taipei at $2,968 — inside the 4-hour cap but pricier than nonstop, so nonstop remains cheapest."
+          }
+        },
+        "seniors": {
+          "cxPey": 6584.5,
+          "acPey": null,
+          "bestDep": "2026-11-24",
+          "bestRet": "2027-01-02",
+          "oneStop": {
+            "price": 6584.5,
+            "carrier": "Cathay Pacific (nonstop)",
+            "via": null,
+            "extraTime": "+0h 0m",
+            "note": "EVA Air looks cheaper on paper at about $4,627 per person, but it mixes Economy into the return leg, so it doesn't qualify as genuine Premium Economy — nonstop remains the qualifying choice."
+          }
+        },
+        "family": {
+          "cxEco": 3561.25,
+          "cxEcoRet": "2027-01-02",
+          "acEco": 5814.25,
+          "cxPey": 6974.25,
+          "acPey": null,
+          "oneStop": {
+            "price": 3561.25,
+            "carrier": "Cathay Pacific (nonstop)",
+            "via": null,
+            "extraTime": "+0h 0m",
+            "note": "Cheapest 1-stop is Air Canada plus Cathay Pacific via Seoul at about $4,105 per person — pricier than the nonstop fare, so nonstop remains cheapest and fastest."
+          }
+        },
+        "familyJapan": {
+          "eco": 4950.0,
+          "ecoCarrier": "Cathay Pacific YYZ-HKG + Jetstar HKG-NRT + Air Canada/ANA NRT-YYZ, 3 separate nonstop one-way tickets",
+          "pey": 13404.0,
+          "peyCarrier": "Cathay Pacific YYZ-HKG + JAL (Cathay Pacific codeshare) HKG-HND + Air Canada HND-YYZ, 3 separate nonstop one-way tickets",
+          "oneStop": {
+            "price": 4786.0,
+            "carrier": "Cathay Pacific (nonstop) + Jetstar (nonstop) + WestJet (1 stop via Calgary)",
+            "via": null,
+            "extraTime": "+2h 50m",
+            "legs": [
+              {
+                "leg": "YYZ → HKG · Dec 18",
+                "price": 2412.0,
+                "carrier": "Cathay Pacific (nonstop)",
+                "via": null,
+                "dur": "15h 40m",
+                "extraTime": "+0h 0m"
+              },
+              {
+                "leg": "HKG → Tokyo · Dec 29",
+                "price": 234.0,
+                "carrier": "Jetstar (nonstop)",
+                "via": null,
+                "dur": "4h 10m",
+                "extraTime": "+0h 0m"
+              },
+              {
+                "leg": "Tokyo → YYZ · Jan 3",
+                "price": 2140.0,
+                "carrier": "WestJet (1 stop)",
+                "via": "YYC",
+                "dur": "14h 50m",
+                "extraTime": "+2h 50m"
+              }
+            ],
+            "note": "Leg 3 (Tokyo–Toronto): WestJet via Calgary beats the nonstop Air Canada/ANA fare by $164 while adding under 3 hours of travel — a genuine deal today. Legs 1 and 2 had no qualifying 1-stop option within the 4-hour cap."
+          }
+        }
+      },
+      "verdicts": {
+        "solo": {
+          "verdict": "hold",
+          "note": [
+            "Cathay nonstop Economy: $2,831 per person (Nov 24 → Jan 2) — flat vs yesterday, inside the $2,750–3,250 fair range.",
+            "Air Canada one-stop alternative: $3,255 per person — no reason to switch.",
+            "No 1-stop option beats the nonstop within the 4-hour extra-time cap.",
+            "Hold — no urgency; escalates to book-soon after Sep 15."
+          ]
+        },
+        "seniors": {
+          "verdict": "hold",
+          "note": [
+            "Cathay nonstop Premium Economy: $6,584.50 per person — flat vs yesterday, still well above the $4,800–5,800 fair range.",
+            "No genuine all-Premium-Economy Air Canada option today — every return mixes in Economy.",
+            "EVA Air's mixed-cabin option looks cheaper on paper but doesn't count since it isn't full Premium Economy.",
+            "Hold — no buy signal; keep watching given the persistent volatility."
+          ]
+        },
+        "family": {
+          "verdict": "book",
+          "note": [
+            "Cathay nonstop Economy: $3,561.25 per person (Dec 18 → Jan 2) — flat vs yesterday, still below the $3,600 floor of the fair range.",
+            "Jan 3 return priced higher today at $3,652 per person — no benefit to switching dates.",
+            "Cheapest 1-stop is Air Canada plus Cathay Pacific via Seoul at about $4,105 per person — pricier than nonstop, so nonstop wins.",
+            "Book: price remains below the fair range — a genuine buy signal for 4 seats at peak."
+          ]
+        },
+        "familyJapan": {
+          "verdict": "book-soon",
+          "note": [
+            "Cheapest all-nonstop 3-leg route: $4,950 per person Economy — up about $43 from yesterday, inside the provisional fair range.",
+            "About $1,389 more per person than the direct family trip — expected under the nonstop-only rule.",
+            "One-stop deal continues on the Tokyo-to-Toronto leg: WestJet via Calgary saves $164 per person, adding under 3 hours of travel.",
+            "Book soon: same fixed Dec 18 peak date and 4 seats as the direct family trip."
+          ]
+        }
+      },
+      "jointBestDay": {
+        "dep": "2026-11-24",
+        "ret": "2027-01-02",
+        "combined": 16000.0,
+        "note": "1 Economy + 2 Premium Economy, same flights — flat vs yesterday."
+      }
     }
   ]
 }
